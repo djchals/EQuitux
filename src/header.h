@@ -1,20 +1,31 @@
 #ifndef FOO_DOT_H    /* This is an "include guard" */
 #define FOO_DOT_H    /* prevents the file from being included twice. */
 
-#include <stdbool.h> //need for work with bool vars
+// #include <stdbool.h> //need for work with bool vars
+#include <stdio.h>
 #include <stdlib.h> //needed for qsort
-//main.c
-int get_value_combo(int combo_hex);
-int board[10];
 
+//main.c
+int board[10];
+//     board[0]=0x01;//h
+//     board[1]=0x0e;//8
+//     board[2]=0x01;//h
+//     board[3]=0x02;//2
+//     board[4]=0x03;//h
+//     board[5]=0x08;//4
+//     board[6]=0x01;//h
+//     board[7]=0x04;//7
+//     board[8]=0x01;//s
+//     board[9]=0x0e;//A
+// 
+int convert_combo_to_array(int n_combo);
+
+//get_value_combo.h
+int get_value_combo(int combo_hex);
 int is_straight_flush(int hero_all[14]);
-int is_repeated_cards();
+int is_pair_to_quads();
 int is_flush(int hero_all[14]);
 int is_high_card(int hero_all[14]);
-/*
-int is_board_paired();
-int is_pocket_pair(int hero_combo[4]);
-int get_kicker(int hero_combo[4],int except);*/
 int comparator (const void * a, const void * b);
 //
 #endif /* FOO_DOT_H */

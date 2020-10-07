@@ -38,7 +38,7 @@ int comparator (const void * a, const void * b);
 //
 
 //conv_pkr.h
-int arr_let_to_int[82];
+int arr_let_to_int[85];
 int arr_suit_to_int[116];
 char arr_int_to_let[15];
 char arr_int_to_suit[4];

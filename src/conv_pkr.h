@@ -15,11 +15,6 @@ int conv_range_pkr_to_hex(char *tmp_range);
 // 23456789TJQKA
 
 int conv_range_pkr_to_hex(char *tmp_range){
-    
-// int *arr_let_to_int;
-// arr_let_to_int=malloc(sizeof(int)*82);
-// memset(arr_let_to_int,0,82);
-
     //Format the string extracting the spaces
     int j=0,i,tmp_long=strlen(tmp_range);
     char range_pkr[tmp_long];
@@ -37,7 +32,7 @@ int conv_range_pkr_to_hex(char *tmp_range){
     char *regex[7];
     regex[0]="^([23456789TJQKA]){1}([schd]){1}([23456789TJQKA]){1}([schd]){1}$";// -> 8d9c, KsJs...
     regex[1]="^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}-(?!\\1)(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$";//AA-99
-    regex[2]="^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|)?-\\1((?!\\2)[23456789TJQKA]{1})\\3$";//A2s-A8s,T9-TJ,85-89    
+    regex[2]="^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?-\\1((?!\\2)[23456789TJQKA]{1})\\3$";//A2s-A8s,T9-TJ,85-89    
     regex[3]="^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|)?$";//A2s, T8,..
     regex[4]="^([23456789TJQKA]{1})(s|)x$";//7x, Kxs ...
     regex[5]="^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$";//AA,KK,88...
@@ -64,7 +59,7 @@ int conv_range_pkr_to_hex(char *tmp_range){
     char ch_pkr[7];
     int tmp_hex,k,l,ch_cmp0,ch_cmp1,ch_cmp2;
     int array_combos_marked_hex[MAX_COMBO_HEX]={};//now we fill this array with the combos, for not repeat combos
-    bool flag_suited=false;
+    int flag_suited=0;
     int cont=0,i_in,i_fin;
     while(token!=NULL){//loop through the string to extract all other tokens
         flag_exit_loop=false;
@@ -84,6 +79,7 @@ int conv_range_pkr_to_hex(char *tmp_range){
                 // loop through matches and return them
                 rc2 = pcre_get_substring(token, ovector, rc, 0, (const char**) &substring);
                 strcpy(ch_pkr,substring);
+                printf("%s\n",ch_pkr);
                 switch(i){
                     case 0://8d9c, KsJs...
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
@@ -140,13 +136,17 @@ tmp_hex=(k*0x1000)+(j*0x100)+(l*0x10)+j;
                         break;
                     case 2://A2s-A8s,T9-TJ,85-89 
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
+
                         ch_cmp1=arr_let_to_int[ch_pkr[1]];
                         
                         if(ch_pkr[2]=='s' && ch_pkr[3]=='-' && ch_pkr[6]=='s'){
-                            flag_suited=true;
+                            flag_suited=1;//suited
                             ch_cmp2=arr_let_to_int[ch_pkr[5]];
-                        }else if(ch_pkr[2]=='-'){//no suited
-                            flag_suited=false;
+                        }else if(ch_pkr[2]=='o' && ch_pkr[3]=='-' && ch_pkr[6]=='o'){
+                            flag_suited=2;//offsuited
+                            ch_cmp2=arr_let_to_int[ch_pkr[5]];
+                        }else if(ch_pkr[2]=='-'){//suited && offsuited
+                            flag_suited=0;
                             ch_cmp2=arr_let_to_int[ch_pkr[4]];
                         }
                         if(ch_cmp1<ch_cmp2){
@@ -156,12 +156,26 @@ tmp_hex=(k*0x1000)+(j*0x100)+(l*0x10)+j;
                             i_in=ch_cmp2;
                             i_fin=ch_cmp1;
                         }
+//                         printf("ch_pkr[0] %d\n",ch_pkr[0]);
+//                         printf("ch_pkr[1] %d\n",ch_pkr[1]);
+//                         printf("ch_pkr[2] %d\n",ch_pkr[2]);
+//                         printf("ch_pkr[5] %d\n",ch_pkr[5]);
+//                         printf("ch_cmp0 %x\n",ch_cmp0);
+//                         printf("ch_cmp1 %x\n",ch_cmp1);
+//                         printf("ch_cmp2 %x\n",ch_cmp2);
+//                         
+//                         printf("%d %d %d\n",j,i_in,i_fin);
                         for(j=i_in;j<=i_fin;j++){
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
-                                    if((!flag_suited || (flag_suited && l==k)) && (ch_cmp0!=j && l==k)){
+                                    if(
+                                        (flag_suited==0 && !(l==k && ch_cmp0==j)) || 
+                                        (flag_suited==1 && l==k && ch_cmp0!=j) || 
+                                        (flag_suited==2 && l!=k)
+                                    ){
 // tmp_hex=(ch_cmp0*0x1000)+(k*0x100)+(j*0x10)+l;
-tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+j;
+                                    tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+j;
+// printf("%x\n",tmp_hex);
                                         if(!array_combos_marked_hex[reverse_hex(tmp_hex)]){
                                             array_combos_marked_hex[tmp_hex]=1;
                                             cont++;
@@ -171,7 +185,7 @@ tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+j;
                             }
                         }
                         flag_exit_loop=true;
-                        flag_suited=false;                     
+                        flag_suited=0;                     
                         break;
                     case 3://A2s, T8,..
                         flag_suited=(ch_pkr[2]=='s');//if true is suited, if false not
@@ -207,7 +221,7 @@ tmp_hex=(k*0x1000)+(arr_let_to_int[ch_pkr[0]]*0x100)+(l*0x10)+j;
                             }
                         }
                         flag_exit_loop=true;
-                        flag_exit_loop=true;
+                        flag_suited=0;
                         break;
                     case 5://AA,KK,88..
                             for(k=0;k<4;k++){
@@ -230,7 +244,7 @@ tmp_hex=(k*0x1000)+(arr_let_to_int[ch_pkr[0]]*0x100)+(l*0x10)+arr_let_to_int[ch_
                         flag_exit_loop=true;
                         break;
                     
-                }
+                    }
             } 
             if(flag_exit_loop){
                 break;
@@ -256,7 +270,7 @@ tmp_hex=(k*0x1000)+(arr_let_to_int[ch_pkr[0]]*0x100)+(l*0x10)+arr_let_to_int[ch_
 //     for(i=0;i<j;i++){
 //         printf("dentro %x\n",arr_local_return[i]);
 //     }
-//     
+    
     arr_hex_return=arr_local_return;
 }
 int reverse_hex(int tmp_hex){

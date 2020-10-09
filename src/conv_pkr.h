@@ -1,20 +1,4 @@
-#include <stdio.h>
-#include <pcre.h>
-#include <string.h>
-#include <math.h>
-#include "header.h"
-
-//gcc poker.c -lpcre
-int conv_range_pkr_to_hex(char *tmp_range);
-
-// 0 corazón
-// 1 diamante
-// 2 pica
-// 3 trébol
-// 23456789ABCDE
-// 23456789TJQKA
-
-int conv_range_pkr_to_hex(char *tmp_range){
+void conv_range_pkr_to_hex(char tmp_range[]){
     //Format the string extracting the spaces
     int j=0,i,tmp_long=strlen(tmp_range);
     char range_pkr[tmp_long];
@@ -26,34 +10,37 @@ int conv_range_pkr_to_hex(char *tmp_range){
             j++;
         }
     }
+    
     range_pkr[j]=0;//end the string
+//     printf("tmp_range %s\n",tmp_range);
+//     printf("range_pkr %s\n",range_pkr);
     //
     //These are the regex for make the hexadecimal combos 
-    char *regex[7];
-    regex[0]="^([23456789TJQKA]){1}([schd]){1}([23456789TJQKA]){1}([schd]){1}$";// -> 8d9c, KsJs...
-    regex[1]="^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}-(?!\\1)(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$";//AA-99
-    regex[2]="^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?-\\1((?!\\2)[23456789TJQKA]{1})\\3$";//A2s-A8s,T9-TJ,85-89    
-    regex[3]="^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|)?$";//A2s, T8,..
-    regex[4]="^([23456789TJQKA]{1})(s|)x$";//7x, Kxs ...
-    regex[5]="^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$";//AA,KK,88...
-    regex[6]="^(?:\\b|-)([1-9]{1,2}[0]?|100)\\b%{1}$";//1-100%
-    
+    char regex[7][100];
+    strcpy(regex[0],"^([23456789TJQKA]){1}([schd]){1}([23456789TJQKA]){1}([schd]){1}$");// -> 8d9c, KsJs...
+    strcpy(regex[1],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}-(?!\\1)(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$");//AA-99
+    strcpy(regex[2],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?-\\1((?!\\2)[23456789TJQKA]{1})\\3$");//A2s-A8s,T9-TJ,85-89    
+    strcpy(regex[3],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|)?$");//A2s, T8,..
+    strcpy(regex[4],"^([23456789TJQKA]{1})(s|)x$");//7x, Kxs ...
+    strcpy(regex[5],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$");//AA,KK,88...
+    strcpy(regex[6],"^(?:\\b|-)([1-9]{1,2}[0]?|100)\\b%{1}$");//1-100%
 
     /* for pcre_compile */
-    pcre *re;
-    const char *error;
+    pcre *re=NULL;
+    const char *error=NULL;
+    error=(char *)malloc(100);//dont do nothing with the regex errors
     int erroffset;
 
     /* for pcre_exec */
     int rc;
-    int ovector[30];
+    int ovector[1024];//with this we count the maximum "," in range_pkr
 
     /* to get substrings from regex */
     int rc2;
-    char *substring;
+    char *substring=NULL;
+    substring=(char *)malloc(sizeof(char)*7);
 
-    //now start processing regex1
-    char *token=strtok(range_pkr, ",");
+
     bool flag_exit_loop;
 //     int *array_combo_hex[];
     char ch_pkr[7];
@@ -61,25 +48,30 @@ int conv_range_pkr_to_hex(char *tmp_range){
     int array_combos_marked_hex[MAX_COMBO_HEX]={};//now we fill this array with the combos, for not repeat combos
     int flag_suited=0;
     int cont=0,i_in,i_fin;
-    while(token!=NULL){//loop through the string to extract all other tokens
+    
+    //now start processing regex1
+    char *searching_here;
+    searching_here=(char*) malloc(sizeof(char)*MAX_COMBO_HEX);
+    strcpy(searching_here,strtok(range_pkr, ","));
+    
+    while(searching_here!=NULL){//loop through the string to extract all other searching_heres
+
         flag_exit_loop=false;
         for(i=0;i<7;i++){
 //             printf("regex para analizar: %s\n",regex[i]);
             re=pcre_compile(regex[i], 0, &error, &erroffset, NULL);
-            rc=pcre_exec(re, NULL, token, strlen(token), 0, 0, ovector, 30);          
+                printf("i %d antes searching_here: =%s=\n",i,searching_here);
+            rc=pcre_exec(re, NULL, searching_here, strlen(searching_here), 0, 0, ovector, 60000);//60000 is the maximum matches          
 
-            if(rc == PCRE_ERROR_NOMATCH){
-//                 fprintf(stderr,"no match\n");
-            }else if(rc < -1) {
-//                 fprintf(stderr,"error %d from regex\n",rc);
-            }else{
-//                 
-//             if(rc!=PCRE_ERROR_NOMATCH && rc>=0){
-//                 printf("token: =%s=\n",token);
+            if(rc!=PCRE_ERROR_NOMATCH && rc>=0){
+                printf("i %d despues searching_here: =%s=\n",i,searching_here);
+                printf("rc: =%d=\n",rc);
+                // printf("ovector: =%n=\n",ovector);
                 // loop through matches and return them
-                rc2 = pcre_get_substring(token, ovector, rc, 0, (const char**) &substring);
+                rc2 = pcre_get_substring(searching_here, ovector, rc, 0, (const char**) &substring);
+                printf("rc2: =%d=\n",rc2);
+                printf("substring: =%s=\n",substring);
                 strcpy(ch_pkr,substring);
-                printf("%s\n",ch_pkr);
                 switch(i){
                     case 0://8d9c, KsJs...
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
@@ -87,23 +79,14 @@ int conv_range_pkr_to_hex(char *tmp_range){
                         
                         //if the cards and suits are not equal we sum the combo
                         if(!(ch_cmp0==ch_cmp1 && arr_suit_to_int[ch_pkr[1]]==arr_suit_to_int[ch_pkr[3]])){//
-// tmp_hex=ch_cmp0*0x1000+arr_suit_to_int[ch_pkr[1]]*0x100+ch_cmp1*0x10+arr_suit_to_int[ch_pkr[3]];
-tmp_hex=(arr_suit_to_int[ch_pkr[1]]*0x1000)+(ch_cmp0*0x100)+(arr_suit_to_int[ch_pkr[3]]*0x10)+ch_cmp1;
+                            // tmp_hex=ch_cmp0*0x1000+arr_suit_to_int[ch_pkr[1]]*0x100+ch_cmp1*0x10+arr_suit_to_int[ch_pkr[3]];
+                            tmp_hex=(arr_suit_to_int[ch_pkr[1]]*0x1000)+(ch_cmp0*0x100)+(arr_suit_to_int[ch_pkr[3]]*0x10)+ch_cmp1;
                             
-                            
-                            
-                            
-                            if(!array_combos_marked_hex[reverse_hex(tmp_hex)]){
+                            if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(arr_suit_to_int[ch_pkr[1]],ch_cmp0,arr_suit_to_int[ch_pkr[3]],ch_cmp1)){
                                 array_combos_marked_hex[tmp_hex]=1;
                                 cont++;
                             }
                         }
-                        // 0 corazón
-                        // 1 diamante
-                        // 2 pica
-                        // 3 trébol
-                        // 23456789ABCDE
-                        // 23456789TJQKA
                         flag_exit_loop=true;
                         break;
                     case 1://AA-99
@@ -121,10 +104,9 @@ tmp_hex=(arr_suit_to_int[ch_pkr[1]]*0x1000)+(ch_cmp0*0x100)+(arr_suit_to_int[ch_
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
                                     if(k!=l){//is a pocket pair
-//tmp_hex=(j*0x1000)+(k*0x100)+(j*0x10)+l;
-tmp_hex=(k*0x1000)+(j*0x100)+(l*0x10)+j;
+                                        tmp_hex=(k*0x1000)+(j*0x100)+(l*0x10)+j;
 
-                                        if(!array_combos_marked_hex[reverse_hex(tmp_hex)]){
+                                        if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,j,l,j)){
                                             array_combos_marked_hex[tmp_hex]=1;
                                             cont++;
                                         }
@@ -136,9 +118,7 @@ tmp_hex=(k*0x1000)+(j*0x100)+(l*0x10)+j;
                         break;
                     case 2://A2s-A8s,T9-TJ,85-89 
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
-
                         ch_cmp1=arr_let_to_int[ch_pkr[1]];
-                        
                         if(ch_pkr[2]=='s' && ch_pkr[3]=='-' && ch_pkr[6]=='s'){
                             flag_suited=1;//suited
                             ch_cmp2=arr_let_to_int[ch_pkr[5]];
@@ -156,27 +136,19 @@ tmp_hex=(k*0x1000)+(j*0x100)+(l*0x10)+j;
                             i_in=ch_cmp2;
                             i_fin=ch_cmp1;
                         }
-//                         printf("ch_pkr[0] %d\n",ch_pkr[0]);
-//                         printf("ch_pkr[1] %d\n",ch_pkr[1]);
-//                         printf("ch_pkr[2] %d\n",ch_pkr[2]);
-//                         printf("ch_pkr[5] %d\n",ch_pkr[5]);
-//                         printf("ch_cmp0 %x\n",ch_cmp0);
-//                         printf("ch_cmp1 %x\n",ch_cmp1);
-//                         printf("ch_cmp2 %x\n",ch_cmp2);
-//                         
-//                         printf("%d %d %d\n",j,i_in,i_fin);
                         for(j=i_in;j<=i_fin;j++){
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
-                                    if(
-                                        (flag_suited==0 && !(l==k && ch_cmp0==j)) || 
-                                        (flag_suited==1 && l==k && ch_cmp0!=j) || 
-                                        (flag_suited==2 && l!=k)
+                                    if( 
+                                        !(ch_cmp0==j && l==k) 
+                                        &&
+                                        (
+                                            (flag_suited==1 && l==k) || 
+                                            (flag_suited==2 && l!=k)
+                                        )
                                     ){
-// tmp_hex=(ch_cmp0*0x1000)+(k*0x100)+(j*0x10)+l;
-                                    tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+j;
-// printf("%x\n",tmp_hex);
-                                        if(!array_combos_marked_hex[reverse_hex(tmp_hex)]){
+                                        tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+j;
+                                        if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,j)!=0){
                                             array_combos_marked_hex[tmp_hex]=1;
                                             cont++;
                                         }
@@ -188,31 +160,43 @@ tmp_hex=(k*0x1000)+(j*0x100)+(l*0x10)+j;
                         flag_suited=0;                     
                         break;
                     case 3://A2s, T8,..
+                        ch_cmp0=arr_let_to_int[ch_pkr[0]];
+                        ch_cmp1=arr_let_to_int[ch_pkr[1]];
+                        
+                        printf("dentro 3\n");
+                        printf("%x %x \n",ch_cmp0,ch_cmp1);
                         flag_suited=(ch_pkr[2]=='s');//if true is suited, if false not
                         for(k=0;k<4;k++){
                             for(l=0;l<4;l++){
                                 if(!flag_suited || (flag_suited && l==k)){
-// tmp_hex=(arr_let_to_int[ch_pkr[0]]*0x1000)+(k*0x100)+(arr_let_to_int[ch_pkr[1]]*0x10)+l;
-tmp_hex=(k*0x1000)+(arr_let_to_int[ch_pkr[0]]*0x100)+(l*0x10)+arr_let_to_int[ch_pkr[1]];
-                                    if(!array_combos_marked_hex[reverse_hex(tmp_hex)]){
+                                    tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+ch_cmp1;
+                                    if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,ch_cmp1)!=0){
                                         array_combos_marked_hex[tmp_hex]=1;
                                         cont++;
                                     }
                                 }
                             }
                         }
+                        flag_suited=0;
                         flag_exit_loop=true;
                         break;
                     case 4://7x, Ksx ...
-                        ch_cmp1=arr_let_to_int[ch_pkr[0]];
+                        ch_cmp0=arr_let_to_int[ch_pkr[0]];
                         flag_suited=(ch_pkr[1]=='s');//if true is suited, if false not
                         for(j=2;j<=0x0e;j++){
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
-                                    if((!flag_suited || (flag_suited && l==k)) && (ch_cmp1!=j && l==k)){
-// tmp_hex=(arr_let_to_int[ch_pkr[0]]*0x1000)+(k*0x100)+(j*0x10)+l;
-tmp_hex=(k*0x1000)+(arr_let_to_int[ch_pkr[0]]*0x100)+(l*0x10)+j;
-                                        if(!array_combos_marked_hex[reverse_hex(tmp_hex)]){
+                                    if(
+                                        !(ch_cmp0==j && l==k)
+                                        &&
+                                            (   !flag_suited 
+                                                || 
+                                                (flag_suited && l==k)
+                                                
+                                            )
+                                       ){
+                                        tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+j;
+                                        if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,j)){
                                             array_combos_marked_hex[tmp_hex]=1;
                                             cont++;
                                         }
@@ -224,12 +208,13 @@ tmp_hex=(k*0x1000)+(arr_let_to_int[ch_pkr[0]]*0x100)+(l*0x10)+j;
                         flag_suited=0;
                         break;
                     case 5://AA,KK,88..
-                            for(k=0;k<4;k++){
+                        ch_cmp0=arr_let_to_int[ch_pkr[0]];
+                        ch_cmp1=arr_let_to_int[ch_pkr[1]];
+                        for(k=0;k<4;k++){
                             for(l=0;l<4;l++){
                                 if(l!=k){//is a pocket pair
-// tmp_hex=(arr_let_to_int[ch_pkr[0]]*0x1000)+(k*0x100)+(arr_let_to_int[ch_pkr[1]]*0x10)+l;
-tmp_hex=(k*0x1000)+(arr_let_to_int[ch_pkr[0]]*0x100)+(l*0x10)+arr_let_to_int[ch_pkr[1]];
-                                    if(!array_combos_marked_hex[reverse_hex(tmp_hex)]){
+                                    tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+ch_cmp1;
+                                    if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,ch_cmp1)){
                                         array_combos_marked_hex[tmp_hex]=1;
                                         cont++;
                                     }
@@ -240,20 +225,24 @@ tmp_hex=(k*0x1000)+(arr_let_to_int[ch_pkr[0]]*0x100)+(l*0x10)+arr_let_to_int[ch_
                         break;
                     case 6://1-100%
                         //THIS PART IS PENDING
-//                         printf("i %d %s\n",i,substring);
                         flag_exit_loop=true;
                         break;
                     
                     }
-            } 
+            }//end if
+            printf("end if\n");
+            re=NULL;
             if(flag_exit_loop){
                 break;
             }
 
         }//end for
-        token=strtok(NULL,",");
+        searching_here=strtok(NULL,",");
     }//end while
     pcre_free(re);
+    pcre_free_substring(substring);
+
+    free(searching_here);
     
     int arr_local_return[cont];//now we make the array with only the combos marked.
     j=0;
@@ -270,12 +259,57 @@ tmp_hex=(k*0x1000)+(arr_let_to_int[ch_pkr[0]]*0x100)+(l*0x10)+arr_let_to_int[ch_
 //     for(i=0;i<j;i++){
 //         printf("dentro %x\n",arr_local_return[i]);
 //     }
+// arr_hex_return=arr_local_return;
+    long_hex_return=j;
+    arr_hex_return=(int *) malloc(sizeof(arr_local_return));
+    memcpy(arr_hex_return,arr_local_return,sizeof(arr_local_return));
+    printf("esto es arr_local_return: %d\n",sizeof(arr_local_return));
+        printf("esto es arr_hex_return: %d\n",sizeof(arr_hex_return));
+    printf("esto es j: %d\n",j);
+    printf("esto es cont: %d\n",cont);
+    printf("j*sizeof: %d\n",sizeof(int) * j);
     
-    arr_hex_return=arr_local_return;
+    
+
+//     arr_hex_return=malloc(sizeof(int) * j);
+//     memcpy(arr_hex_return,arr_local_return,j);
+//     free(tmp_range);
+//     free(regex);
+
+    
+    
 }
 int reverse_hex(int tmp_hex){
     //check if the combo is already inserted
-    int first_card=ceil(tmp_hex/0x100);
-    int second_card=tmp_hex-first_card*0x100;
-    return (second_card*0x100)+first_card;
+    
+    int hex[4];
+    hex[0]=(tmp_hex/0x1000)%0x10;
+    hex[1]=(tmp_hex/0x100)%0x10;
+    hex[2]=(tmp_hex/0x10)%0x10;
+    hex[3]=tmp_hex%0x10;
+    return hex[2]*0x1000+hex[3]*0x100+hex[0]*0x10+hex[1];
+
+//     int first_card=ceil(tmp_hex/0x100);
+//     int second_card=tmp_hex-first_card*0x100;
+//     return (second_card*0x100)+first_card;
+}
+int check_combo_ok_vs_board(int ch0,int ch1,int ch2,int ch3){
+//     printf("ch: %x%x%x%x board: %x%x %x%x %x%x - %x%x - %x%x\n",ch0,ch1,ch2,ch3,board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
+    if(
+        !(ch0==board[0] && ch1==board[1]) &&
+        !(ch0==board[2] && ch1==board[3]) &&
+        !(ch0==board[4] && ch1==board[5]) &&
+        !(ch0==board[6] && ch1==board[7]) &&
+        !(ch0==board[8] && ch1==board[9]) &&
+        
+        !(ch2==board[0] && ch3==board[1]) &&
+        !(ch2==board[2] && ch3==board[3]) &&
+        !(ch2==board[4] && ch3==board[5]) &&
+        !(ch2==board[6] && ch3==board[7]) &&
+        !(ch2==board[8] && ch3==board[9])
+    ){
+       return 1;//combo is ok
+    }else{
+        return 0;//combo is ko
+    }
 }

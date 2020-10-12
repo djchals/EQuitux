@@ -25,8 +25,8 @@ void main(){
     int long_hex_pos1;
 
     // SIGUE DESVIÁNDOSE, AHORA UN 5%
-    char range_pkr1[]="AA-55,AQs,AJs,ATs,A9s,A8s,A7s,A6s,A5s,A4s,A3s,A2s";
-    char range_pkr2[]="AA-22,KQs,KJs,KTs,K9s";
+    char range_pkr1[]="7x";
+    char range_pkr2[]="AA";
 
     if(range_pkr1){
 //         puts("dentro 1");

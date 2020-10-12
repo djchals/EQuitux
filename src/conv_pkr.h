@@ -263,39 +263,30 @@ void conv_range_pkr_to_hex(char tmp_range[]){
     long_hex_return=j;
     arr_hex_return=(int *) malloc(sizeof(arr_local_return));
     memcpy(arr_hex_return,arr_local_return,sizeof(arr_local_return));
-    printf("esto es arr_local_return: %d\n",sizeof(arr_local_return));
-        printf("esto es arr_hex_return: %d\n",sizeof(arr_hex_return));
-    printf("esto es j: %d\n",j);
-    printf("esto es cont: %d\n",cont);
-    printf("j*sizeof: %d\n",sizeof(int) * j);
-    
-    
+//     printf("esto es arr_local_return: %d\n",sizeof(arr_local_return));
+//         printf("esto es arr_hex_return: %d\n",sizeof(arr_hex_return));
+//     printf("esto es j: %d\n",j);
+//     printf("esto es cont: %d\n",cont);
+//     printf("j*sizeof: %d\n",sizeof(int) * j);
 
 //     arr_hex_return=malloc(sizeof(int) * j);
 //     memcpy(arr_hex_return,arr_local_return,j);
 //     free(tmp_range);
 //     free(regex);
 
-    
-    
 }
 int reverse_hex(int tmp_hex){
     //check if the combo is already inserted
-    
     int hex[4];
     hex[0]=(tmp_hex/0x1000)%0x10;
     hex[1]=(tmp_hex/0x100)%0x10;
     hex[2]=(tmp_hex/0x10)%0x10;
     hex[3]=tmp_hex%0x10;
-    return hex[2]*0x1000+hex[3]*0x100+hex[0]*0x10+hex[1];
-
-//     int first_card=ceil(tmp_hex/0x100);
-//     int second_card=tmp_hex-first_card*0x100;
-//     return (second_card*0x100)+first_card;
+    return (hex[2]*0x1000)+(hex[3]*0x100)+(hex[0]*0x10)+hex[1];
 }
 int check_combo_ok_vs_board(int ch0,int ch1,int ch2,int ch3){
 //     printf("ch: %x%x%x%x board: %x%x %x%x %x%x - %x%x - %x%x\n",ch0,ch1,ch2,ch3,board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
-    if(
+    if( /*!(ch0==ch2 && ch1==ch3) && is not needed because we check above*/
         !(ch0==board[0] && ch1==board[1]) &&
         !(ch0==board[2] && ch1==board[3]) &&
         !(ch0==board[4] && ch1==board[5]) &&

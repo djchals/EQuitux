@@ -41,6 +41,12 @@ int long_hex_return=0;//
 void calculate_EQ(int *arr_hex_pos0,int long_hex_pos0, int *arr_hex_pos1,int long_hex_pos1);
 //
 
+// int FLOP[3];//3 Cards
+// int TURN;//1 card
+// int RIVER;//1 card
+// 
+// int HERO[9][2];//9 players 2 cards
+
 //create init vars
 void init_vars(){
 //     arr_hex_return=malloc(sizeof(int) * 102476);//reserve100 kb

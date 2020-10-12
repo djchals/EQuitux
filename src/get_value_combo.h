@@ -37,7 +37,7 @@ int get_value_combo(int combo_hex, int local_board[10]){
 //                arr_int_to_let[hero_all[11]],
 //                arr_int_to_suit[hero_all[12]],
 //                arr_int_to_let[hero_all[13]] );
-    
+
     
     //now we order hero_all respecting the suits. We order the cards in this point because is faster than order in each function after.
     char i,j,temp0,temp1;
@@ -57,7 +57,7 @@ int get_value_combo(int combo_hex, int local_board[10]){
 
     int hand_value[3];
     hand_value[0]=is_straight_flush(hero_all);
-    if(hand_value[0]>0x80000){
+    if(hand_value[0]>0x800000){
         return hand_value[0];//dont waste time if is an straight flush
     }
     hand_value[1]=is_flush(hero_all);
@@ -75,7 +75,7 @@ int get_value_combo(int combo_hex, int local_board[10]){
     return max_hand_value;//return the highest hand value
 }
 int is_high_card(int hero_all[14]){
-    return hero_all[13]*0x10000+hero_all[11]*0x1000+hero_all[9]*0x100+hero_all[7]*0x10+hero_all[5];
+    return hero_all[13]*0x10000+(hero_all[11]*0x1000)+(hero_all[9]*0x100)+(hero_all[7]*0x10)+hero_all[5];
 }
 int is_straight_flush(int hero_all[14]){
     char cont=1,i,j;
@@ -149,17 +149,53 @@ int is_pair_to_quads(int hero_all[14]){
         }
         
 
-        for(i=2;i<15;i++){
-            if(max_1<=hero_repeated_cards[i] && hero_repeated_cards[i]>=2){
+//         for(i=2;i<15;i++){
+//             if(max_1<=hero_repeated_cards[i] && hero_repeated_cards[i]>=2){
+// 
+//                 if(max_1>max_2 || max_1==2 && max_2==2 || max_1==3 && max_2==3){
+//                     max_2=max_1;
+//                     card_2=card_1;
+//                 }
+//                 max_1=hero_repeated_cards[i];
+//                 card_1=i;
+//             }
+//         }
 
-                if(max_1>max_2 || max_1==2 && max_2==2 || max_1==3 && max_2==3){
-                    max_2=max_1;
-                    card_2=card_1;
+        for(i=2;i<15;i++){
+            if(hero_repeated_cards[i]>=2){
+                switch(hero_repeated_cards[i]){
+                    case 4:
+                        max_1=hero_repeated_cards[i];
+                        card_1=i;
+                        break;
+                    case 3:
+                        if(max_1==3 || max_1==2){
+                            max_2=max_1;
+                            card_2=card_1;
+                            max_1=hero_repeated_cards[i];
+                            card_1=i;
+                        }else if(max_1==0){
+                            max_1=hero_repeated_cards[i];
+                            card_1=i; 
+                        }
+                        break;
+                    case 2:
+                        if(max_1==2 || max_1==0){
+                            max_2=max_1;
+                            card_2=card_1;
+                            max_1=hero_repeated_cards[i];
+                            card_1=i; 
+                        }else if(max_1==3){
+                            max_2=hero_repeated_cards[i];
+                            card_2=i;
+                        }
+                        break;
                 }
-                max_1=hero_repeated_cards[i];
-                card_1=i;
             }
         }
+        
+        
+        
         char value_kicker[3];
         
         //now fill the value_hand

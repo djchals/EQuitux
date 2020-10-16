@@ -16,17 +16,19 @@ void conv_range_pkr_to_hex(char tmp_range[]){
 //     printf("range_pkr %s\n",range_pkr);
     //
     //These are the regex for make the hexadecimal combos 
-    const int NUM_REGEX=9;
+    const int NUM_REGEX=10;
     char regex[NUM_REGEX][100];
     strcpy(regex[0],"^([23456789TJQKA]){1}([schd]){1}([23456789TJQKA]){1}([schd]){1}$");// -> 8d9c, KsJs...
     strcpy(regex[1],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}-(?!\\1)(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$");//AA-99
-    strcpy(regex[2],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?-\\1((?!\\2)[23456789TJQKA]{1})\\3$");//A2s-A8s,T9-TJ,85-89    
-    strcpy(regex[3],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?\\+$");//A2s+, T8+, T8o+,..
-    strcpy(regex[4],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?$");//A2s, T8,..
-    strcpy(regex[5],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK){1}\\+$");//22s+ until KK+
-    strcpy(regex[6],"^([23456789TJQKA]{1})x$");//7x, Kx...
-    strcpy(regex[7],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$");//AA,KK,88...
-    strcpy(regex[8],"^(?:\\b|-)([1-9]{1,2}[0]?|100)\\b%{1}$");//1-100%
+    strcpy(regex[2],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o)?-\\1((?!\\2)[23456789TJQKA]{1})\\3$");//A2s-A8s,T9o-TJo
+    strcpy(regex[3],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})-(\\1)((?!\\2)[23456789TJQKA]{1})$");//A2-A8,T9-TJ,85-89    
+
+    strcpy(regex[4],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?\\+$");//A2s+, T8+, T8o+,..
+    strcpy(regex[5],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?$");//A2s, T8,..
+    strcpy(regex[6],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK){1}\\+$");//22+ until KK+
+    strcpy(regex[7],"^([23456789TJQKA]{1})x$");//7x, Kx...
+    strcpy(regex[8],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$");//AA,KK,88...
+    strcpy(regex[9],"^(?:\\b|-)([1-9]{1,2}[0]?|100)\\b%{1}$");//1-100%
 
     /* for pcre_compile */
     pcre *re=NULL;
@@ -46,10 +48,10 @@ void conv_range_pkr_to_hex(char tmp_range[]){
 
     bool flag_exit_loop;
 //     int *array_combo_hex[];
-    char ch_pkr[7];
-    int tmp_hex,k,l,ch_cmp0,ch_cmp1,ch_cmp2;
+    char ch_pkr[7],k,l,ch_cmp0,ch_cmp1,ch_cmp2;
+    int tmp_hex;
     int array_combos_marked_hex[MAX_COMBO_HEX]={};//now we fill this array with the combos, for not repeat combos
-    int flag_suited=0;
+    char flag_suited=0;
     int cont=0,i_in,i_fin;
     
     //now start processing regex1
@@ -119,7 +121,8 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                         }
                         flag_exit_loop=true;
                         break;
-                    case 2://A2s-A8s,T9-TJ,85-89 
+                    case 2://A2s-A8s,T9o-TJo 
+                    case 3://85-89
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
                         ch_cmp1=arr_let_to_int[ch_pkr[1]];
                         if(ch_pkr[2]=='s' && ch_pkr[3]=='-' && ch_pkr[6]=='s'){
@@ -135,7 +138,7 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                         if(ch_cmp1<ch_cmp2){
                             i_in=ch_cmp1;
                             i_fin=ch_cmp2;
-                        }else{
+                        }else {
                             i_in=ch_cmp2;
                             i_fin=ch_cmp1;
                         }
@@ -145,7 +148,7 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                                     if( 
                                         !(ch_cmp0==j && l==k) 
                                         &&
-                                        (
+                                        (   flag_suited==0 ||
                                             (flag_suited==1 && l==k) || 
                                             (flag_suited==2 && l!=k)
                                         )
@@ -162,7 +165,7 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                         flag_exit_loop=true;
                         flag_suited=0;                     
                         break;
-                    case 3://A2s+, T8+, T8o+,..
+                    case 4://A2s+, T8+, T8o+,..
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
                         ch_cmp1=arr_let_to_int[ch_pkr[1]];    
                         switch(ch_pkr[2]){
@@ -183,19 +186,21 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                             i_in=ch_cmp0;
                             i_fin=ch_cmp1;                            
                         }
-                        for(j=i_in;j<=i_fin;j++){
+                        for(j=i_in;j<i_fin;j++){
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
                                     if( 
                                         !(i_fin==j && l==k) 
                                         &&
                                         (
+                                            flag_suited==0 ||
                                             (flag_suited==1 && l==k) || 
                                             (flag_suited==2 && l!=k)
                                         )
                                     ){
                                         tmp_hex=(k*0x1000)+(i_fin*0x100)+(l*0x10)+j;    
                                         if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,i_fin,l,j)!=0){
+                                            printf("%x\n",tmp_hex);
                                             array_combos_marked_hex[tmp_hex]=1;
                                             cont++;
                                         }
@@ -206,7 +211,7 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                         flag_exit_loop=true;
                         flag_suited=0; 
                         break;
-                    case 4://A2s, T8,..
+                    case 5://A2s, T8,..
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
                         ch_cmp1=arr_let_to_int[ch_pkr[1]];
                         switch(ch_pkr[2]){
@@ -223,12 +228,9 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                         for(k=0;k<4;k++){
                             for(l=0;l<4;l++){
                                 if( 
-                                    !(i_fin==j && l==k) 
-                                    &&
-                                    (
-                                        (flag_suited==1 && l==k) || 
-                                        (flag_suited==2 && l!=k)
-                                    )
+                                    flag_suited==0 ||
+                                    (flag_suited==1 && l==k) || 
+                                    (flag_suited==2 && l!=k)
                                 ){
                                     tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+ch_cmp1;
                                     if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,ch_cmp1)!=0){
@@ -241,14 +243,13 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                         flag_suited=0;
                         flag_exit_loop=true;
                         break;
-                    case 5://22+ until KK+
+                    case 6://22+ until KK+
                         i_in=arr_let_to_int[ch_pkr[0]];
                         for(j=i_in;j<=0x0e;j++){
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
                                     if(l!=k){//is a pocket pair
                                         tmp_hex=(k*0x1000)+(j*0x100)+(l*0x10)+j;
-                                        printf("%x \n",tmp_hex);
                                         if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,j,l,j)){
                                             array_combos_marked_hex[tmp_hex]=1;
                                             cont++;
@@ -257,16 +258,16 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                                 }
                             }
                         }
-                        break;
                         flag_exit_loop=true;
-                    case 6://7x, Kx...
+                        break;
+                    case 7://7x, Kx...
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
-                        for(j=2;j<=0x0e;j++){
+
+                        for(j=2;j<ch_cmp0;j++){//stop before arrive to pocket pair 
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
                                     if(!(ch_cmp0==j && l==k)){
                                         tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+j;
-                                        printf("%x\n",tmp_hex);
                                         if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,j)){
                                             array_combos_marked_hex[tmp_hex]=1;
                                             cont++;
@@ -278,7 +279,7 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                         flag_exit_loop=true;
                         flag_suited=0;
                         break;
-                    case 7://AA,KK,88..
+                    case 8://AA,KK,88..
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
                         ch_cmp1=arr_let_to_int[ch_pkr[1]];
                         for(k=0;k<4;k++){
@@ -286,6 +287,7 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                                 if(l!=k){//is a pocket pair
                                     tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+ch_cmp1;
                                     if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,ch_cmp1)){
+                                                                                    printf("%x\n",tmp_hex);
                                         array_combos_marked_hex[tmp_hex]=1;
                                         cont++;
                                     }
@@ -294,14 +296,14 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                         }
                         flag_exit_loop=true;
                         break;
-                    case 8://1-100%
+                    case 9://1-100%
                         //THIS PART IS PENDING
                         flag_exit_loop=true;
                         break;
                     
                     }
             }//end if
-            printf("end if\n");
+//             printf("end if\n");
             re=NULL;
             if(flag_exit_loop){
                 break;

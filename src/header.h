@@ -12,9 +12,25 @@
 
 #define TOTAL_COMBOS 5175
 #define MAX_COMBO_HEX 0xe3e3 
+
+#include <time.h>
+
+
+double tot_tiempo=0;
+
+clock_t t_ini, t_fin;
+double secs;
+
+
 //main.c
 void init_vars();
 int board[10]={0};
+int card[52];
+int combo[2704];
+
+// [i_player][turn_and_river][hero_combo]
+int HERO_COMBOS[9][2704][1326];
+int HERO_H_VALUES[9][2704][1326];
 
 //get_value_combo.h
 int get_value_combo(int combo_hex, int local_board[10]);
@@ -38,7 +54,8 @@ int *arr_hex_return=NULL;
 int long_hex_return=0;//
 
 //boards.c
-void calculate_EQ(int *arr_hex_pos0,int long_hex_pos0, int *arr_hex_pos1,int long_hex_pos1);
+void calculate_EQ(int *arr_hex_pos0,int long_hex_pos0,int i_player);
+int chk_no_repeated_cards(int num1, int num2);
 //
 
 // int FLOP[3];//3 Cards
@@ -48,6 +65,7 @@ void calculate_EQ(int *arr_hex_pos0,int long_hex_pos0, int *arr_hex_pos1,int lon
 // int HERO[9][2];//9 players 2 cards
 
 //create init vars
+
 void init_vars(){
 //     arr_hex_return=malloc(sizeof(int) * 102476);//reserve100 kb
     //init_the_arrays
@@ -67,7 +85,7 @@ void init_vars(){
 
     arr_suit_to_int['h']=0;
     arr_suit_to_int['d']=1;
-    arr_suit_to_int['s']=2;               
+    arr_suit_to_int['s']=2;    
     arr_suit_to_int['c']=3; 
 
     arr_int_to_let[0]=0;
@@ -90,6 +108,6 @@ void init_vars(){
     arr_int_to_suit[1]='d';
     arr_int_to_suit[2]='s';               
     arr_int_to_suit[3]='c'; 
-
 }
+
 #endif /* FOO_DOT_H */

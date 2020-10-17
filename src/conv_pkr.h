@@ -1,4 +1,4 @@
-void conv_range_pkr_to_hex(char tmp_range[]){
+void conv_range_pkr_to_hex(char tmp_range[],int i_player){
     //Format the string extracting the spaces
     int j=0,i,tmp_long=strlen(tmp_range);
     char range_pkr[tmp_long];
@@ -214,6 +214,13 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                     case 5://A2s, T8,..
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
                         ch_cmp1=arr_let_to_int[ch_pkr[1]];
+                        if(ch_cmp0>ch_cmp1){
+                            i_in=ch_cmp0;
+                            i_fin=ch_cmp1;
+                        }else{
+                            i_in=ch_cmp1;
+                            i_fin=ch_cmp2;
+                        }
                         switch(ch_pkr[2]){
                             case 's':
                                 flag_suited=1;//suited
@@ -232,8 +239,8 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                                     (flag_suited==1 && l==k) || 
                                     (flag_suited==2 && l!=k)
                                 ){
-                                    tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+ch_cmp1;
-                                    if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,ch_cmp1)!=0){
+                                    tmp_hex=(k*0x1000)+(i_in*0x100)+(l*0x10)+i_fin;
+                                    if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,i_in,l,i_fin)!=0){
                                         array_combos_marked_hex[tmp_hex]=1;
                                         cont++;
                                     }
@@ -287,7 +294,7 @@ void conv_range_pkr_to_hex(char tmp_range[]){
                                 if(l!=k){//is a pocket pair
                                     tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+ch_cmp1;
                                     if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,ch_cmp1)){
-                                                                                    printf("%x\n",tmp_hex);
+                                        printf("%x\n",tmp_hex);
                                         array_combos_marked_hex[tmp_hex]=1;
                                         cont++;
                                     }
@@ -317,25 +324,25 @@ void conv_range_pkr_to_hex(char tmp_range[]){
 
     free(searching_here);
     
-    int arr_local_return[cont];//now we make the array with only the combos marked.
+//     int arr_local_return[cont];//now we make the array with only the combos marked.
     j=0;
 
     for(i=0;i<MAX_COMBO_HEX;i++){
         if(array_combos_marked_hex[i]!=0){
 //             printf("i %x j %d\n",i,j);
-            arr_local_return[j]=(int) i;
+            HERO_COMBOS[i_player][j]=(int) i;
             j++;
         }
     }
-    arr_local_return[j]=(int) 0x0000;//mark the last for know where is the end
+//     arr_local_return[j]=(int) 0x0000;//mark the last for know where is the end
 
 //     for(i=0;i<j;i++){
 //         printf("dentro %x\n",arr_local_return[i]);
 //     }
 // arr_hex_return=arr_local_return;
-    long_hex_return=j;
-    arr_hex_return=(int *) malloc(sizeof(arr_local_return));
-    memcpy(arr_hex_return,arr_local_return,sizeof(arr_local_return));
+    long_hex_pos[i_player]=j;
+//     arr_hex_return=(int *) malloc(sizeof(arr_local_return));
+//     memcpy(arr_hex_return,arr_local_return,sizeof(arr_local_return));
 //     printf("esto es arr_local_return: %d\n",sizeof(arr_local_return));
 //         printf("esto es arr_hex_return: %d\n",sizeof(arr_hex_return));
 //     printf("esto es j: %d\n",j);

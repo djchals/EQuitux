@@ -12,8 +12,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
     }
     
     range_pkr[j]=0;//end the string
-//     printf("tmp_range %s\n",tmp_range);
-//     printf("range_pkr %s\n",range_pkr);
     //
     //These are the regex for make the hexadecimal combos 
     const int NUM_REGEX=10;
@@ -47,7 +45,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
 
 
     bool flag_exit_loop;
-//     int *array_combo_hex[];
     char ch_pkr[7],k,l,ch_cmp0,ch_cmp1,ch_cmp2;
     int tmp_hex;
     int array_combos_marked_hex[MAX_COMBO_HEX]={};//now we fill this array with the combos, for not repeat combos
@@ -70,7 +67,7 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
 
             if(rc!=PCRE_ERROR_NOMATCH && rc>=0){
                 printf("i %d despues searching_here: =%s=\n",i,searching_here);
-                printf("rc: =%d=\n",rc);
+//                 printf("rc: =%d=\n",rc);
                 // printf("ovector: =%n=\n",ovector);
                 // loop through matches and return them
                 rc2 = pcre_get_substring(searching_here, ovector, rc, 0, (const char**) &substring);
@@ -81,13 +78,19 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                     case 0://8d9c, KsJs...
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
                         ch_cmp1=arr_let_to_int[ch_pkr[2]];
-                        
+                        if(ch_cmp1>ch_cmp0){
+                            i_in=ch_cmp1;
+                            i_fin=ch_cmp0;
+                        }else{
+                            i_in=ch_cmp0;
+                            i_fin=ch_cmp1;
+                        }
                         //if the cards and suits are not equal we sum the combo
-                        if(!(ch_cmp0==ch_cmp1 && arr_suit_to_int[ch_pkr[1]]==arr_suit_to_int[ch_pkr[3]])){//
+                        if(!(i_in==i_fin && arr_suit_to_int[ch_pkr[1]]==arr_suit_to_int[ch_pkr[3]])){//
                             // tmp_hex=ch_cmp0*0x1000+arr_suit_to_int[ch_pkr[1]]*0x100+ch_cmp1*0x10+arr_suit_to_int[ch_pkr[3]];
-                            tmp_hex=(arr_suit_to_int[ch_pkr[1]]*0x1000)+(ch_cmp0*0x100)+(arr_suit_to_int[ch_pkr[3]]*0x10)+ch_cmp1;
+                            tmp_hex=(arr_suit_to_int[ch_pkr[1]]*0x1000)+(i_in*0x100)+(arr_suit_to_int[ch_pkr[3]]*0x10)+i_fin;
                             
-                            if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(arr_suit_to_int[ch_pkr[1]],ch_cmp0,arr_suit_to_int[ch_pkr[3]],ch_cmp1)){
+                            if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(arr_suit_to_int[ch_pkr[1]],i_in,arr_suit_to_int[ch_pkr[3]],i_fin)){
                                 array_combos_marked_hex[tmp_hex]=1;
                                 cont++;
                             }
@@ -163,7 +166,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                             }
                         }
                         flag_exit_loop=true;
-                        flag_suited=0;                     
                         break;
                     case 4://A2s+, T8+, T8o+,..
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
@@ -200,7 +202,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                                     ){
                                         tmp_hex=(k*0x1000)+(i_fin*0x100)+(l*0x10)+j;    
                                         if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,i_fin,l,j)!=0){
-                                            printf("%x\n",tmp_hex);
                                             array_combos_marked_hex[tmp_hex]=1;
                                             cont++;
                                         }
@@ -209,7 +210,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                             }
                         }
                         flag_exit_loop=true;
-                        flag_suited=0; 
                         break;
                     case 5://A2s, T8,..
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
@@ -247,7 +247,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                                 }
                             }
                         }
-                        flag_suited=0;
                         flag_exit_loop=true;
                         break;
                     case 6://22+ until KK+
@@ -284,7 +283,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                             }
                         }
                         flag_exit_loop=true;
-                        flag_suited=0;
                         break;
                     case 8://AA,KK,88..
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
@@ -294,7 +292,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                                 if(l!=k){//is a pocket pair
                                     tmp_hex=(k*0x1000)+(ch_cmp0*0x100)+(l*0x10)+ch_cmp1;
                                     if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,ch_cmp0,l,ch_cmp1)){
-                                        printf("%x\n",tmp_hex);
                                         array_combos_marked_hex[tmp_hex]=1;
                                         cont++;
                                     }
@@ -309,6 +306,8 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                         break;
                     
                     }
+                    flag_suited=0;//for if the flies
+                    
             }//end if
 //             printf("end if\n");
             re=NULL;
@@ -328,11 +327,18 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
     j=0;
 
     for(i=0;i<MAX_COMBO_HEX;i++){
-        if(array_combos_marked_hex[i]!=0){
-//             printf("i %x j %d\n",i,j);
-            HERO_COMBOS[i_player][j]=(int) i;
-            j++;
-        }
+        if(array_combos_marked_hex[i]==0) continue; 
+
+        HERO_COMBOS[i_player][j][0]=i;
+        // printf("%x\n",HERO_COMBOS[i_player][j][0]);
+        HERO_COMBOS[i_player][j][1]=(i/0x1000)%0x10;;
+        HERO_COMBOS[i_player][j][2]=(i/0x100)%0x10;
+        HERO_COMBOS[i_player][j][3]=(i/0x10)%0x10;
+        HERO_COMBOS[i_player][j][4]=i%0x10;
+
+        HERO_COMBOS[i_player][j][5]=card_hex_to_int[(i/0x100)];
+        HERO_COMBOS[i_player][j][6]=card_hex_to_int[i%0x100];
+        j++;
     }
 //     arr_local_return[j]=(int) 0x0000;//mark the last for know where is the end
 

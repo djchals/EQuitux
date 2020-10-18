@@ -24,6 +24,7 @@ double secs;
 //main.c
 void init_vars();
 int board[10]={0};
+// int combo[2704];
 int card_int_to_hex[52];
 int card_hex_to_int[0x3f]={0};
     
@@ -39,16 +40,14 @@ int long_hex_pos[9];
 // HERO_COMBOS[x][x][6]=0x34
 
 
-int HERO_COMBOS[9][1326];
-
-
-
+int HERO_COMBOS[9][1326][7];
+// int HERO_H_VALUES[9][1326][1326];
 int HERO_H_VALUES[9][1326][1326];
-int arr_all_boards[6497400][10];
 int long_all_boards=0;
 
 //get_value_combo.h
-int get_value_combo(int combo_hex, int local_board[10]);
+// int get_value_combo(int combo_hex, int local_board[10]);
+int get_value_combo(int combo_hex[5], int local_board[10]);
 int is_straight_flush(int hero_all[14]);
 int is_pair_to_quads();
 int is_flush(int hero_all[14]);
@@ -67,7 +66,6 @@ char arr_int_to_suit[4];
 
 //boards.c
 void calculate_EQ(int i_player);
-int chk_no_repeated_cards(int num1, int num2);
 //
                                                                                                                                                                                                                                                                 //create init vars
 

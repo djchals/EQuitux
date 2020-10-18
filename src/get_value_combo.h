@@ -1,4 +1,4 @@
-int get_value_combo(int combo_hex, int local_board[10]){
+int get_value_combo(int combo_hex[5],int local_board[10]){
 //     printf("hero_combo %x%x%x%x\n",hero_combo[0],hero_combo[1],hero_combo[2],hero_combo[3]);
 //     printf("board %x%x%x%x%x%x%x%x%x%x\n",board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
 //     
@@ -15,10 +15,10 @@ int get_value_combo(int combo_hex, int local_board[10]){
     hero_all[7]=local_board[7];
     hero_all[8]=local_board[8];
     hero_all[9]=local_board[9];
-    hero_all[10]=(combo_hex/0x1000)%0x10;
-    hero_all[11]=(combo_hex/0x100)%0x10;
-    hero_all[12]=(combo_hex/0x10)%0x10;
-    hero_all[13]=combo_hex%0x10;
+    hero_all[10]=combo_hex[1];
+    hero_all[11]=combo_hex[2];
+    hero_all[12]=combo_hex[3];
+    hero_all[13]=combo_hex[4];
     
 //     printf("10 %x\n",hero_all[10]);
 //     printf("11 %x\n",hero_all[11]);
@@ -45,7 +45,7 @@ int get_value_combo(int combo_hex, int local_board[10]){
 //                arr_int_to_let[hero_all[13]] );
     
     char i,j,temp0,temp1;
-    for(i=1;i<(14-1);i=i+2){ 
+    for(i=1;i<13;i=i+2){ 
         for(j=i+2;j<14;j=j+2){ 
             if(hero_all[j]<hero_all[i]){
     

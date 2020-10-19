@@ -62,17 +62,17 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
         for(i=0;i<NUM_REGEX;i++){
 //             printf("regex para analizar: %s\n",regex[i]);
             re=pcre_compile(regex[i], 0, &error, &erroffset, NULL);
-                printf("i %d antes searching_here: =%s=\n",i,searching_here);
+//                 printf("i %d antes searching_here: =%s=\n",i,searching_here);
             rc=pcre_exec(re, NULL, searching_here, strlen(searching_here), 0, 0, ovector, 60000);//60000 is the maximum matches          
 
             if(rc!=PCRE_ERROR_NOMATCH && rc>=0){
-                printf("i %d despues searching_here: =%s=\n",i,searching_here);
+//                 printf("i %d despues searching_here: =%s=\n",i,searching_here);
 //                 printf("rc: =%d=\n",rc);
                 // printf("ovector: =%n=\n",ovector);
                 // loop through matches and return them
                 rc2 = pcre_get_substring(searching_here, ovector, rc, 0, (const char**) &substring);
-                printf("rc2: =%d=\n",rc2);
-                printf("substring: =%s=\n",substring);
+//                 printf("rc2: =%d=\n",rc2);
+//                 printf("substring: =%s=\n",substring);
                 strcpy(ch_pkr,substring);
                 switch(i){
                     case 0://8d9c, KsJs...

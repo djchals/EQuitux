@@ -27,7 +27,8 @@ int board[10]={0};
 // int combo[2704];
 int card_int_to_hex[52];
 int card_hex_to_int[0x3f]={0};
-    
+int arr_all_boards[6497400];
+
 // [i_player][turn_and_river][hero_combo]
 int long_hex_pos[9];
 // int HERO_COMBOS[9][1326][7];
@@ -42,7 +43,7 @@ int long_hex_pos[9];
 
 int HERO_COMBOS[9][1326][7];
 // int HERO_H_VALUES[9][1326][1326];
-int HERO_H_VALUES[9][1326][1326];
+int HERO_H_VALUES[9][30000][1326];
 int long_all_boards=0;
 
 //get_value_combo.h

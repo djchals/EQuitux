@@ -1,6 +1,7 @@
 #include "header.h"
 #include "conv_pkr.h"
 #include "get_value_combo.h"
+#include "calculate_all.h"
 
 //gcc boards.c -lpcre
 void main(){
@@ -26,22 +27,35 @@ void main(){
 //     arr_hex_pos=(int *)malloc(sizeof(int));//create the space for save arr_hex_return
 
     char range_pkr[9][5000];
-//EN ESTE TARDA 22 SEGUNDOS    
-          //  ahora falla aqui al faltar solo en river 0.13%
-    strcpy(range_pkr[0],"8s8c, 6d6h, 6d6c, 6h6c, AQs+, ATs-A9s, A7s, A5s-A2s, KQs, KTs-K9s, K7s, K5s-K2s, QTs-Q9s, Q7s, Q5s-Q2s, T9s, T7s, T5s-T2s, 97s, 95s-94s, 75s-74s, 54s, AdJd, AhJh, AcJc, KdJd, KhJh, KcJc, QdJd, QhJh, QcJc, JdTd, JhTh, JcTc, Jd9d, Jh9h, Jc9c, As8s, Ac8c, Ks8s, Kc8c, Qs8s, Qc8c, Jc8c, Ts8s, Tc8c, 9s8s, 9c8c, Jd7d, Jh7h, Jc7c, 8s7s, 8c7c, Ad6d, Ah6h, Ac6c, Kd6d, Kh6h, Kc6c, Qd6d, Qh6h, Qc6c, Jd6d, Jh6h, Jc6c, Td6d, Th6h, Tc6c, 9d6d, 9h6h, 9c6c, 8c6c, 7d6d, 7h6h, 7c6c, Jd5d, Jh5h, Jc5c, 8s5s, 8c5c, 6d5d, 6h5h, 6c5c, Jd4d, Jh4h, Jc4c, 8s4s, 8c4c, 6d4d, 6h4h, 6c4c, Jd3d, Jh3h, Jc3c, Jd2d, Jh2h, Jc2c, AQo+, ATo-A9o, A7o, A5o-A2o, KQo, KTo-K9o, K7o, K5o-K2o, QTo-Q9o, Q7o, Q5o-Q4o, T9o, T7o, 97o, AdJh, AdJc, AhJd, AhJc, AsJd, AsJh, AsJc, AcJd, AcJh, Ad8s, Ad8c, Ah8s, Ah8c, As8c, Ac8s, Ad6h, Ad6c, Ah6d, Ah6c, As6d, As6h, As6c, Ac6d, Ac6h, KdJh, KdJc, KhJd, KhJc, KsJd, KsJh, KsJc, KcJd, KcJh, Kd8s, Kd8c, Kh8s, Kh8c, Ks8c, Kc8s, Kd6h, Kd6c, Kh6d, Kh6c, Ks6d, Ks6h, Ks6c, Kc6d, Kc6h, QdJh, QdJc, QhJd, QhJc, QsJd, QsJh, QsJc, QcJd, QcJh, Qd8s, Qd8c, Qh8s, Qh8c, Qs8c, Qc8s, Qd6h, Qd6c, Qh6d, Qh6c, Qs6d, Qs6h, Qs6c, Qc6d, Qc6h, JdTh, JdTs, JdTc, JhTd, JhTs, JhTc, JcTd, JcTh, JcTs, Jd9h, Jd9s, Jd9c, Jh9d, Jh9s, Jh9c, Jc9d, Jc9h, Jc9s, Jd8s, Jd8c, Jh8s, Jh8c, Jc8s, Jd7h, Jd7s, Jd7c, Jh7d, Jh7s, Jh7c, Jc7d, Jc7h, Jc7s, Jd6h, Jd6c, Jh6d, Jh6c, Jc6d, Jc6h, Td8s, Td8c, Th8s, Th8c, Ts8c, Tc8s, Td6h, Td6c, Th6d, Th6c, Ts6d, Ts6h, Ts6c, Tc6d, Tc6h, 9d8s, 9d8c, 9h8s, 9h8c, 9s8c, 9c8s, 8s7d, 8s7h, 8s7c, 8c7d, 8c7h, 8c7s, 8s6d, 8s6h, 8s6c, 8c6d, 8c6h, 7d6h, 7d6c, 7h6d, 7h6c, 7s6d, 7s6h, 7s6c, 7c6d, 7c6h");
+    int num_players=4;
+    
+//EN ESTE TARDA 22 SEGUNDOS  
+    //         strcpy(range_pkr[0],"8s8c, 6d6h, 6d6c, 6h6c, AQs+, ATs-A9s, A7s, A5s-A2s, KQs, KTs-K9s, K7s, K5s-K2s, QTs-Q9s, Q7s, Q5s-Q2s, T9s, T7s, T5s-T2s, 97s, 95s-94s, 75s-74s, 54s, AdJd, AhJh, AcJc, KdJd, KhJh, KcJc, QdJd, QhJh, QcJc, JdTd, JhTh, JcTc, Jd9d, Jh9h, Jc9c, As8s, Ac8c, Ks8s, Kc8c, Qs8s, Qc8c, Jc8c, Ts8s, Tc8c, 9s8s, 9c8c, Jd7d, Jh7h, Jc7c, 8s7s, 8c7c, Ad6d, Ah6h, Ac6c, Kd6d, Kh6h, Kc6c, Qd6d, Qh6h, Qc6c, Jd6d, Jh6h, Jc6c, Td6d, Th6h, Tc6c, 9d6d, 9h6h, 9c6c, 8c6c, 7d6d, 7h6h, 7c6c, Jd5d, Jh5h, Jc5c, 8s5s, 8c5c, 6d5d, 6h5h, 6c5c, Jd4d, Jh4h, Jc4c, 8s4s, 8c4c, 6d4d, 6h4h, 6c4c, Jd3d, Jh3h, Jc3c, Jd2d, Jh2h, Jc2c, AQo+, ATo-A9o, A7o, A5o-A2o, KQo, KTo-K9o, K7o, K5o-K2o, QTo-Q9o, Q7o, Q5o-Q4o, T9o, T7o, 97o, AdJh, AdJc, AhJd, AhJc, AsJd, AsJh, AsJc, AcJd, AcJh, Ad8s, Ad8c, Ah8s, Ah8c, As8c, Ac8s, Ad6h, Ad6c, Ah6d, Ah6c, As6d, As6h, As6c, Ac6d, Ac6h, KdJh, KdJc, KhJd, KhJc, KsJd, KsJh, KsJc, KcJd, KcJh, Kd8s, Kd8c, Kh8s, Kh8c, Ks8c, Kc8s, Kd6h, Kd6c, Kh6d, Kh6c, Ks6d, Ks6h, Ks6c, Kc6d, Kc6h, QdJh, QdJc, QhJd, QhJc, QsJd, QsJh, QsJc, QcJd, QcJh, Qd8s, Qd8c, Qh8s, Qh8c, Qs8c, Qc8s, Qd6h, Qd6c, Qh6d, Qh6c, Qs6d, Qs6h, Qs6c, Qc6d, Qc6h, JdTh, JdTs, JdTc, JhTd, JhTs, JhTc, JcTd, JcTh, JcTs, Jd9h, Jd9s, Jd9c, Jh9d, Jh9s, Jh9c, Jc9d, Jc9h, Jc9s, Jd8s, Jd8c, Jh8s, Jh8c, Jc8s, Jd7h, Jd7s, Jd7c, Jh7d, Jh7s, Jh7c, Jc7d, Jc7h, Jc7s, Jd6h, Jd6c, Jh6d, Jh6c, Jc6d, Jc6h, Td8s, Td8c, Th8s, Th8c, Ts8c, Tc8s, Td6h, Td6c, Th6d, Th6c, Ts6d, Ts6h, Ts6c, Tc6d, Tc6h, 9d8s, 9d8c, 9h8s, 9h8c, 9s8c, 9c8s, 8s7d, 8s7h, 8s7c, 8c7d, 8c7h, 8c7s, 8s6d, 8s6h, 8s6c, 8c6d, 8c6h, 7d6h, 7d6c, 7h6d, 7h6c, 7s6d, 7s6h, 7s6c, 7c6d, 7c6h");
+    // 
+    //         strcpy(range_pkr[1],"77-22, A9s-A2s, K9s-K2s, QTs-Q2s, J2s+, T2s+, 93s+, 84s+, 74s+, 63s+, 53s+, ATo-A2o, K2o+, Q3o+, J5o+, T6o+, 96o+, 86o+, 76o");
 
-        strcpy(range_pkr[1],"77-22, A9s-A2s, K9s-K2s, QTs-Q2s, J2s+, T2s+, 93s+, 84s+, 74s+, 63s+, 53s+, ATo-A2o, K2o+, Q3o+, J5o+, T6o+, 96o+, 86o+, 76o");
-//con este se desvia 0.7
-// strcpy(range_pkr[0],"AQs+");
-// strcpy(range_pkr[1],"AhKs");
-// strcpy(range_pkr[0],"2h2c");
+
+    
+/*    
+        strcpy(range_pkr[0],"TT+");
+        strcpy(range_pkr[1],"2h2c,A5s-A2s,K5s-K2s,Q4s-Q2s");
+        strcpy(range_pkr[2],"ATs+,KTs+,QTs+,JTs");
+        strcpy(range_pkr[3],"88-77,AQs-A7s");*/
+
+strcpy(range_pkr[0],"TT+");
+strcpy(range_pkr[1],"ThTc,A5s-A2s,K5s-K2s");
+strcpy(range_pkr[2],"ATs+,KTs+,QTs+");
+strcpy(range_pkr[3],"88-77");
+
+
+
 
 //     strcpy(range_pkr[0],"8s8c,6d6h,6d6c");
 //     strcpy(range_pkr[1],"77-22,A9s-A2s");
 
     // i_player to all players
 //     i_player=0;
-    for(i_player=0;i_player<2;++i_player){
+    for(i_player=0;i_player<num_players;++i_player){
         if(range_pkr[i_player]){
             //the result of this function will be saved in arr_hex_return
             conv_range_pkr_to_hex(range_pkr[i_player],i_player);
@@ -50,65 +64,24 @@ void main(){
             }
         }
     }
-    printf("long_hex_pos[0] %d\n",long_hex_pos[0]); 
-    printf("long_hex_pos[1] %d\n",long_hex_pos[1]); 
     printf("long_all_boards %d\n",long_all_boards);
-
-    long int tot_combos=0;//total combos analized
-    double tot_win_pos[9]={0};//save in each index the result when this position have the highest score
-    double tie=0;
-    float tot_tie=0;//save here when the hand is tied
-    float tot_win_pcent[9];
-    long int tot_t_r=0;
-    int ii=0;
-
-//     2 COSAS, CORREGIR CUANDO NO SE MUESTRA RIVER YA QUE AHÍ ESTÁ FALLANDO EL CÁLCULO AQs+, 
-//     PASAR EL BUCLE DE WIN A PREFLOP, O GUARDAR MUCHOS BOARDS Y CALCULAR SOBRE ELLOS
-    for(j=0;j<=long_all_boards;j++){
-        for(i=0;i<long_hex_pos[0];++i){
-            if(HERO_H_VALUES[0][j][i]==0) continue;
-            for(ii=0;ii<long_hex_pos[1];++ii){
-                if(
-                    HERO_H_VALUES[1][j][ii]==0 ||
-                    HERO_COMBOS[0][i][5]==HERO_COMBOS[1][ii][5] ||
-                    HERO_COMBOS[0][i][5]==HERO_COMBOS[1][ii][6] ||
-                    HERO_COMBOS[0][i][6]==HERO_COMBOS[1][ii][5] ||
-                    HERO_COMBOS[0][i][6]==HERO_COMBOS[1][ii][6]
-                ){
-                    continue;
-                }
-//                 printf("j %d | arr_all_boards[j] %x | [0][j][i] %x | H_VALUES[1][j][ii] %x | HERO_COMBOS[0][i][5] %x | HERO_COMBOS[0][i][6] %x | HERO_COMBOS[1][ii][5] %x | HERO_COMBOS[1][ii][6] %x | ",j,arr_all_boards[j],HERO_H_VALUES[0][j][i],HERO_H_VALUES[1][j][ii],card_int_to_hex[HERO_COMBOS[0][i][5]],card_int_to_hex[HERO_COMBOS[0][i][6]],card_int_to_hex[HERO_COMBOS[1][ii][5]],card_int_to_hex[HERO_COMBOS[1][ii][6]]);
-
-                
-                if(HERO_H_VALUES[0][j][i]>HERO_H_VALUES[1][j][ii]){
-//                     printf("WIN 0\n");
-                    ++tot_win_pos[0];
-                }else if(HERO_H_VALUES[0][j][i]<HERO_H_VALUES[1][j][ii]){
-//                     printf("WIN 1\n");
-
-                    ++tot_win_pos[1];                            
-
-                }else{
-//                     printf("EMPATE\n");
-                    ++tie;
-                }
-            }
-        }
+    calculate_all(num_players);
+        
+    for(i=0;i<num_players;i++){
+        printf("long_hex_pos[%d] %d\n",i,long_hex_pos[i]); 
+    }
+    for(i=0;i<num_players;i++){
+        printf("pos[%d] %d\n",i,(int) tot_win_pos[i]);
+    }
+    for(i=0;i<num_players;i++){
+        printf("tot_win_pcent[%d] %.3f\n",i,tot_win_pcent[i]);
+    }
+    for(i=0;i<num_players;i++){
+        printf("tot_tied_pcent[%d] %.3f\n",i,tot_tied_pcent[i]);
     }
     
-    tot_combos=tot_win_pos[0]+tot_win_pos[1]+tie;
-    tot_win_pcent[0]=((tot_win_pos[0]+(tie/2))*100)/tot_combos;
-    tot_win_pcent[1]=((tot_win_pos[1]+(tie/2))*100)/tot_combos;
-    tot_tie=(tie*100)/tot_combos;
-
-    printf("pos[0] %d\n",(int) tot_win_pos[0]);
-    printf("pos[1] %d\n",(int) tot_win_pos[1]);
     printf("TIE %f\n",tie);
-
-    printf("tot_win_pcent[0] %.3f\n",tot_win_pcent[0]);
-    printf("tot_win_pcent[1] %.3f\n",tot_win_pcent[1]);
     printf("tot_tie %.3f\n",tot_tie);
-
 
     printf("tot_combos %ld\n",tot_combos);
     printf("vamossss\n\n");

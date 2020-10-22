@@ -371,19 +371,23 @@ int reverse_hex(int tmp_hex){
     return (hex[2]*0x1000)+(hex[3]*0x100)+(hex[0]*0x10)+hex[1];
 }
 int check_combo_ok_vs_board(int ch0,int ch1,int ch2,int ch3){
-//     printf("ch: %x%x%x%x board: %x%x %x%x %x%x - %x%x - %x%x\n",ch0,ch1,ch2,ch3,board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
     if( /*!(ch0==ch2 && ch1==ch3) && is not needed because we check above*/
-        !(ch0==board[0] && ch1==board[1]) &&
-        !(ch0==board[2] && ch1==board[3]) &&
-        !(ch0==board[4] && ch1==board[5]) &&
-        !(ch0==board[6] && ch1==board[7]) &&
-        !(ch0==board[8] && ch1==board[9]) &&
-        
-        !(ch2==board[0] && ch3==board[1]) &&
-        !(ch2==board[2] && ch3==board[3]) &&
-        !(ch2==board[4] && ch3==board[5]) &&
-        !(ch2==board[6] && ch3==board[7]) &&
-        !(ch2==board[8] && ch3==board[9])
+//     printf("ch: %x%x%x%x board: %x%x %x%x %x%x - %x%x - %x%x\n",ch0,ch1,ch2,ch3,board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
+        board[1]==0 //we are in preflop mode 
+        || 
+        (
+            !(ch0==board[0] && ch1==board[1]) &&
+            !(ch0==board[2] && ch1==board[3]) &&
+            !(ch0==board[4] && ch1==board[5]) &&
+            !(ch0==board[6] && ch1==board[7]) &&
+            !(ch0==board[8] && ch1==board[9]) &&
+            
+            !(ch2==board[0] && ch3==board[1]) &&
+            !(ch2==board[2] && ch3==board[3]) &&
+            !(ch2==board[4] && ch3==board[5]) &&
+            !(ch2==board[6] && ch3==board[7]) &&
+            !(ch2==board[8] && ch3==board[9])
+        )
     ){
        return 1;//combo is ok
     }else{

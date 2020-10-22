@@ -12,9 +12,10 @@
 
 #define TOTAL_COMBOS 5175
 #define MAX_COMBO_HEX 0xe3e3 
+// #define NUM_HANDS_PREFLOP 60000 
 
+#define NUM_HANDS_PREFLOP 1326
 #include <time.h>
-
 
 double tot_tiempo=0;
 
@@ -23,15 +24,15 @@ double secs;
 
 //main.c
 void init_vars();
-int board[10]={0};
+char board[10]={0};
 // int combo[2704];
 int card_int_to_hex[52];
 int card_hex_to_int[0x3f]={0};
-int arr_all_boards[6497400];
+int arr_all_boards[NUM_HANDS_PREFLOP][10];
 
+int long_hex_pos[6];
 // [i_player][turn_and_river][hero_combo]
-int long_hex_pos[9];
-// int HERO_COMBOS[9][1326][7];
+// int HERO_COMBOS[6][1326][7];
 // HERO_COMBOS[x][x][0]=0x1234
 // HERO_COMBOS[x][x][1]=0x1
 // HERO_COMBOS[x][x][2]=0x2
@@ -41,13 +42,14 @@ int long_hex_pos[9];
 // HERO_COMBOS[x][x][6]=0x34
 
 
-int HERO_COMBOS[9][1326][7];
-// int HERO_H_VALUES[9][1326][1326];
-int HERO_H_VALUES[9][30000][1326];
+int HERO_COMBOS[6][1326][7];
+// int *HERO_H_VALUES;
+
+// HERO_H_VALUES=malloc(6*10000*1326*sizeof(int));
+int HERO_H_VALUES[6][NUM_HANDS_PREFLOP][1326];
 int long_all_boards=0;
 
 //get_value_combo.h
-// int get_value_combo(int combo_hex, int local_board[10]);
 int get_value_combo(int combo_hex[5], int local_board[10]);
 int is_straight_flush(int hero_all[14]);
 int is_pair_to_quads();
@@ -67,6 +69,7 @@ char arr_int_to_suit[4];
 
 //boards.c
 void calculate_EQ(int i_player);
+void create_preflop(int num_hands);
 //
                                                                                                                                                                                                                                                                 //create init vars
 

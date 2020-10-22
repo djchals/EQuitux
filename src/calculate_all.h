@@ -1,20 +1,22 @@
 //init the vars
-long double tot_combos;//total combos analized
+long double tot_combos=0;//total combos analized
 long double tot_win_pos[6]={};//save in each index the result when this position have the highest score
 long double tot_tied_pos[6]={};
-float tot_win_pcent[6];
-float tot_tied_pcent[6];
-long double tie;
-long double tot_tie;//save here when the hand is tied
+float tot_win_pcent[6]={};
+float tot_tied_pcent[6]={};
+long double tie=0;
+long double tot_tie=0;//save here when the hand is tied
 //
 
-void calculate_all(int num_players){
+void calculate_all(int num_players,int restart_vars){
     //init the function vars
-    tot_combos=0;
-    memset(tot_win_pos,0,sizeof(int)*10);
-    memset(tot_tied_pos,0,sizeof(int)*10);
-    tie=0;
-    tot_tie=0;
+    if(restart_vars){
+        tot_combos=0;
+        memset(tot_win_pos,0,sizeof(long double)*6);
+        memset(tot_tied_pos,0,sizeof(long double)*6);
+        tie=0;
+        tot_tie=0;
+    }
     int k,j,i,ii,iii,iiii,iiiii,iiiiii;
     int arr_values[6];
     int max=0,i_max=0;

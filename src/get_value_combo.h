@@ -1,10 +1,10 @@
-int get_value_combo(int combo_hex[5],int local_board[10]){
+int get_value_combo(char combo_hex[5],char local_board[10]){
 //     printf("hero_combo %x%x%x%x\n",hero_combo[0],hero_combo[1],hero_combo[2],hero_combo[3]);
 //     printf("board %x%x%x%x%x%x%x%x%x%x\n",board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
 //     
     
 //     MIRAR A VER SI CONVIENE TRAERSE EL ARRAY ORDENADO DE LA OTRA FUNCIÓN O NO
-    int hero_all[14];
+    char hero_all[14];
     hero_all[0]=local_board[0];
     hero_all[1]=local_board[1];
     hero_all[2]=local_board[2];
@@ -77,10 +77,10 @@ int get_value_combo(int combo_hex[5],int local_board[10]){
     }
     return max_hand_value;
 }
-int is_high_card(int hero_all[14]){
+int is_high_card(char hero_all[14]){
     return hero_all[13]*0x10000+(hero_all[11]*0x1000)+(hero_all[9]*0x100)+(hero_all[7]*0x10)+hero_all[5];
 }
-int is_straight_flush(int hero_all[14]){
+int is_straight_flush(char hero_all[14]){
     char cont=1,i,j;
     int value_combo=0,hero_straight[15]={0};//0x0e is the ace
     //make hero_straight running over hero_all
@@ -128,7 +128,7 @@ int is_straight_flush(int hero_all[14]){
     }
     return 0;
 }
-int is_pair_to_quads(int hero_all[14]){
+int is_pair_to_quads(char hero_all[14]){
     //the cards are sorted
     if(hero_all[1]!=hero_all[3] && 
         hero_all[3]!=hero_all[5] && 
@@ -242,7 +242,7 @@ int is_pair_to_quads(int hero_all[14]){
     }
 }
 
-int is_flush(int hero_all[14]){
+int is_flush(char hero_all[14]){
     char i,j,value_combo[5],act_suit=5,hero_suits[4]={0};
     for(i=0;i<14;i=i+2){
         hero_suits[hero_all[i]]++;

@@ -329,9 +329,9 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
     for(i=0;i<MAX_COMBO_HEX;i++){
         if(array_combos_marked_hex[i]==0) continue; 
 
-        HERO_COMBOS[i_player][j][0]=i;
+        // HERO_COMBOS[i_player][j][0]=i;//for now, it is not needed
         // printf("%x\n",HERO_COMBOS[i_player][j][0]);
-        HERO_COMBOS[i_player][j][1]=(i/0x1000)%0x10;;
+        HERO_COMBOS[i_player][j][1]=(i/0x1000)%0x10;
         HERO_COMBOS[i_player][j][2]=(i/0x100)%0x10;
         HERO_COMBOS[i_player][j][3]=(i/0x10)%0x10;
         HERO_COMBOS[i_player][j][4]=i%0x10;

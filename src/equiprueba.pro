@@ -40,3 +40,11 @@ FORMS += \
 
 unix: CONFIG += link_pkgconfig
 LIBS += -L/usr/include -lpcre
+
+RC_ICONS = icon_cards_56x56.png
+
+#customed includes:
+
+QMAKE_CXXFLAGS += -std=gnu11
+RESOURCES += \
+    resources.qrc

@@ -6,147 +6,30 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>419</width>
-    <height>327</height>
+    <width>380</width>
+    <height>326</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Equitux</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="calculate_button">
+   <widget class="QPushButton" name="button_calculate">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>260</x>
       <y>240</y>
       <width>80</width>
       <height>23</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Calculate</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="range_1">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>201</width>
-      <height>23</height>
-     </rect>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
-     <string/>
-    </property>
-    <property name="maxLength">
-     <number>3700</number>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="range_2">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>50</y>
-      <width>201</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="maxLength">
-     <number>3700</number>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="range_3">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>80</y>
-      <width>201</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="maxLength">
-     <number>3700</number>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="range_4">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>110</y>
-      <width>201</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="maxLength">
-     <number>3700</number>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="range_5">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>140</y>
-      <width>201</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="maxLength">
-     <number>3700</number>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="range_6">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>170</y>
-      <width>201</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="maxLength">
-     <number>3700</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>0</y>
-      <width>111</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Hand range</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>0</y>
-      <width>59</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Win</string>
+     <string>Calculate EQ</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="board_0">
@@ -174,8 +57,13 @@
       <height>15</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Board</string>
+     <string>Flop</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="board_1">
@@ -192,6 +80,12 @@
     </property>
     <property name="maxLength">
      <number>2</number>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Normal</enum>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="board_2">
@@ -242,64 +136,47 @@
      <number>2</number>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>0</y>
-      <width>59</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Tie</string>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="win_1">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>20</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="win_2">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>50</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="win_3">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>80</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLCDNumber" name="win_4">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>280</x>
       <y>110</y>
       <width>64</width>
       <height>23</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="win_5">
+   <widget class="QLineEdit" name="range_4">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>140</y>
+      <x>70</x>
+      <y>110</y>
+      <width>201</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="maxLength">
+     <number>3700</number>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="win_3">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>80</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="win_1">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>20</y>
       <width>64</width>
       <height>23</height>
      </rect>
@@ -308,71 +185,485 @@
    <widget class="QLCDNumber" name="win_6">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>280</x>
       <y>170</y>
       <width>64</width>
       <height>23</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="tie_1">
+   <widget class="QLCDNumber" name="win_5">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>20</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="tie_2">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>50</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="tie_3">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>80</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="tie_4">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>110</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="tie_5">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
+      <x>280</x>
       <y>140</y>
       <width>64</width>
       <height>23</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="tie_6">
+   <widget class="QLineEdit" name="range_6">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>70</x>
       <y>170</y>
+      <width>201</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="maxLength">
+     <number>3700</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>0</y>
+      <width>59</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Win</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="win_2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>50</y>
       <width>64</width>
       <height>23</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>0</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Hand range</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="range_3">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>80</y>
+      <width>201</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="maxLength">
+     <number>3700</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="range_5">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>140</y>
+      <width>201</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="maxLength">
+     <number>3700</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="range_2">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>50</y>
+      <width>201</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="maxLength">
+     <number>3700</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="range_1">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>20</y>
+      <width>201</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="maxLength">
+     <number>3700</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_clear_0">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>240</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>220</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Turn</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>220</y>
+      <width>59</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>River</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="select_range_1">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="select_range_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>110</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="select_range_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="select_range_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="select_range_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="select_range_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>170</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cards_yellow_32x32.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_clear_6">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>170</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_clear_5">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>140</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_clear_4">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>110</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_clear_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_clear_2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_clear_1">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>21</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</normaloff>../../../../../../../media/datos/documentos/programas/qt/equiprueba/equiprueba/styles/icon_cancel_32x32_round.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -390,7 +681,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>419</width>
+     <width>380</width>
      <height>20</height>
     </rect>
    </property>

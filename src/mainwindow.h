@@ -18,11 +18,10 @@ public:
     void create_game(int num_players);
     ~MainWindow();
 
-signals:
-        void llenado(QString);
-
 private slots:
     void calculate_ranges();
+    void clear_range(int i_player);
+
 
 private:
     Ui::MainWindow *ui;

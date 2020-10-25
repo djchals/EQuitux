@@ -7,9 +7,24 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     srand (time(NULL));
     init_vars();
     ui->setupUi(this);
-    connect(ui->calculate_button,SIGNAL(clicked(bool)),this,SLOT(calculate_ranges()));
-}
+    connect(ui->button_calculate,SIGNAL(clicked(bool)),this,SLOT(calculate_ranges()));
+    connect(ui->button_clear_0, &QPushButton::clicked,[&](){
+        ui->board_0->clear();
+        ui->board_1->clear();
+        ui->board_2->clear();
+        ui->board_3->clear();
+        ui->board_4->clear();
+    });
+    connect(ui->button_clear_1, &QPushButton::clicked,[&](){ ui->range_1->clear(); });
+    connect(ui->button_clear_2, &QPushButton::clicked,[&](){ ui->range_2->clear(); });
+    connect(ui->button_clear_3, &QPushButton::clicked,[&](){ ui->range_3->clear(); });
+    connect(ui->button_clear_4, &QPushButton::clicked,[&](){ ui->range_4->clear(); });
+    connect(ui->button_clear_5, &QPushButton::clicked,[&](){ ui->range_5->clear(); });
+    connect(ui->button_clear_6, &QPushButton::clicked,[&](){ ui->range_6->clear(); });
 
+//  connect(ui->button_clear_6,SIGNAL(clicked(bool)),this,SLOT(clear_range(ui->button_clear_0)));
+
+}
 MainWindow::~MainWindow(){
     delete ui;
 }
@@ -53,27 +68,25 @@ void MainWindow::calculate_ranges(){
         arr_pos_pcent[i]=6;
         ++i;
     }
-    if(!ui->board_0->text().isEmpty()){
+    if(i>=2 && (!ui->board_0->text().isEmpty() && !ui->board_1->text().isEmpty() && !ui->board_2->text().isEmpty())){
+        //have flop
         board[0]=arr_suit_to_int[ui->board_0->text().toStdString().at(1)];
         board[1]=arr_let_to_int[ui->board_0->text().toStdString().at(0)];
-    }
-    if(!ui->board_1->text().isEmpty()){
         board[2]=arr_suit_to_int[ui->board_1->text().toStdString().at(1)];
         board[3]=arr_let_to_int[ui->board_1->text().toStdString().at(0)];
-    }
-    if(!ui->board_2->text().isEmpty()){
         board[4]=arr_suit_to_int[ui->board_2->text().toStdString().at(1)];
         board[5]=arr_let_to_int[ui->board_2->text().toStdString().at(0)];
-    }
-    if(!ui->board_3->text().isEmpty()){
-        board[6]=arr_suit_to_int[ui->board_3->text().toStdString().at(1)];
-        board[7]=arr_let_to_int[ui->board_3->text().toStdString().at(0)];
-    }
-    if(!ui->board_4->text().isEmpty()){
-        board[8]=arr_suit_to_int[ui->board_4->text().toStdString().at(1)];
-        board[9]=arr_let_to_int[ui->board_4->text().toStdString().at(0)];
-    }
-    if(i>=2){
+
+        if(!ui->board_3->text().isEmpty()){
+            board[6]=arr_suit_to_int[ui->board_3->text().toStdString().at(1)];
+            board[7]=arr_let_to_int[ui->board_3->text().toStdString().at(0)];
+        }
+        if(!ui->board_4->text().isEmpty()){
+            board[8]=arr_suit_to_int[ui->board_4->text().toStdString().at(1)];
+            board[9]=arr_let_to_int[ui->board_4->text().toStdString().at(0)];
+        }
+        this->create_game(i);
+    }else if(i>=2 && (ui->board_0->text().isEmpty() && ui->board_1->text().isEmpty() && ui->board_2->text().isEmpty() && ui->board_3->text().isEmpty() && ui->board_4->text().isEmpty())){
         this->create_game(i);
     }
 }
@@ -137,11 +150,31 @@ void MainWindow::show_tied_pcent(int i_player, int num_pcent){
     int act_i_player=arr_pos_pcent[i_player];
     qDebug() << "dentro pcent"<< act_i_player;
     switch(act_i_player){
-        case 1:ui->tie_1->display(num_pcent);break;
-        case 2:ui->tie_2->display(num_pcent);break;
-        case 3:ui->tie_3->display(num_pcent);break;
-        case 4:ui->tie_4->display(num_pcent);break;
-        case 5:ui->tie_5->display(num_pcent);break;
-        case 6:ui->tie_6->display(num_pcent);break;
+//        case 1:ui->tie_1->display(num_pcent);break;
+//        case 2:ui->tie_2->display(num_pcent);break;
+//        case 3:ui->tie_3->display(num_pcent);break;
+//        case 4:ui->tie_4->display(num_pcent);break;
+//        case 5:ui->tie_5->display(num_pcent);break;
+//        case 6:ui->tie_6->display(num_pcent);break;
     }
+}
+
+void MainWindow::clear_range(int i_player){
+    qDebug() << "dentro clear";
+    qDebug() << "enviador";
+//    switch(i_range){
+//        case 0:
+//            ui->board_0->text().clear();
+//            ui->board_1->text().clear();
+//            ui->board_2->text().clear();
+//            ui->board_3->text().clear();
+//            ui->board_4->text().clear();
+//        break;
+//        case 1:ui->range_1->text().clear();break;
+//        case 2:ui->range_2->text().clear();break;
+//        case 3:ui->range_3->text().clear();break;
+//        case 4:ui->range_4->text().clear();break;
+//        case 5:ui->range_5->text().clear();break;
+//        case 6:ui->range_6->text().clear();break;
+//    }
 }

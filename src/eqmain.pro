@@ -25,7 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    winselectrange.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -36,10 +37,12 @@ HEADERS += \
     boards.h \
     header.h \
     get_value_combo.h \
-    get_value_combo.h
+    get_value_combo.h \
+    winselectrange.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    winselectrange.ui
 
 LIBS += -L/usr/include -lpcre \
         -L/usr/include -lm \

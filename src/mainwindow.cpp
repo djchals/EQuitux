@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "winselectrange.h"
 #include "boards.h"
 #include <QDebug>
 
@@ -95,6 +96,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->card_3d, &QPushButton::clicked,[&](){put_card_on_board("Kc");});
     connect(ui->card_3e, &QPushButton::clicked,[&](){put_card_on_board("Ac");});
 
+    connect(ui->select_range_1, &QPushButton::clicked,[&](){
+        WinSelectRange ws;
+        ws.setModal(true);
+        ws.setSelectedRange(1);
+        ws.exec();
+    });
 }
 
 MainWindow::~MainWindow(){
@@ -125,7 +132,6 @@ void MainWindow::put_card_on_board(QString act_card){
        ui->board_4->setText(act_card);
        return;
     }
-    qDebug()<<act_card;
 }
 void MainWindow::calculate_ranges(){
     tot_combos=0;

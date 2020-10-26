@@ -20,8 +20,7 @@ public:
 
 private slots:
     void calculate_ranges();
-    void clear_range(int i_player);
-
+    void put_card_on_board(QString act_card);
 
 private:
     Ui::MainWindow *ui;

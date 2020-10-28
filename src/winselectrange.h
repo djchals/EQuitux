@@ -15,13 +15,14 @@ public:
     explicit WinSelectRange(QWidget *parent = 0);
     ~WinSelectRange();
     void setSelectedRange(int act_range);
-    void putComboOnRange(int act_combo);
+    void putComboOnRange(int num1, int num2,int flag_suited, bool flag_checked);
     void changeSuitSelector();
 
 private:
     Ui::WinSelectRange *ui;
     int selected_range=0;
-    int arr_combos[1326]={};
+    int arr_combos[0x3e3f]={};
+    int reverse_hex(int tmp_hex);
 };
 
 #endif // WINSELECTRANGE_H

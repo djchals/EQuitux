@@ -4,21 +4,20 @@
 
 WinSelectRange::WinSelectRange(QWidget *parent) : QDialog(parent),ui(new Ui::WinSelectRange){
     // Load an application style
-//    QFile styleFile( ":/styles/eqmain.qss" );
     ui->setupUi(this);
-    connect(ui->combo_AA, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xe,2,ui->combo_AA->isChecked());});
-    connect(ui->combo_KK, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xd,2,ui->combo_KK->isChecked());});
-    connect(ui->combo_QQ, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xc,2,ui->combo_QQ->isChecked());});
-    connect(ui->combo_JJ, &QPushButton::clicked,[&](){putComboOnRange(0xb,0xb,2,ui->combo_JJ->isChecked());});
-    connect(ui->combo_TT, &QPushButton::clicked,[&](){putComboOnRange(0xa,0xa,2,ui->combo_TT->isChecked());});
-    connect(ui->combo_99, &QPushButton::clicked,[&](){putComboOnRange(9,9,2,ui->combo_99->isChecked());});
-    connect(ui->combo_88, &QPushButton::clicked,[&](){putComboOnRange(8,8,2,ui->combo_88->isChecked());});
-    connect(ui->combo_77, &QPushButton::clicked,[&](){putComboOnRange(7,7,2,ui->combo_77->isChecked());});
-    connect(ui->combo_66, &QPushButton::clicked,[&](){putComboOnRange(6,6,2,ui->combo_66->isChecked());});
-    connect(ui->combo_55, &QPushButton::clicked,[&](){putComboOnRange(5,5,2,ui->combo_55->isChecked());});
-    connect(ui->combo_44, &QPushButton::clicked,[&](){putComboOnRange(4,4,2,ui->combo_44->isChecked());});
-    connect(ui->combo_33, &QPushButton::clicked,[&](){putComboOnRange(3,3,2,ui->combo_33->isChecked());});
-    connect(ui->combo_22, &QPushButton::clicked,[&](){putComboOnRange(2,2,2,ui->combo_22->isChecked());});
+    connect(ui->combo_AA, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xe,0,ui->combo_AA->isChecked());});
+    connect(ui->combo_KK, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xd,0,ui->combo_KK->isChecked());});
+    connect(ui->combo_QQ, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xc,0,ui->combo_QQ->isChecked());});
+    connect(ui->combo_JJ, &QPushButton::clicked,[&](){putComboOnRange(0xb,0xb,0,ui->combo_JJ->isChecked());});
+    connect(ui->combo_TT, &QPushButton::clicked,[&](){putComboOnRange(0xa,0xa,0,ui->combo_TT->isChecked());});
+    connect(ui->combo_99, &QPushButton::clicked,[&](){putComboOnRange(9,9,0,ui->combo_99->isChecked());});
+    connect(ui->combo_88, &QPushButton::clicked,[&](){putComboOnRange(8,8,0,ui->combo_88->isChecked());});
+    connect(ui->combo_77, &QPushButton::clicked,[&](){putComboOnRange(7,7,0,ui->combo_77->isChecked());});
+    connect(ui->combo_66, &QPushButton::clicked,[&](){putComboOnRange(6,6,0,ui->combo_66->isChecked());});
+    connect(ui->combo_55, &QPushButton::clicked,[&](){putComboOnRange(5,5,0,ui->combo_55->isChecked());});
+    connect(ui->combo_44, &QPushButton::clicked,[&](){putComboOnRange(4,4,0,ui->combo_44->isChecked());});
+    connect(ui->combo_33, &QPushButton::clicked,[&](){putComboOnRange(3,3,0,ui->combo_33->isChecked());});
+    connect(ui->combo_22, &QPushButton::clicked,[&](){putComboOnRange(2,2,0,ui->combo_22->isChecked());});
 
     connect(ui->combo_AKs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xd,1,ui->combo_AKs->isChecked());});
     connect(ui->combo_AQs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xc,1,ui->combo_AQs->isChecked());});
@@ -202,6 +201,9 @@ WinSelectRange::WinSelectRange(QWidget *parent) : QDialog(parent),ui(new Ui::Win
 
     connect(ui->chk_suit_selector, &QPushButton::clicked,[&](){changeSuitSelector();});
 
+    connect(ui->button_ok, &QPushButton::clicked,[&](){this->accept();});
+    connect(ui->button_cancel, &QPushButton::clicked,[&](){this->reject();});
+
 }
 WinSelectRange::~WinSelectRange(){
     delete ui;
@@ -209,11 +211,14 @@ WinSelectRange::~WinSelectRange(){
 void WinSelectRange::setSelectedRange(int act_range){
     this->selected_range=act_range;
 }
+
 void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool flag_checked){
     //flag_suited=0 -> offsuited, 1-> suited, 2->pocket pair
     bool flag_checked_suit_selector=ui->chk_suit_selector->isChecked();
     int tmp_hex;
     int i,j;
+
+    //now put the combo in this->arr_combos[]
     if(!flag_checked){
         for(i=0;i<4;++i){
             for(j=0;j<4;++j){
@@ -226,12 +231,11 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
             for(i=0;i<4;++i){
                 for(j=0;j<4;++j){
                     if(
-                            flag_suited==0 ||
                             (flag_suited==1 && i==j) ||
-                            (flag_suited==2 && i!=j)
+                            (flag_suited==0 && i!=j)
                        ){
                         tmp_hex=(i*0x1000)+(num1*0x100)+(j*0x10)+num2;
-                        if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+                        if(!this->arr_combos[reverse_hex(tmp_hex)]){
                             this->arr_combos[tmp_hex]=true;
                         }
                     }
@@ -239,92 +243,335 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
             }
         }else{
             tmp_hex=(num1*0x100)+0+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)] && flag_suited!=2){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
                 this->arr_combos[tmp_hex]=ui->suit_00->isChecked();
             }
 
             tmp_hex=(num1*0x100)+0x10+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_01->isChecked();
             }
 
             tmp_hex=(num1*0x100)+0x20+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_02->isChecked();
             }
 
             tmp_hex=(num1*0x100)+0x30+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_03->isChecked();
             }
 
             tmp_hex=0x1000+(num1*0x100)+0+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_10->isChecked();
             }
 
             tmp_hex=0x1000+(num1*0x100)+0x10+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)] && flag_suited!=2){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
                 this->arr_combos[tmp_hex]=ui->suit_11->isChecked();
             }
 
             tmp_hex=0x1000+(num1*0x100)+0x20+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_12->isChecked();
             }
 
             tmp_hex=0x1000+(num1*0x100)+0x30+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_13->isChecked();
             }
 
             tmp_hex=0x2000+(num1*0x100)+0+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_20->isChecked();
             }
 
             tmp_hex=0x2000+(num1*0x100)+0x10+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_21->isChecked();
             }
 
             tmp_hex=0x2000+(num1*0x100)+0x20+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)] && flag_suited!=2){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
                 this->arr_combos[tmp_hex]=ui->suit_22->isChecked();
             }
             tmp_hex=0x2000+(num1*0x100)+0x30+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_23->isChecked();
             }
 
             tmp_hex=0x3000+(num1*0x100)+0+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_30->isChecked();
             }
 
             tmp_hex=0x3000+(num1*0x100)+0x10+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_31->isChecked();
             }
 
             tmp_hex=0x3000+(num1*0x100)+0x20+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)]){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 this->arr_combos[tmp_hex]=ui->suit_32->isChecked();
             }
 
             tmp_hex=0x3000+(num1*0x100)+0x30+num2;
-            if(!this->arr_combos[this->reverse_hex(tmp_hex)] && flag_suited!=2){
+            if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
                 this->arr_combos[tmp_hex]=ui->suit_33->isChecked();
             }
         }
     }
-    qDebug() << "empieza listado";
+
+    //copy the main array arr_combos[] to tmp_arr_combos[] for manipulate it and create the string range
+    int tmp_arr_combos[0x3e3f]={};
     for(i=0;i<=0x3e3e;i++){
         if(this->arr_combos[i]==true){
-            qDebug() << hex << i;
+            tmp_arr_combos[i]=true;
         }
     }
-    qDebug() << "acaba listado";
+    //
+
+
+    //define vars for create the subranges
+    QString tmp_range;
+    QString tmp_sub_range;
+    int cont=0,k,l;
+    int cmp0=0,cmp1=0;
+    bool flag_last_in_a_row=false,flag_last_in_this_subrange=false;
+
+    //create the POCKET PAIRS subrange
+    for(i=0x0e;i>=2;--i){
+        for(k=0;k<4;k++){
+            for(l=0;l<4;l++){
+                if(k!=l){
+                    tmp_hex=(k*0x1000)+(i*0x100)+l*0x10+i;
+//                    qDebug()<<hex<<tmp_hex;
+                    if(tmp_arr_combos[tmp_hex]){
+                          cont++;
+                    }
+                }
+            }
+        }
+        if(cont==6){
+            //special case for 22
+            if(i==2){
+                cmp0=2;
+                cmp1=2;
+                flag_last_in_this_subrange=true;
+            }else{
+                //all the rest
+                if(cmp0==0){
+                    cmp0=i;
+                }
+                if(cmp1==0){
+                    cmp1=i;
+                }else{
+                    cmp1--;
+                    if(cmp1==1){
+                        cmp1=2;
+                    }
+                }
+            }
+
+            //delete for clean the analized combos
+            for(k=0;k<4;k++){
+                for(l=0;l<4;l++){
+                    if(k!=l){
+                        tmp_hex=(k*0x1000)+(i*0x100)+l*0x10+i;
+                        tmp_arr_combos[tmp_hex]=false;
+                    }
+                }
+            }
+             cont=0;
+             if(!flag_last_in_a_row && tmp_sub_range!=""){
+                 tmp_range+=tmp_sub_range;
+             }
+             if(cmp0==cmp1){
+                 tmp_sub_range=(QString) arr_int_to_let[i] + arr_int_to_let[i]+",";
+//                 qDebug() << "tmp_sub_range: "<<tmp_sub_range;
+             }else{
+                 tmp_sub_range=(QString) arr_int_to_let[cmp0] + arr_int_to_let[cmp0] + "-" + arr_int_to_let[cmp1] + arr_int_to_let[cmp1] +",";
+             }
+
+             flag_last_in_a_row=true;
+        }else{
+            cmp0=0;
+            cmp1=0;
+            cont=0;
+            flag_last_in_a_row=false;
+        }
+    }
+    //concatenate the last here
+    if((!flag_last_in_a_row || (flag_last_in_this_subrange)) && tmp_sub_range!=""){
+       tmp_range+=tmp_sub_range;
+    }
+    //finish POCKET PAIRS here
+
+    //create SUITED subrange
+    tmp_sub_range="";
+    cont=0,k=0;
+    l=0;
+    cmp0=0,cmp1=0;
+    flag_last_in_a_row=false,flag_last_in_this_subrange=false;
+    for(i=0x0e;i>=3;--i){
+        flag_last_in_a_row=false;
+        for(j=i-1;j>=2;--j){
+            for(k=0;k<4;k++){
+                tmp_hex=(k*0x1000)+(i*0x100)+k*0x10+j;
+                if(tmp_arr_combos[tmp_hex]){
+    //                qDebug()<<hex<<tmp_hex;
+                    cont++;
+                }
+            }
+            if(cont==4){
+                //special case for 32s
+                if(i==3 && j==2){
+                    cmp0=2;
+                    cmp1=2;
+                    flag_last_in_this_subrange=true;
+                }else{
+                    //all the rest
+                    if(cmp0==0){
+                        cmp0=j;
+                    }
+                    if(cmp1==0){
+                        cmp1=j;
+                    }else{
+                        cmp1--;
+                        if(cmp1==1){
+                            cmp1=2;
+                        }
+                    }
+                }
+
+                //delete for clean the analized combos
+                for(k=0;k<4;k++){
+                     tmp_hex=(k*0x1000)+(i*0x100)+k*0x10+j;
+                     tmp_arr_combos[tmp_hex]=false;
+                }
+                 cont=0;
+                 if(!flag_last_in_a_row && tmp_sub_range!=""){
+                     tmp_range+=tmp_sub_range;
+                 }
+                 if(cmp0==cmp1){
+                     tmp_sub_range=(QString) arr_int_to_let[i] + arr_int_to_let[cmp0] + "s,";
+//                     qDebug() << "tmp_sub_range: "<<tmp_sub_range;
+                 }else{
+                     tmp_sub_range=(QString) arr_int_to_let[i] + arr_int_to_let[cmp0] + "s-" + arr_int_to_let[i] + arr_int_to_let[cmp1]+"s,";
+                 }
+
+                 flag_last_in_a_row=true;
+            }else{
+                cmp0=0;
+                cmp1=0;
+                cont=0;
+                flag_last_in_a_row=false;
+            }
+        }
+    }
+    //concatenate the last here
+    if((!flag_last_in_a_row || (flag_last_in_this_subrange)) && tmp_sub_range!=""){
+       tmp_range+=tmp_sub_range;
+    }
+    //finish here create SUITED subrange
+
+
+    //create the OFFSUITED subrange
+    tmp_sub_range="";
+    cont=0,k=0;
+    l=0;
+    cmp0=0,cmp1=0;
+    flag_last_in_a_row=false,flag_last_in_this_subrange=false;
+    for(i=0x0e;i>=3;--i){
+        flag_last_in_a_row=false;
+        for(j=i-1;j>=2;--j){
+            for(k=0;k<4;k++){
+                for(l=0;l<4;l++){
+                    if(k!=l){
+                        tmp_hex=(k*0x1000)+(i*0x100)+l*0x10+j;
+                        if(tmp_arr_combos[tmp_hex]){
+        //                qDebug()<<hex<<tmp_hex;
+                          cont++;
+                        }
+                    }
+                }
+            }
+            if(cont==12){
+                //special case for 32o
+                if(i==3 && j==2){
+                    cmp0=2;
+                    cmp1=2;
+                    flag_last_in_this_subrange=true;
+                }else{
+                    //all the rest
+                    if(cmp0==0){
+                        cmp0=j;
+                    }
+                    if(cmp1==0){
+                        cmp1=j;
+                    }else{
+                        cmp1--;
+                        if(cmp1==1){
+                            cmp1=2;
+                        }
+                    }
+                }
+                //delete for clean the analized combos
+                for(k=0;k<4;k++){
+                    for(l=0;l<4;l++){
+                        if(k!=l){
+                            tmp_hex=(k*0x1000)+(i*0x100)+l*0x10+j;
+                            tmp_arr_combos[tmp_hex]=false;
+                        }
+                    }
+                }
+                 cont=0;
+                 if(!flag_last_in_a_row && tmp_sub_range!=""){
+                     tmp_range+=tmp_sub_range;
+                 }
+                 if(cmp0==cmp1){
+                     tmp_sub_range=(QString) arr_int_to_let[i] + arr_int_to_let[cmp0] + "o,";
+//                     qDebug() << "tmp_sub_range: "<<tmp_sub_range;
+                 }else{
+                     tmp_sub_range=(QString) arr_int_to_let[i] + arr_int_to_let[cmp0] + "o-" + arr_int_to_let[i] + arr_int_to_let[cmp1]+"o,";
+                 }
+
+                 flag_last_in_a_row=true;
+            }else{
+                cmp0=0;
+                cmp1=0;
+                cont=0;
+                flag_last_in_a_row=false;
+            }
+        }
+    }
+    //concatenate the last here
+    if((!flag_last_in_a_row || (flag_last_in_this_subrange)) && tmp_sub_range!=""){
+       tmp_range+=tmp_sub_range;
+    }
+
+    //finish here create OFFSUITED subrange
+
+//falta insertar los combos que no sean ni offsuited, ni suited, ni pocket pairs
+    //loop for insert the rest
+    int hex[4];
+    for(i=0;i<=0x3e3e;i++){
+        if(tmp_arr_combos[i]==true){
+            hex[0]=(i/0x1000)%0x10;
+            hex[1]=(i/0x100)%0x10;
+            hex[2]=(i/0x10)%0x10;
+            hex[3]=i%0x10;
+            tmp_range+=(QString) arr_int_to_let[hex[1]]+arr_int_to_suit[hex[0]]+arr_int_to_let[hex[3]]+arr_int_to_suit[hex[2]]+",";
+
+            qDebug() << tmp_sub_range;
+            tmp_arr_combos[i]==false;
+        }
+    }
+    if(!tmp_range.isEmpty()){
+        tmp_range.remove(tmp_range.length()-1,1);
+    }
+    this->tmp_range=tmp_range;
 }
 void WinSelectRange::changeSuitSelector(){
     bool flag_buttons=ui->chk_suit_selector->isChecked();
@@ -363,13 +610,6 @@ void WinSelectRange::changeSuitSelector(){
     ui->suit_32->setEnabled(flag_buttons);
     ui->suit_33->setEnabled(flag_buttons);
 }
-
-int WinSelectRange::reverse_hex(int tmp_hex){
-    //check if the combo is already inserted
-    int hex[4];
-    hex[0]=(tmp_hex/0x1000)%0x10;
-    hex[1]=(tmp_hex/0x100)%0x10;
-    hex[2]=(tmp_hex/0x10)%0x10;
-    hex[3]=tmp_hex%0x10;
-    return (hex[2]*0x1000)+(hex[3]*0x100)+(hex[0]*0x10)+hex[1];
+QString WinSelectRange::getRange(){
+    return tmp_range;
 }

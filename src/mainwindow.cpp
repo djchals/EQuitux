@@ -101,7 +101,68 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         ws.setModal(true);
         ws.setSelectedRange(1);
         ws.exec();
+        //ok?
+        if(ws.result()){
+            ui->range_1->setText(ws.getRange());
+        }
     });
+
+    connect(ui->select_range_2, &QPushButton::clicked,[&](){
+        WinSelectRange ws;
+        ws.setModal(true);
+        ws.setSelectedRange(2);
+        ws.exec();
+        //ok?
+        if(ws.result()){
+            ui->range_2->setText(ws.getRange());
+        }
+    });
+
+    connect(ui->select_range_3, &QPushButton::clicked,[&](){
+        WinSelectRange ws;
+        ws.setModal(true);
+        ws.setSelectedRange(3);
+        ws.exec();
+        //ok?
+        if(ws.result()){
+            ui->range_3->setText(ws.getRange());
+        }
+    });
+
+
+    connect(ui->select_range_4, &QPushButton::clicked,[&](){
+        WinSelectRange ws;
+        ws.setModal(true);
+        ws.setSelectedRange(4);
+        ws.exec();
+        //ok?
+        if(ws.result()){
+            ui->range_4->setText(ws.getRange());
+        }
+    });
+
+    connect(ui->select_range_5, &QPushButton::clicked,[&](){
+        WinSelectRange ws;
+        ws.setModal(true);
+        ws.setSelectedRange(5);
+        ws.exec();
+        //ok?
+        if(ws.result()){
+            ui->range_5->setText(ws.getRange());
+        }
+    });
+
+    connect(ui->select_range_6, &QPushButton::clicked,[&](){
+        WinSelectRange ws;
+        ws.setModal(true);
+        ws.setSelectedRange(6);
+        ws.exec();
+        //ok?
+        if(ws.result()){
+            ui->range_6->setText(ws.getRange());
+        }
+    });
+
 }
 
 MainWindow::~MainWindow(){

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>433</height>
+    <height>428</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>220</y>
-      <width>81</width>
-      <height>16</height>
+      <width>171</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -29,7 +29,11 @@
      </font>
     </property>
     <property name="text">
-     <string>Board</string>
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:7pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;vertical-align:bottom&quot;&gt;Board&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -37,8 +41,8 @@
      <rect>
       <x>330</x>
       <y>0</y>
-      <width>51</width>
-      <height>16</height>
+      <width>61</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -47,7 +51,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Win</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Win&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -58,8 +62,8 @@
      <rect>
       <x>70</x>
       <y>0</y>
-      <width>111</width>
-      <height>20</height>
+      <width>261</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -68,7 +72,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Hand range</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Hand range&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -120,6 +124,11 @@
      </item>
      <item row="0" column="2">
       <widget class="QLineEdit" name="range_1">
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -189,6 +198,11 @@
      </item>
      <item row="0" column="2">
       <widget class="QLineEdit" name="range_2">
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -258,6 +272,11 @@
      </item>
      <item row="0" column="2">
       <widget class="QLineEdit" name="range_3">
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -327,6 +346,11 @@
      </item>
      <item row="0" column="2">
       <widget class="QLineEdit" name="range_4">
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -396,6 +420,11 @@
      </item>
      <item row="0" column="2">
       <widget class="QLineEdit" name="range_5">
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -431,6 +460,11 @@
      </property>
      <item row="0" column="2">
       <widget class="QLineEdit" name="range_6">
+       <property name="font">
+        <font>
+         <pointsize>7</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -494,7 +528,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>

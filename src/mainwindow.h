@@ -3,6 +3,12 @@
 
 #include <QMainWindow>
 
+//import from header.h
+extern char arr_int_to_let[15];
+extern int arr_let_to_int[85];
+extern int arr_suit_to_int[116];
+extern char arr_int_to_suit[4];
+
 namespace Ui {
     class MainWindow;
 }
@@ -21,7 +27,7 @@ public:
 private slots:
     void calculate_ranges();
     void put_card_on_board(QString act_card);
-
+    void remove_card_from_board(QString act_text);
 private:
     Ui::MainWindow *ui;
 };

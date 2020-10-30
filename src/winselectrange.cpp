@@ -576,22 +576,22 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
 void WinSelectRange::changeSuitSelector(){
     bool flag_buttons=ui->chk_suit_selector->isChecked();
     if(!flag_buttons){
-        ui->suit_00->setChecked(false);
-        ui->suit_01->setChecked(false);
-        ui->suit_02->setChecked(false);
-        ui->suit_03->setChecked(false);
-        ui->suit_10->setChecked(false);
-        ui->suit_11->setChecked(false);
-        ui->suit_12->setChecked(false);
-        ui->suit_13->setChecked(false);
-        ui->suit_20->setChecked(false);
-        ui->suit_21->setChecked(false);
-        ui->suit_22->setChecked(false);
-        ui->suit_23->setChecked(false);
-        ui->suit_30->setChecked(false);
-        ui->suit_31->setChecked(false);
-        ui->suit_32->setChecked(false);
-        ui->suit_33->setChecked(false);
+        ui->suit_00->setChecked(true);
+        ui->suit_01->setChecked(true);
+        ui->suit_02->setChecked(true);
+        ui->suit_03->setChecked(true);
+        ui->suit_10->setChecked(true);
+        ui->suit_11->setChecked(true);
+        ui->suit_12->setChecked(true);
+        ui->suit_13->setChecked(true);
+        ui->suit_20->setChecked(true);
+        ui->suit_21->setChecked(true);
+        ui->suit_22->setChecked(true);
+        ui->suit_23->setChecked(true);
+        ui->suit_30->setChecked(true);
+        ui->suit_31->setChecked(true);
+        ui->suit_32->setChecked(true);
+        ui->suit_33->setChecked(true);
     }
     ui->suit_00->setEnabled(flag_buttons);
     ui->suit_01->setEnabled(flag_buttons);

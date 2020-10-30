@@ -26,7 +26,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    winselectrange.cpp
+    winselectrange.cpp \
+    RangeSlider.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     header.h \
     get_value_combo.h \
     get_value_combo.h \
-    winselectrange.h
+    winselectrange.h \
+    RangeSlider.h
 
 FORMS += \
         mainwindow.ui \

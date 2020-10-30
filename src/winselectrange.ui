@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>605</width>
+    <width>601</width>
     <height>478</height>
    </rect>
   </property>
@@ -16,9 +16,9 @@
   <widget class="QPushButton" name="button_ok">
    <property name="geometry">
     <rect>
-     <x>471</x>
-     <y>231</y>
-     <width>121</width>
+     <x>470</x>
+     <y>230</y>
+     <width>111</width>
      <height>23</height>
     </rect>
    </property>
@@ -29,27 +29,14 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>471</x>
-     <y>289</y>
-     <width>121</width>
+     <x>470</x>
+     <y>288</y>
+     <width>111</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Clear</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>360</y>
-     <width>41</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>100%</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -65,39 +52,13 @@
     <string>0%</string>
    </property>
   </widget>
-  <widget class="QScrollBar" name="horizontalScrollBar">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>380</y>
-     <width>160</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>11</x>
-     <y>11</y>
-     <width>231</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Select the combos for make the range</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="combo_AA">
    <property name="geometry">
     <rect>
      <x>11</x>
      <y>32</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -124,7 +85,7 @@
      <x>46</x>
      <y>32</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -148,7 +109,7 @@
      <x>81</x>
      <y>32</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -172,7 +133,7 @@
      <x>115</x>
      <y>32</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -196,7 +157,7 @@
      <x>150</x>
      <y>32</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -220,7 +181,7 @@
      <x>185</x>
      <y>32</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -244,7 +205,7 @@
      <x>219</x>
      <y>32</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -268,7 +229,7 @@
      <x>254</x>
      <y>32</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -292,7 +253,7 @@
      <x>288</x>
      <y>32</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -316,7 +277,7 @@
      <x>323</x>
      <y>32</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -340,7 +301,7 @@
      <x>358</x>
      <y>32</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -364,7 +325,7 @@
      <x>392</x>
      <y>32</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -388,7 +349,7 @@
      <x>427</x>
      <y>32</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -412,7 +373,7 @@
      <x>11</x>
      <y>54</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -436,7 +397,7 @@
      <x>46</x>
      <y>54</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -463,7 +424,7 @@
      <x>81</x>
      <y>54</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -487,7 +448,7 @@
      <x>115</x>
      <y>54</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -511,7 +472,7 @@
      <x>150</x>
      <y>54</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -535,7 +496,7 @@
      <x>185</x>
      <y>54</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -559,7 +520,7 @@
      <x>219</x>
      <y>54</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -583,7 +544,7 @@
      <x>254</x>
      <y>54</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -607,7 +568,7 @@
      <x>288</x>
      <y>54</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -631,7 +592,7 @@
      <x>323</x>
      <y>54</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -655,7 +616,7 @@
      <x>358</x>
      <y>54</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -679,7 +640,7 @@
      <x>392</x>
      <y>54</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -703,7 +664,7 @@
      <x>427</x>
      <y>54</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -727,7 +688,7 @@
      <x>11</x>
      <y>76</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -751,7 +712,7 @@
      <x>46</x>
      <y>76</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -775,7 +736,7 @@
      <x>81</x>
      <y>76</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -802,7 +763,7 @@
      <x>115</x>
      <y>76</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -826,7 +787,7 @@
      <x>150</x>
      <y>76</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -850,7 +811,7 @@
      <x>185</x>
      <y>76</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -874,7 +835,7 @@
      <x>219</x>
      <y>76</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -898,7 +859,7 @@
      <x>254</x>
      <y>76</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -922,7 +883,7 @@
      <x>288</x>
      <y>76</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -946,7 +907,7 @@
      <x>323</x>
      <y>76</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -970,7 +931,7 @@
      <x>358</x>
      <y>76</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -994,7 +955,7 @@
      <x>392</x>
      <y>76</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1018,7 +979,7 @@
      <x>427</x>
      <y>76</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1042,7 +1003,7 @@
      <x>11</x>
      <y>98</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1066,7 +1027,7 @@
      <x>46</x>
      <y>98</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1090,7 +1051,7 @@
      <x>81</x>
      <y>98</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1114,7 +1075,7 @@
      <x>115</x>
      <y>98</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1141,7 +1102,7 @@
      <x>150</x>
      <y>98</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1165,7 +1126,7 @@
      <x>185</x>
      <y>98</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1189,7 +1150,7 @@
      <x>219</x>
      <y>98</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1213,7 +1174,7 @@
      <x>254</x>
      <y>98</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1237,7 +1198,7 @@
      <x>288</x>
      <y>98</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1261,7 +1222,7 @@
      <x>323</x>
      <y>98</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1285,7 +1246,7 @@
      <x>358</x>
      <y>98</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1309,7 +1270,7 @@
      <x>392</x>
      <y>98</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1333,7 +1294,7 @@
      <x>427</x>
      <y>98</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1357,7 +1318,7 @@
      <x>11</x>
      <y>120</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1381,7 +1342,7 @@
      <x>46</x>
      <y>120</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1405,7 +1366,7 @@
      <x>81</x>
      <y>120</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1429,7 +1390,7 @@
      <x>115</x>
      <y>120</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1453,7 +1414,7 @@
      <x>150</x>
      <y>120</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1480,7 +1441,7 @@
      <x>185</x>
      <y>120</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1504,7 +1465,7 @@
      <x>219</x>
      <y>120</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1528,7 +1489,7 @@
      <x>254</x>
      <y>120</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1552,7 +1513,7 @@
      <x>288</x>
      <y>120</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1576,7 +1537,7 @@
      <x>323</x>
      <y>120</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1600,7 +1561,7 @@
      <x>358</x>
      <y>120</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1624,7 +1585,7 @@
      <x>392</x>
      <y>120</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1648,7 +1609,7 @@
      <x>427</x>
      <y>120</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1672,7 +1633,7 @@
      <x>11</x>
      <y>142</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1696,7 +1657,7 @@
      <x>46</x>
      <y>142</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1720,7 +1681,7 @@
      <x>81</x>
      <y>142</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1744,7 +1705,7 @@
      <x>115</x>
      <y>142</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1768,7 +1729,7 @@
      <x>150</x>
      <y>142</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1792,7 +1753,7 @@
      <x>185</x>
      <y>142</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1819,7 +1780,7 @@
      <x>219</x>
      <y>142</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1843,7 +1804,7 @@
      <x>254</x>
      <y>142</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1867,7 +1828,7 @@
      <x>288</x>
      <y>142</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1891,7 +1852,7 @@
      <x>323</x>
      <y>142</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1915,7 +1876,7 @@
      <x>358</x>
      <y>142</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1939,7 +1900,7 @@
      <x>392</x>
      <y>142</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1963,7 +1924,7 @@
      <x>427</x>
      <y>142</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -1987,7 +1948,7 @@
      <x>11</x>
      <y>164</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2011,7 +1972,7 @@
      <x>46</x>
      <y>164</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2035,7 +1996,7 @@
      <x>81</x>
      <y>164</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2059,7 +2020,7 @@
      <x>115</x>
      <y>164</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2083,7 +2044,7 @@
      <x>150</x>
      <y>164</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2107,7 +2068,7 @@
      <x>185</x>
      <y>164</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2131,7 +2092,7 @@
      <x>219</x>
      <y>164</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -2164,7 +2125,7 @@
      <x>254</x>
      <y>164</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2188,7 +2149,7 @@
      <x>288</x>
      <y>164</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2212,7 +2173,7 @@
      <x>323</x>
      <y>164</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2236,7 +2197,7 @@
      <x>358</x>
      <y>164</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2260,7 +2221,7 @@
      <x>392</x>
      <y>164</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2284,7 +2245,7 @@
      <x>427</x>
      <y>164</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2308,7 +2269,7 @@
      <x>11</x>
      <y>186</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2332,7 +2293,7 @@
      <x>46</x>
      <y>186</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2356,7 +2317,7 @@
      <x>81</x>
      <y>186</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2380,7 +2341,7 @@
      <x>115</x>
      <y>186</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2404,7 +2365,7 @@
      <x>150</x>
      <y>186</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2428,7 +2389,7 @@
      <x>185</x>
      <y>186</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2452,7 +2413,7 @@
      <x>219</x>
      <y>186</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2476,7 +2437,7 @@
      <x>254</x>
      <y>186</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2503,7 +2464,7 @@
      <x>288</x>
      <y>186</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2527,7 +2488,7 @@
      <x>323</x>
      <y>186</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2551,7 +2512,7 @@
      <x>358</x>
      <y>186</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2575,7 +2536,7 @@
      <x>392</x>
      <y>186</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2599,7 +2560,7 @@
      <x>427</x>
      <y>186</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2623,7 +2584,7 @@
      <x>11</x>
      <y>208</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2647,7 +2608,7 @@
      <x>46</x>
      <y>208</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2671,7 +2632,7 @@
      <x>81</x>
      <y>208</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2695,7 +2656,7 @@
      <x>115</x>
      <y>208</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2719,7 +2680,7 @@
      <x>150</x>
      <y>208</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2743,7 +2704,7 @@
      <x>185</x>
      <y>208</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2767,7 +2728,7 @@
      <x>219</x>
      <y>208</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2791,7 +2752,7 @@
      <x>254</x>
      <y>208</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2815,7 +2776,7 @@
      <x>288</x>
      <y>208</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2842,7 +2803,7 @@
      <x>323</x>
      <y>208</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2866,7 +2827,7 @@
      <x>358</x>
      <y>208</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2890,7 +2851,7 @@
      <x>392</x>
      <y>208</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2914,7 +2875,7 @@
      <x>427</x>
      <y>208</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2938,7 +2899,7 @@
      <x>11</x>
      <y>230</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2962,7 +2923,7 @@
      <x>46</x>
      <y>230</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -2986,7 +2947,7 @@
      <x>81</x>
      <y>230</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3010,7 +2971,7 @@
      <x>115</x>
      <y>230</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3034,7 +2995,7 @@
      <x>150</x>
      <y>230</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3058,7 +3019,7 @@
      <x>185</x>
      <y>230</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3082,7 +3043,7 @@
      <x>219</x>
      <y>230</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3106,7 +3067,7 @@
      <x>254</x>
      <y>230</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3130,7 +3091,7 @@
      <x>288</x>
      <y>230</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3154,7 +3115,7 @@
      <x>323</x>
      <y>230</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3181,7 +3142,7 @@
      <x>358</x>
      <y>230</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3205,7 +3166,7 @@
      <x>392</x>
      <y>230</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3229,7 +3190,7 @@
      <x>427</x>
      <y>230</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3253,7 +3214,7 @@
      <x>11</x>
      <y>252</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3277,7 +3238,7 @@
      <x>46</x>
      <y>252</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3301,7 +3262,7 @@
      <x>81</x>
      <y>252</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3325,7 +3286,7 @@
      <x>115</x>
      <y>252</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3349,7 +3310,7 @@
      <x>150</x>
      <y>252</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3373,7 +3334,7 @@
      <x>185</x>
      <y>252</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3397,7 +3358,7 @@
      <x>219</x>
      <y>252</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3421,7 +3382,7 @@
      <x>254</x>
      <y>252</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3445,7 +3406,7 @@
      <x>288</x>
      <y>252</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3469,7 +3430,7 @@
      <x>323</x>
      <y>252</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3493,7 +3454,7 @@
      <x>358</x>
      <y>252</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3520,7 +3481,7 @@
      <x>392</x>
      <y>252</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3544,7 +3505,7 @@
      <x>427</x>
      <y>252</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3568,7 +3529,7 @@
      <x>11</x>
      <y>274</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3592,7 +3553,7 @@
      <x>46</x>
      <y>274</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3616,7 +3577,7 @@
      <x>81</x>
      <y>274</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3640,7 +3601,7 @@
      <x>115</x>
      <y>274</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3664,7 +3625,7 @@
      <x>150</x>
      <y>274</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3688,7 +3649,7 @@
      <x>185</x>
      <y>274</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3712,7 +3673,7 @@
      <x>219</x>
      <y>274</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3736,7 +3697,7 @@
      <x>254</x>
      <y>274</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3760,7 +3721,7 @@
      <x>288</x>
      <y>274</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3784,7 +3745,7 @@
      <x>323</x>
      <y>274</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3808,7 +3769,7 @@
      <x>358</x>
      <y>274</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3832,7 +3793,7 @@
      <x>392</x>
      <y>274</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3859,7 +3820,7 @@
      <x>427</x>
      <y>274</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3883,7 +3844,7 @@
      <x>11</x>
      <y>296</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3907,7 +3868,7 @@
      <x>46</x>
      <y>296</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3931,7 +3892,7 @@
      <x>81</x>
      <y>296</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3955,7 +3916,7 @@
      <x>115</x>
      <y>296</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -3979,7 +3940,7 @@
      <x>150</x>
      <y>296</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -4003,7 +3964,7 @@
      <x>185</x>
      <y>296</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -4027,7 +3988,7 @@
      <x>219</x>
      <y>296</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -4051,7 +4012,7 @@
      <x>254</x>
      <y>296</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -4075,7 +4036,7 @@
      <x>288</x>
      <y>296</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -4099,7 +4060,7 @@
      <x>323</x>
      <y>296</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -4123,7 +4084,7 @@
      <x>358</x>
      <y>296</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -4147,7 +4108,7 @@
      <x>392</x>
      <y>296</y>
      <width>34</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -4171,7 +4132,7 @@
      <x>427</x>
      <y>296</y>
      <width>33</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -4192,25 +4153,6 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QSlider" name="horizontalSlider">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>340</y>
-     <width>451</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>OpenHandCursor</cursorShape>
-   </property>
-   <property name="singleStep">
-    <number>1</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
   <widget class="QCheckBox" name="chk_suit_selector">
    <property name="geometry">
     <rect>
@@ -4222,7 +4164,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>8</pointsize>
+     <pointsize>7</pointsize>
     </font>
    </property>
    <property name="text">
@@ -4232,9 +4174,9 @@
   <widget class="QPushButton" name="button_cancel">
    <property name="geometry">
     <rect>
-     <x>471</x>
-     <y>260</y>
-     <width>121</width>
+     <x>470</x>
+     <y>259</y>
+     <width>111</width>
      <height>23</height>
     </rect>
    </property>
@@ -4242,273 +4184,370 @@
     <string>Cancel</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>30</y>
-     <width>121</width>
-     <height>111</height>
+     <x>11</x>
+     <y>11</y>
+     <width>231</width>
+     <height>16</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QPushButton" name="suit_00">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="suit_10">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QPushButton" name="suit_20">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QPushButton" name="suit_30">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="suit_01">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="suit_11">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="suit_21">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="3">
-     <widget class="QPushButton" name="suit_31">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QPushButton" name="suit_02">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QPushButton" name="suit_12">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QPushButton" name="suit_22">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="3">
-     <widget class="QPushButton" name="suit_32">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QPushButton" name="suit_03">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QPushButton" name="suit_13">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QPushButton" name="suit_23">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="3">
-     <widget class="QPushButton" name="suit_33">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="text">
+    <string>Select the combos for make the range</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_12">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>502</x>
+     <y>73</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_22">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>532</x>
+     <y>73</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_32">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>562</x>
+     <y>73</y>
+     <width>29</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_03">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>472</x>
+     <y>93</y>
+     <width>30</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_21">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>532</x>
+     <y>53</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_31">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>562</x>
+     <y>53</y>
+     <width>29</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_02">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>472</x>
+     <y>73</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_20">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>532</x>
+     <y>33</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_30">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>562</x>
+     <y>33</y>
+     <width>29</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_01">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>472</x>
+     <y>53</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_11">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>502</x>
+     <y>53</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_00">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>472</x>
+     <y>33</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_10">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>502</x>
+     <y>33</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_13">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>502</x>
+     <y>93</y>
+     <width>30</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_23">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>532</x>
+     <y>93</y>
+     <width>30</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_33">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>562</x>
+     <y>93</y>
+     <width>29</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <resources/>

@@ -2,6 +2,9 @@
 #define WINSELECTRANGE_H
 
 #include <QDialog>
+//rangeslider
+#include <QHBoxLayout>
+#include "RangeSlider.h"
 
 //import from header.h
 extern char arr_int_to_let[15];
@@ -32,6 +35,11 @@ private:
     QString tmp_range;
     int selected_range=0;
     int arr_combos[0x3e3f]={};
+
+    //rangeslider
+    QWidget *widget;
+    RangeSlider *rsH, *rsV, *rsHsingleLeft, *rsVsingleLeft, *rsHsingleRight, *rsVsingleRight;
+    QHBoxLayout *layout;
 };
 
 #endif // WINSELECTRANGE_H

@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>478</height>
+    <width>595</width>
+    <height>358</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
@@ -17,7 +23,7 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>230</y>
+     <y>250</y>
      <width>111</width>
      <height>23</height>
     </rect>
@@ -30,7 +36,7 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>288</y>
+     <y>308</y>
      <width>111</width>
      <height>23</height>
     </rect>
@@ -39,24 +45,11 @@
     <string>Clear</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>360</y>
-     <width>21</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>0%</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="combo_AA">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>32</y>
+     <x>13</x>
+     <y>44</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -82,8 +75,8 @@
   <widget class="QPushButton" name="combo_AKs">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>32</y>
+     <x>48</x>
+     <y>44</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -106,8 +99,8 @@
   <widget class="QPushButton" name="combo_AQs">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>32</y>
+     <x>83</x>
+     <y>44</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -130,8 +123,8 @@
   <widget class="QPushButton" name="combo_AJs">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>32</y>
+     <x>117</x>
+     <y>44</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -154,8 +147,8 @@
   <widget class="QPushButton" name="combo_ATs">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>32</y>
+     <x>152</x>
+     <y>44</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -178,8 +171,8 @@
   <widget class="QPushButton" name="combo_A9s">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>32</y>
+     <x>187</x>
+     <y>44</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -202,8 +195,8 @@
   <widget class="QPushButton" name="combo_A8s">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>32</y>
+     <x>221</x>
+     <y>44</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -226,8 +219,8 @@
   <widget class="QPushButton" name="combo_A7s">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>32</y>
+     <x>256</x>
+     <y>44</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -250,8 +243,8 @@
   <widget class="QPushButton" name="combo_A6s">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>32</y>
+     <x>290</x>
+     <y>44</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -274,8 +267,8 @@
   <widget class="QPushButton" name="combo_A5s">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>32</y>
+     <x>325</x>
+     <y>44</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -298,8 +291,8 @@
   <widget class="QPushButton" name="combo_A4s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>32</y>
+     <x>360</x>
+     <y>44</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -322,8 +315,8 @@
   <widget class="QPushButton" name="combo_A3s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>32</y>
+     <x>394</x>
+     <y>44</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -346,8 +339,8 @@
   <widget class="QPushButton" name="combo_A2s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>32</y>
+     <x>429</x>
+     <y>44</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -370,8 +363,8 @@
   <widget class="QPushButton" name="combo_AKo">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>54</y>
+     <x>13</x>
+     <y>66</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -394,8 +387,8 @@
   <widget class="QPushButton" name="combo_KK">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>54</y>
+     <x>48</x>
+     <y>66</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -421,8 +414,8 @@
   <widget class="QPushButton" name="combo_KQs">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>54</y>
+     <x>83</x>
+     <y>66</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -445,8 +438,8 @@
   <widget class="QPushButton" name="combo_KJs">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>54</y>
+     <x>117</x>
+     <y>66</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -469,8 +462,8 @@
   <widget class="QPushButton" name="combo_KTs">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>54</y>
+     <x>152</x>
+     <y>66</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -493,8 +486,8 @@
   <widget class="QPushButton" name="combo_K9s">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>54</y>
+     <x>187</x>
+     <y>66</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -517,8 +510,8 @@
   <widget class="QPushButton" name="combo_K8s">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>54</y>
+     <x>221</x>
+     <y>66</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -541,8 +534,8 @@
   <widget class="QPushButton" name="combo_K7s">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>54</y>
+     <x>256</x>
+     <y>66</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -565,8 +558,8 @@
   <widget class="QPushButton" name="combo_K6s">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>54</y>
+     <x>290</x>
+     <y>66</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -589,8 +582,8 @@
   <widget class="QPushButton" name="combo_K5s">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>54</y>
+     <x>325</x>
+     <y>66</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -613,8 +606,8 @@
   <widget class="QPushButton" name="combo_K4s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>54</y>
+     <x>360</x>
+     <y>66</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -637,8 +630,8 @@
   <widget class="QPushButton" name="combo_K3s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>54</y>
+     <x>394</x>
+     <y>66</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -661,8 +654,8 @@
   <widget class="QPushButton" name="combo_K2s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>54</y>
+     <x>429</x>
+     <y>66</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -685,8 +678,8 @@
   <widget class="QPushButton" name="combo_AQo">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>76</y>
+     <x>13</x>
+     <y>88</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -709,8 +702,8 @@
   <widget class="QPushButton" name="combo_KQo">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>76</y>
+     <x>48</x>
+     <y>88</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -733,8 +726,8 @@
   <widget class="QPushButton" name="combo_QQ">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>76</y>
+     <x>83</x>
+     <y>88</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -760,8 +753,8 @@
   <widget class="QPushButton" name="combo_QJs">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>76</y>
+     <x>117</x>
+     <y>88</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -784,8 +777,8 @@
   <widget class="QPushButton" name="combo_QTs">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>76</y>
+     <x>152</x>
+     <y>88</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -808,8 +801,8 @@
   <widget class="QPushButton" name="combo_Q9s">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>76</y>
+     <x>187</x>
+     <y>88</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -832,8 +825,8 @@
   <widget class="QPushButton" name="combo_Q8s">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>76</y>
+     <x>221</x>
+     <y>88</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -856,8 +849,8 @@
   <widget class="QPushButton" name="combo_Q7s">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>76</y>
+     <x>256</x>
+     <y>88</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -880,8 +873,8 @@
   <widget class="QPushButton" name="combo_Q6s">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>76</y>
+     <x>290</x>
+     <y>88</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -904,8 +897,8 @@
   <widget class="QPushButton" name="combo_Q5s">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>76</y>
+     <x>325</x>
+     <y>88</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -928,8 +921,8 @@
   <widget class="QPushButton" name="combo_Q4s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>76</y>
+     <x>360</x>
+     <y>88</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -952,8 +945,8 @@
   <widget class="QPushButton" name="combo_Q3s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>76</y>
+     <x>394</x>
+     <y>88</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -976,8 +969,8 @@
   <widget class="QPushButton" name="combo_Q2s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>76</y>
+     <x>429</x>
+     <y>88</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1000,8 +993,8 @@
   <widget class="QPushButton" name="combo_AJo">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>98</y>
+     <x>13</x>
+     <y>110</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1024,8 +1017,8 @@
   <widget class="QPushButton" name="combo_KJo">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>98</y>
+     <x>48</x>
+     <y>110</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1048,8 +1041,8 @@
   <widget class="QPushButton" name="combo_QJo">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>98</y>
+     <x>83</x>
+     <y>110</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1072,8 +1065,8 @@
   <widget class="QPushButton" name="combo_JJ">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>98</y>
+     <x>117</x>
+     <y>110</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1099,8 +1092,8 @@
   <widget class="QPushButton" name="combo_JTs">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>98</y>
+     <x>152</x>
+     <y>110</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1123,8 +1116,8 @@
   <widget class="QPushButton" name="combo_J9s">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>98</y>
+     <x>187</x>
+     <y>110</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1147,8 +1140,8 @@
   <widget class="QPushButton" name="combo_J8s">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>98</y>
+     <x>221</x>
+     <y>110</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1171,8 +1164,8 @@
   <widget class="QPushButton" name="combo_J7s">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>98</y>
+     <x>256</x>
+     <y>110</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1195,8 +1188,8 @@
   <widget class="QPushButton" name="combo_J6s">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>98</y>
+     <x>290</x>
+     <y>110</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1219,8 +1212,8 @@
   <widget class="QPushButton" name="combo_J5s">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>98</y>
+     <x>325</x>
+     <y>110</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1243,8 +1236,8 @@
   <widget class="QPushButton" name="combo_J4s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>98</y>
+     <x>360</x>
+     <y>110</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1267,8 +1260,8 @@
   <widget class="QPushButton" name="combo_J3s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>98</y>
+     <x>394</x>
+     <y>110</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1291,8 +1284,8 @@
   <widget class="QPushButton" name="combo_J2s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>98</y>
+     <x>429</x>
+     <y>110</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1315,8 +1308,8 @@
   <widget class="QPushButton" name="combo_ATo">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>120</y>
+     <x>13</x>
+     <y>132</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1339,8 +1332,8 @@
   <widget class="QPushButton" name="combo_KTo">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>120</y>
+     <x>48</x>
+     <y>132</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1363,8 +1356,8 @@
   <widget class="QPushButton" name="combo_QTo">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>120</y>
+     <x>83</x>
+     <y>132</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1387,8 +1380,8 @@
   <widget class="QPushButton" name="combo_JTo">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>120</y>
+     <x>117</x>
+     <y>132</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1411,8 +1404,8 @@
   <widget class="QPushButton" name="combo_TT">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>120</y>
+     <x>152</x>
+     <y>132</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1438,8 +1431,8 @@
   <widget class="QPushButton" name="combo_T9s">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>120</y>
+     <x>187</x>
+     <y>132</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1462,8 +1455,8 @@
   <widget class="QPushButton" name="combo_T8s">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>120</y>
+     <x>221</x>
+     <y>132</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1486,8 +1479,8 @@
   <widget class="QPushButton" name="combo_T7s">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>120</y>
+     <x>256</x>
+     <y>132</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1510,8 +1503,8 @@
   <widget class="QPushButton" name="combo_T6s">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>120</y>
+     <x>290</x>
+     <y>132</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1534,8 +1527,8 @@
   <widget class="QPushButton" name="combo_T5s">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>120</y>
+     <x>325</x>
+     <y>132</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1558,8 +1551,8 @@
   <widget class="QPushButton" name="combo_T4s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>120</y>
+     <x>360</x>
+     <y>132</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1582,8 +1575,8 @@
   <widget class="QPushButton" name="combo_T3s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>120</y>
+     <x>394</x>
+     <y>132</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1606,8 +1599,8 @@
   <widget class="QPushButton" name="combo_T2s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>120</y>
+     <x>429</x>
+     <y>132</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1630,8 +1623,8 @@
   <widget class="QPushButton" name="combo_A9o">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>142</y>
+     <x>13</x>
+     <y>154</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1654,8 +1647,8 @@
   <widget class="QPushButton" name="combo_K9o">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>142</y>
+     <x>48</x>
+     <y>154</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1678,8 +1671,8 @@
   <widget class="QPushButton" name="combo_Q9o">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>142</y>
+     <x>83</x>
+     <y>154</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1702,8 +1695,8 @@
   <widget class="QPushButton" name="combo_J9o">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>142</y>
+     <x>117</x>
+     <y>154</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1726,8 +1719,8 @@
   <widget class="QPushButton" name="combo_T9o">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>142</y>
+     <x>152</x>
+     <y>154</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1750,8 +1743,8 @@
   <widget class="QPushButton" name="combo_99">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>142</y>
+     <x>187</x>
+     <y>154</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1777,8 +1770,8 @@
   <widget class="QPushButton" name="combo_98s">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>142</y>
+     <x>221</x>
+     <y>154</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1801,8 +1794,8 @@
   <widget class="QPushButton" name="combo_97s">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>142</y>
+     <x>256</x>
+     <y>154</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1825,8 +1818,8 @@
   <widget class="QPushButton" name="combo_96s">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>142</y>
+     <x>290</x>
+     <y>154</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1849,8 +1842,8 @@
   <widget class="QPushButton" name="combo_95s">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>142</y>
+     <x>325</x>
+     <y>154</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1873,8 +1866,8 @@
   <widget class="QPushButton" name="combo_94s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>142</y>
+     <x>360</x>
+     <y>154</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1897,8 +1890,8 @@
   <widget class="QPushButton" name="combo_93s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>142</y>
+     <x>394</x>
+     <y>154</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1921,8 +1914,8 @@
   <widget class="QPushButton" name="combo_92s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>142</y>
+     <x>429</x>
+     <y>154</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -1945,8 +1938,8 @@
   <widget class="QPushButton" name="combo_A8o">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>164</y>
+     <x>13</x>
+     <y>176</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1969,8 +1962,8 @@
   <widget class="QPushButton" name="combo_K8o">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>164</y>
+     <x>48</x>
+     <y>176</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -1993,8 +1986,8 @@
   <widget class="QPushButton" name="combo_Q8o">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>164</y>
+     <x>83</x>
+     <y>176</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2017,8 +2010,8 @@
   <widget class="QPushButton" name="combo_J8o">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>164</y>
+     <x>117</x>
+     <y>176</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2041,8 +2034,8 @@
   <widget class="QPushButton" name="combo_T8o">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>164</y>
+     <x>152</x>
+     <y>176</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2065,8 +2058,8 @@
   <widget class="QPushButton" name="combo_98o">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>164</y>
+     <x>187</x>
+     <y>176</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2089,8 +2082,8 @@
   <widget class="QPushButton" name="combo_88">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>164</y>
+     <x>221</x>
+     <y>176</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2122,8 +2115,8 @@
   <widget class="QPushButton" name="combo_87s">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>164</y>
+     <x>256</x>
+     <y>176</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2146,8 +2139,8 @@
   <widget class="QPushButton" name="combo_86s">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>164</y>
+     <x>290</x>
+     <y>176</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2170,8 +2163,8 @@
   <widget class="QPushButton" name="combo_85s">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>164</y>
+     <x>325</x>
+     <y>176</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2194,8 +2187,8 @@
   <widget class="QPushButton" name="combo_84s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>164</y>
+     <x>360</x>
+     <y>176</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2218,8 +2211,8 @@
   <widget class="QPushButton" name="combo_83s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>164</y>
+     <x>394</x>
+     <y>176</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2242,8 +2235,8 @@
   <widget class="QPushButton" name="combo_82s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>164</y>
+     <x>429</x>
+     <y>176</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2266,8 +2259,8 @@
   <widget class="QPushButton" name="combo_A7o">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>186</y>
+     <x>13</x>
+     <y>198</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2290,8 +2283,8 @@
   <widget class="QPushButton" name="combo_K7o">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>186</y>
+     <x>48</x>
+     <y>198</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2314,8 +2307,8 @@
   <widget class="QPushButton" name="combo_Q7o">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>186</y>
+     <x>83</x>
+     <y>198</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2338,8 +2331,8 @@
   <widget class="QPushButton" name="combo_J7o">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>186</y>
+     <x>117</x>
+     <y>198</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2362,8 +2355,8 @@
   <widget class="QPushButton" name="combo_T7o">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>186</y>
+     <x>152</x>
+     <y>198</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2386,8 +2379,8 @@
   <widget class="QPushButton" name="combo_97o">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>186</y>
+     <x>187</x>
+     <y>198</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2410,8 +2403,8 @@
   <widget class="QPushButton" name="combo_87o">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>186</y>
+     <x>221</x>
+     <y>198</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2434,8 +2427,8 @@
   <widget class="QPushButton" name="combo_77">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>186</y>
+     <x>256</x>
+     <y>198</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2461,8 +2454,8 @@
   <widget class="QPushButton" name="combo_76s">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>186</y>
+     <x>290</x>
+     <y>198</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2485,8 +2478,8 @@
   <widget class="QPushButton" name="combo_75s">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>186</y>
+     <x>325</x>
+     <y>198</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2509,8 +2502,8 @@
   <widget class="QPushButton" name="combo_74s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>186</y>
+     <x>360</x>
+     <y>198</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2533,8 +2526,8 @@
   <widget class="QPushButton" name="combo_73s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>186</y>
+     <x>394</x>
+     <y>198</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2557,8 +2550,8 @@
   <widget class="QPushButton" name="combo_72s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>186</y>
+     <x>429</x>
+     <y>198</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2581,8 +2574,8 @@
   <widget class="QPushButton" name="combo_A6o">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>208</y>
+     <x>13</x>
+     <y>220</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2605,8 +2598,8 @@
   <widget class="QPushButton" name="combo_K6o">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>208</y>
+     <x>48</x>
+     <y>220</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2629,8 +2622,8 @@
   <widget class="QPushButton" name="combo_Q6o">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>208</y>
+     <x>83</x>
+     <y>220</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2653,8 +2646,8 @@
   <widget class="QPushButton" name="combo_J6o">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>208</y>
+     <x>117</x>
+     <y>220</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2677,8 +2670,8 @@
   <widget class="QPushButton" name="combo_T6o">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>208</y>
+     <x>152</x>
+     <y>220</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2701,8 +2694,8 @@
   <widget class="QPushButton" name="combo_96o">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>208</y>
+     <x>187</x>
+     <y>220</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2725,8 +2718,8 @@
   <widget class="QPushButton" name="combo_86o">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>208</y>
+     <x>221</x>
+     <y>220</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2749,8 +2742,8 @@
   <widget class="QPushButton" name="combo_76o">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>208</y>
+     <x>256</x>
+     <y>220</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2773,8 +2766,8 @@
   <widget class="QPushButton" name="combo_66">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>208</y>
+     <x>290</x>
+     <y>220</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2800,8 +2793,8 @@
   <widget class="QPushButton" name="combo_65s">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>208</y>
+     <x>325</x>
+     <y>220</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2824,8 +2817,8 @@
   <widget class="QPushButton" name="combo_64s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>208</y>
+     <x>360</x>
+     <y>220</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2848,8 +2841,8 @@
   <widget class="QPushButton" name="combo_63s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>208</y>
+     <x>394</x>
+     <y>220</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2872,8 +2865,8 @@
   <widget class="QPushButton" name="combo_62s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>208</y>
+     <x>429</x>
+     <y>220</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2896,8 +2889,8 @@
   <widget class="QPushButton" name="combo_A5o">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>230</y>
+     <x>13</x>
+     <y>242</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2920,8 +2913,8 @@
   <widget class="QPushButton" name="combo_K5o">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>230</y>
+     <x>48</x>
+     <y>242</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2944,8 +2937,8 @@
   <widget class="QPushButton" name="combo_Q5o">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>230</y>
+     <x>83</x>
+     <y>242</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -2968,8 +2961,8 @@
   <widget class="QPushButton" name="combo_J5o">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>230</y>
+     <x>117</x>
+     <y>242</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -2992,8 +2985,8 @@
   <widget class="QPushButton" name="combo_T5o">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>230</y>
+     <x>152</x>
+     <y>242</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3016,8 +3009,8 @@
   <widget class="QPushButton" name="combo_95o">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>230</y>
+     <x>187</x>
+     <y>242</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3040,8 +3033,8 @@
   <widget class="QPushButton" name="combo_85o">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>230</y>
+     <x>221</x>
+     <y>242</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3064,8 +3057,8 @@
   <widget class="QPushButton" name="combo_75o">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>230</y>
+     <x>256</x>
+     <y>242</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3088,8 +3081,8 @@
   <widget class="QPushButton" name="combo_65o">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>230</y>
+     <x>290</x>
+     <y>242</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3112,8 +3105,8 @@
   <widget class="QPushButton" name="combo_55">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>230</y>
+     <x>325</x>
+     <y>242</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3139,8 +3132,8 @@
   <widget class="QPushButton" name="combo_54s">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>230</y>
+     <x>360</x>
+     <y>242</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3163,8 +3156,8 @@
   <widget class="QPushButton" name="combo_53s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>230</y>
+     <x>394</x>
+     <y>242</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3187,8 +3180,8 @@
   <widget class="QPushButton" name="combo_52s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>230</y>
+     <x>429</x>
+     <y>242</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3211,8 +3204,8 @@
   <widget class="QPushButton" name="combo_A4o">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>252</y>
+     <x>13</x>
+     <y>264</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3235,8 +3228,8 @@
   <widget class="QPushButton" name="combo_K4o">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>252</y>
+     <x>48</x>
+     <y>264</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3259,8 +3252,8 @@
   <widget class="QPushButton" name="combo_Q4o">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>252</y>
+     <x>83</x>
+     <y>264</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3283,8 +3276,8 @@
   <widget class="QPushButton" name="combo_J4o">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>252</y>
+     <x>117</x>
+     <y>264</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3307,8 +3300,8 @@
   <widget class="QPushButton" name="combo_T4o">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>252</y>
+     <x>152</x>
+     <y>264</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3331,8 +3324,8 @@
   <widget class="QPushButton" name="combo_94o">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>252</y>
+     <x>187</x>
+     <y>264</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3355,8 +3348,8 @@
   <widget class="QPushButton" name="combo_84o">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>252</y>
+     <x>221</x>
+     <y>264</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3379,8 +3372,8 @@
   <widget class="QPushButton" name="combo_74o">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>252</y>
+     <x>256</x>
+     <y>264</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3403,8 +3396,8 @@
   <widget class="QPushButton" name="combo_64o">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>252</y>
+     <x>290</x>
+     <y>264</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3427,8 +3420,8 @@
   <widget class="QPushButton" name="combo_54o">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>252</y>
+     <x>325</x>
+     <y>264</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3451,8 +3444,8 @@
   <widget class="QPushButton" name="combo_44">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>252</y>
+     <x>360</x>
+     <y>264</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3478,8 +3471,8 @@
   <widget class="QPushButton" name="combo_43s">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>252</y>
+     <x>394</x>
+     <y>264</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3502,8 +3495,8 @@
   <widget class="QPushButton" name="combo_42s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>252</y>
+     <x>429</x>
+     <y>264</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3526,8 +3519,8 @@
   <widget class="QPushButton" name="combo_A3o">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>274</y>
+     <x>13</x>
+     <y>286</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3550,8 +3543,8 @@
   <widget class="QPushButton" name="combo_K3o">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>274</y>
+     <x>48</x>
+     <y>286</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3574,8 +3567,8 @@
   <widget class="QPushButton" name="combo_Q3o">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>274</y>
+     <x>83</x>
+     <y>286</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3598,8 +3591,8 @@
   <widget class="QPushButton" name="combo_J3o">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>274</y>
+     <x>117</x>
+     <y>286</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3622,8 +3615,8 @@
   <widget class="QPushButton" name="combo_T3o">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>274</y>
+     <x>152</x>
+     <y>286</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3646,8 +3639,8 @@
   <widget class="QPushButton" name="combo_93o">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>274</y>
+     <x>187</x>
+     <y>286</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3670,8 +3663,8 @@
   <widget class="QPushButton" name="combo_83o">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>274</y>
+     <x>221</x>
+     <y>286</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3694,8 +3687,8 @@
   <widget class="QPushButton" name="combo_73o">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>274</y>
+     <x>256</x>
+     <y>286</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3718,8 +3711,8 @@
   <widget class="QPushButton" name="combo_63o">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>274</y>
+     <x>290</x>
+     <y>286</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3742,8 +3735,8 @@
   <widget class="QPushButton" name="combo_53o">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>274</y>
+     <x>325</x>
+     <y>286</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3766,8 +3759,8 @@
   <widget class="QPushButton" name="combo_43o">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>274</y>
+     <x>360</x>
+     <y>286</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3790,8 +3783,8 @@
   <widget class="QPushButton" name="combo_33">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>274</y>
+     <x>394</x>
+     <y>286</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3817,8 +3810,8 @@
   <widget class="QPushButton" name="combo_32s">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>274</y>
+     <x>429</x>
+     <y>286</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3841,8 +3834,8 @@
   <widget class="QPushButton" name="combo_A2o">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>296</y>
+     <x>13</x>
+     <y>308</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3865,8 +3858,8 @@
   <widget class="QPushButton" name="combo_K2o">
    <property name="geometry">
     <rect>
-     <x>46</x>
-     <y>296</y>
+     <x>48</x>
+     <y>308</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3889,8 +3882,8 @@
   <widget class="QPushButton" name="combo_Q2o">
    <property name="geometry">
     <rect>
-     <x>81</x>
-     <y>296</y>
+     <x>83</x>
+     <y>308</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3913,8 +3906,8 @@
   <widget class="QPushButton" name="combo_J2o">
    <property name="geometry">
     <rect>
-     <x>115</x>
-     <y>296</y>
+     <x>117</x>
+     <y>308</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3937,8 +3930,8 @@
   <widget class="QPushButton" name="combo_T2o">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>296</y>
+     <x>152</x>
+     <y>308</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -3961,8 +3954,8 @@
   <widget class="QPushButton" name="combo_92o">
    <property name="geometry">
     <rect>
-     <x>185</x>
-     <y>296</y>
+     <x>187</x>
+     <y>308</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -3985,8 +3978,8 @@
   <widget class="QPushButton" name="combo_82o">
    <property name="geometry">
     <rect>
-     <x>219</x>
-     <y>296</y>
+     <x>221</x>
+     <y>308</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -4009,8 +4002,8 @@
   <widget class="QPushButton" name="combo_72o">
    <property name="geometry">
     <rect>
-     <x>254</x>
-     <y>296</y>
+     <x>256</x>
+     <y>308</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -4033,8 +4026,8 @@
   <widget class="QPushButton" name="combo_62o">
    <property name="geometry">
     <rect>
-     <x>288</x>
-     <y>296</y>
+     <x>290</x>
+     <y>308</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -4057,8 +4050,8 @@
   <widget class="QPushButton" name="combo_52o">
    <property name="geometry">
     <rect>
-     <x>323</x>
-     <y>296</y>
+     <x>325</x>
+     <y>308</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -4081,8 +4074,8 @@
   <widget class="QPushButton" name="combo_42o">
    <property name="geometry">
     <rect>
-     <x>358</x>
-     <y>296</y>
+     <x>360</x>
+     <y>308</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -4105,8 +4098,8 @@
   <widget class="QPushButton" name="combo_32o">
    <property name="geometry">
     <rect>
-     <x>392</x>
-     <y>296</y>
+     <x>394</x>
+     <y>308</y>
      <width>34</width>
      <height>22</height>
     </rect>
@@ -4129,8 +4122,8 @@
   <widget class="QPushButton" name="combo_22">
    <property name="geometry">
     <rect>
-     <x>427</x>
-     <y>296</y>
+     <x>429</x>
+     <y>308</y>
      <width>33</width>
      <height>22</height>
     </rect>
@@ -4157,8 +4150,8 @@
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>10</y>
-     <width>131</width>
+     <y>130</y>
+     <width>121</width>
      <height>20</height>
     </rect>
    </property>
@@ -4168,14 +4161,14 @@
     </font>
    </property>
    <property name="text">
-    <string> On/Off Suit selector</string>
+    <string>On/Off suit selector</string>
    </property>
   </widget>
   <widget class="QPushButton" name="button_cancel">
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>259</y>
+     <y>279</y>
      <width>111</width>
      <height>23</height>
     </rect>
@@ -4187,8 +4180,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>11</y>
+     <x>10</x>
+     <y>20</y>
      <width>231</width>
      <height>16</height>
     </rect>
@@ -4197,14 +4190,36 @@
     <string>Select the combos for make the range</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="suit_12">
+  <widget class="QPushButton" name="suit_03">
    <property name="enabled">
     <bool>false</bool>
    </property>
    <property name="geometry">
     <rect>
-     <x>502</x>
-     <y>73</y>
+     <x>470</x>
+     <y>110</y>
+     <width>30</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_20">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>50</y>
      <width>30</width>
      <height>20</height>
     </rect>
@@ -4225,54 +4240,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>532</x>
-     <y>73</y>
+     <x>530</x>
+     <y>90</y>
      <width>30</width>
      <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="suit_32">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>562</x>
-     <y>73</y>
-     <width>29</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="suit_03">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>472</x>
-     <y>93</y>
-     <width>30</width>
-     <height>19</height>
     </rect>
    </property>
    <property name="text">
@@ -4291,74 +4262,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>532</x>
-     <y>53</y>
-     <width>30</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="suit_31">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>562</x>
-     <y>53</y>
-     <width>29</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="suit_02">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>472</x>
-     <y>73</y>
-     <width>30</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="suit_20">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>532</x>
-     <y>33</y>
+     <x>530</x>
+     <y>70</y>
      <width>30</width>
      <height>20</height>
     </rect>
@@ -4379,31 +4284,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>562</x>
-     <y>33</y>
+     <x>560</x>
+     <y>50</y>
      <width>29</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="suit_01">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>472</x>
-     <y>53</y>
-     <width>30</width>
      <height>20</height>
     </rect>
    </property>
@@ -4423,30 +4306,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>502</x>
-     <y>53</y>
-     <width>30</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="suit_00">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>472</x>
-     <y>33</y>
+     <x>500</x>
+     <y>70</y>
      <width>30</width>
      <height>20</height>
     </rect>
@@ -4467,8 +4328,140 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>502</x>
-     <y>33</y>
+     <x>500</x>
+     <y>50</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_12">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>90</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_00">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>50</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_01">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>70</y>
+     <width>30</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_32">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>90</y>
+     <width>29</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_31">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>70</y>
+     <width>29</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="suit_02">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>90</y>
      <width>30</width>
      <height>20</height>
     </rect>
@@ -4489,30 +4482,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>502</x>
-     <y>93</y>
-     <width>30</width>
-     <height>19</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="suit_23">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>532</x>
-     <y>93</y>
+     <x>500</x>
+     <y>110</y>
      <width>30</width>
      <height>19</height>
     </rect>
@@ -4533,8 +4504,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>562</x>
-     <y>93</y>
+     <x>560</x>
+     <y>110</y>
      <width>29</width>
      <height>19</height>
     </rect>
@@ -4548,6 +4519,88 @@
    <property name="checked">
     <bool>true</bool>
    </property>
+  </widget>
+  <widget class="QPushButton" name="suit_23">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>110</y>
+     <width>30</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>342</x>
+     <y>12</y>
+     <width>121</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="horizontalSpacing">
+     <number>2</number>
+    </property>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_vpip">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;VPIP:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="indent">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLineEdit" name="line_vpip">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_pfr">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;PFR:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="line_pfr">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

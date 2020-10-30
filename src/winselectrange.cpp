@@ -10,31 +10,20 @@ WinSelectRange::WinSelectRange(QWidget *parent) : QDialog(parent),ui(new Ui::Win
     // Load an application style
     ui->setupUi(this);
 
-
     widget = new QWidget(this);
-    rsH = new RangeSlider(Qt::Horizontal, RangeSlider::Option::DoubleHandles, nullptr);
-//    rsV = new RangeSlider(Qt::Vertical, RangeSlider::Option::DoubleHandles, nullptr);
-//    rsHsingleLeft = new RangeSlider(Qt::Horizontal, RangeSlider::Option::LeftHandle, nullptr);
-//    rsVsingleLeft = new RangeSlider(Qt::Vertical, RangeSlider::Option::LeftHandle, nullptr);
-//    rsHsingleRight = new RangeSlider(Qt::Horizontal, RangeSlider::Option::RightHandle, nullptr);
-//    rsVsingleRight = new RangeSlider(Qt::Vertical, RangeSlider::Option::RightHandle, nullptr);
-    rsH->setFixedWidth(445);
-
+    RangePFRVPIP = new RangeSlider(Qt::Horizontal, RangeSlider::Option::DoubleHandles, nullptr);
+    RangePFRVPIP->setFixedWidth(445);
+    RangePFRVPIP->setMinimum(0);
+    RangePFRVPIP->setMaximum(100);
+    RangePFRVPIP->setLowerValue(0);
+    RangePFRVPIP->setUpperValue(0);
     layout = new QHBoxLayout();
-    layout->addWidget(rsH);
-//    layout->addWidget(rsV);
-//    layout->addWidget(rsHsingleLeft);
-//    layout->addWidget(rsVsingleLeft);
-//    layout->addWidget(rsHsingleRight);
-//    layout->addWidget(rsVsingleRight);
+    layout->addWidget(RangePFRVPIP);
     widget->setLayout(layout);
-    widget->move(5,320);
-//   this->setCentralWidget(widget);
+    widget->move(5,330);
 
-//    resize(QDesktopWidget().availableGeometry(this).size() * 0.7);
-    resize(QDesktopWidget().availableGeometry(this).size() * 0.7);
-
-
+    connect(this->RangePFRVPIP,SIGNAL(upperValueChanged(int)),this,SLOT(updatePFRVPIP()));
+    connect(this->RangePFRVPIP,SIGNAL(lowerValueChanged(int)),this,SLOT(updatePFRVPIP()));
 
     connect(ui->combo_AA, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xe,0,ui->combo_AA->isChecked());});
     connect(ui->combo_KK, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xd,0,ui->combo_KK->isChecked());});
@@ -643,4 +632,8 @@ void WinSelectRange::changeSuitSelector(){
 }
 QString WinSelectRange::getRange(){
     return tmp_range;
+}
+void WinSelectRange::updatePFRVPIP(){
+    ui->line_pfr->setText(QString::number(RangePFRVPIP->GetLowerValue()));
+    ui->line_vpip->setText(QString::number(RangePFRVPIP->GetUpperValue()));
 }

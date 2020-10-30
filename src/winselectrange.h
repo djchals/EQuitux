@@ -30,6 +30,9 @@ public:
     void changeSuitSelector();
     QString getRange();
 
+private slots:
+    void updatePFRVPIP();
+
 private:
     Ui::WinSelectRange *ui;
     QString tmp_range;
@@ -38,7 +41,7 @@ private:
 
     //rangeslider
     QWidget *widget;
-    RangeSlider *rsH, *rsV, *rsHsingleLeft, *rsVsingleLeft, *rsHsingleRight, *rsVsingleRight;
+    RangeSlider *RangePFRVPIP;
     QHBoxLayout *layout;
 };
 

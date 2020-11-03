@@ -40,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         ui->range_6->setText("");
         ui->win_6->display(0);
     });
+
     connect(ui->card_02, &QPushButton::clicked,[&](){put_card_on_board(ui->card_02->objectName());});
     connect(ui->card_03, &QPushButton::clicked,[&](){put_card_on_board(ui->card_03->objectName());});
     connect(ui->card_04, &QPushButton::clicked,[&](){put_card_on_board(ui->card_04->objectName());});
@@ -442,4 +443,6 @@ void MainWindow::show_tied_pcent(int i_player, int num_pcent){
 //        case 6:ui->tie_6->display(num_pcent);break;
     }
 }
+
+
 

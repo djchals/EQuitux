@@ -44,7 +44,8 @@ int long_hex_pos[6];
 // HERO_COMBOS[x][x][6]=0x34
 
 
-char HERO_COMBOS[6][1326][7];
+//the player 6 and 7 are for create temporal ranges in gui in rangeslider
+char HERO_COMBOS[6][1326][7]={};
 // int *HERO_H_VALUES;
 
 // HERO_H_VALUES=malloc(6*10000*1326*sizeof(int));

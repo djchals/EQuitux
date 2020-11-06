@@ -12,9 +12,9 @@ const int scLeftRightMargin = 1;
 RangeSlider::RangeSlider(QWidget* aParent)
     : QWidget(aParent),
       mMinimum(0),
-      mMaximum(100),
+      mMaximum(99),
       mLowerValue(0),
-      mUpperValue(100),
+      mUpperValue(99),
       mFirstHandlePressed(false),
       mSecondHandlePressed(false),
       mInterval(mMaximum - mMinimum),

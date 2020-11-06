@@ -32,7 +32,7 @@ public:
     void putComboOnRange(int num1, int num2,int flag_suited, bool flag_checked);
     void changeSuitSelector();
     QString getRange();
-    void initRange(QString str_range, int i_player);
+    void initRange(QString str_range, int i_player,bool flag_no_print_it);
     void convArrCombosToString(bool flag_separated_range);
     void initPcents();
     void unCheckAllCombos();
@@ -49,8 +49,10 @@ private:
     bool arr_combos[0x3e3f]={};
     int arr_tmp_delete[0x3e3f]={0};
 
+    QString old_separated;
     QString arr_all_pcent[100];
-    QButtonGroup *cardMatrix;
+    bool cardMatrix[100][169]={false};
+    QString arr_button_names[169];
     //rangeslider
     QWidget *widget;
     RangeSlider *RangePFRVPIP;

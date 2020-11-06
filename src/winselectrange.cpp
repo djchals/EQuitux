@@ -6,6 +6,7 @@
 #include <QDesktopWidget>
 #include <QPoint>
 //
+#include "init_cardmatrix.h"
 
 WinSelectRange::WinSelectRange(QWidget *parent) : QDialog(parent),ui(new Ui::WinSelectRange){
     // Load an application style
@@ -229,14 +230,16 @@ WinSelectRange::WinSelectRange(QWidget *parent) : QDialog(parent),ui(new Ui::Win
         this->clearData();
     });
     connect(ui->boton, &QPushButton::clicked,[&](){
-        int j=0;
-        for(int i=0;i<=0x3e3e;i++){
-            if(this->arr_combos[i]==true){
-                j++;
-            }
-        }
-        qDebug() << "el valor de j: " << j;
-                qDebug() << "separated_range: " << this->separated_range;
+//        int j=0;
+//        for(int i=0;i<=0x3e3e;i++){
+//            if(this->arr_combos[i]==true){
+//                j++;
+//            }
+//        }
+int i=0;
+for(i=0;i<100;i++){
+    ui->line_vpip->setText(QString::number(i));
+}
     });
     connect(ui->line_pfr, &QLineEdit::textChanged,[&](){
         int cmp0=ui->line_pfr->text().toInt();
@@ -383,7 +386,8 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
 }
 void WinSelectRange::convArrCombosToString(bool flag_separated_range){
     //copy the main array arr_combos[] to tmp_arr_combos[] for manipulate it and create the string range
-    int i,j,tmp_hex;
+    int i,j;
+    int tmp_hex;
     int tmp_arr_combos[0x3e3f]={0};
     for(i=0;i<=0x3e3e;i++){
         if(this->arr_combos[i]==true){
@@ -393,7 +397,8 @@ void WinSelectRange::convArrCombosToString(bool flag_separated_range){
     //define vars for create the subranges
     QString tmp_range;
     QString tmp_sub_range;
-    int cont=0,k,l;
+    int cont=0;
+    int k,l;
     int cmp0=0,cmp1=0;
     bool flag_last_in_a_row=false, flag_last_in_this_subrange=false;
     bool flag_first=true;
@@ -664,66 +669,90 @@ void WinSelectRange::changeSuitSelector(){
 QString WinSelectRange::getRange(){
     return this->all_range;
 }
-void WinSelectRange::updatePFRVPIP(){
-    int i,tmp_hex;
-    memset(arr_tmp_delete,0,sizeof(int)*0x3e3f);
+//void WinSelectRange::saveRange(){
+//    int i,tmp_hex;
+//    memset(arr_tmp_delete,0,sizeof(int)*0x3e3f);
 
+//    int num_lower=this->RangePFRVPIP->GetLowerValue();
+//    int num_upper=this->RangePFRVPIP->GetUpperValue();
+
+//    ui->line_pfr->setText(QString::number(num_lower));
+//    ui->line_vpip->setText(QString::number(num_upper));
+
+//    int pfr=num_lower;
+//    int vpip=num_upper;
+
+//    //if have it, first save the combos for delete in arr_tmp_delete(prf)
+//    if(num_lower>0){
+//        memset(HERO_COMBOS[4],0,sizeof(char)*((1326*7)-1));
+//        initRange(this->arr_all_pcent[pfr],4,true);
+//        for(i=0;i<1326;i++){
+//            if(HERO_COMBOS[4][i][2]!=0 && HERO_COMBOS[4][i][4]!=0){
+////                qDebug() << "antes";
+//                tmp_hex=(0x1000*HERO_COMBOS[4][i][1])+(0x100*HERO_COMBOS[4][i][2])+(0x10*HERO_COMBOS[4][i][3])+HERO_COMBOS[4][i][4];
+//                //for adjust it is in conv_pkr.h, line 34 int ovector[2048] works fine.
+//                if(tmp_hex<0x3e3f && tmp_hex>=0x202){
+//                //el error anda por aquí
+//                    arr_tmp_delete[tmp_hex]=1;
+//                }
+//            }
+//        }
+//    }
+//    //
+//    memset(HERO_COMBOS[5],0,sizeof(char)*((1326*7)-1));
+//    //now get the all the combos selected in this->arr_combos
+//    initRange(this->arr_all_pcent[vpip],5,true);
+//    //
+//    if(num_lower>0){
+//        //and do the rest vpip-pfr
+//        for(i=0;i<0x3e3f;i++){
+//            if(arr_tmp_delete[i]==1){
+////                qDebug() << "borrando: " << hex <<i;
+//                this->arr_combos[i]=false;
+//            }
+//        }
+//    }
+
+//    convArrCombosToString(true);
+//    if(this->separated_range!=this->old_separated){
+//        this->old_separated=this->separated_range;
+//        qDebug() << "separated" << this->separated_range;
+//    }
+//    QString i_button;
+//    QStringList button_list= this->separated_range.split(QLatin1Char(','), QString::SkipEmptyParts);
+//    unCheckAllCombos();
+//    foreach(i_button,button_list){
+//        i_button.prepend("combo_");
+////        qDebug() << "i_button: " << i_button;
+//        QPushButton *act_button = this->findChild<QPushButton *>(i_button);
+////        qDebug() << act_button;
+//        act_button->setChecked(true);//esta línea si la comento deja de fallar al mover el slider hacia el 99 fallando justo en el 69
+//    }
+//}
+
+
+void WinSelectRange::updatePFRVPIP(){
     int num_lower=this->RangePFRVPIP->GetLowerValue();
     int num_upper=this->RangePFRVPIP->GetUpperValue();
+    int i=0;
 
     ui->line_pfr->setText(QString::number(num_lower));
     ui->line_vpip->setText(QString::number(num_upper));
 
-    int pfr=num_lower;
-    int vpip=num_upper;
+    //uncheck the matrix first
+    this->unCheckAllCombos();
+    //
 
-    //if have it, first save the combos for delete in arr_tmp_delete(prf)
-    if(num_lower>0){
-        memset(HERO_COMBOS[4],0,sizeof(char)*((1326*7)-1));
-        initRange(this->arr_all_pcent[pfr],4);
-        for(i=0;i<1326;i++){
-            if(HERO_COMBOS[4][i][2]!=0 && HERO_COMBOS[4][i][4]!=0){
-                qDebug() << "antes";
-                tmp_hex=(0x1000*HERO_COMBOS[4][i][1])+(0x100*HERO_COMBOS[4][i][2])+(0x10*HERO_COMBOS[4][i][3])+HERO_COMBOS[4][i][4];
-                //for adjust it is in conv_pkr.h, line 34 int ovector[2048] works fine.
-                if(tmp_hex<0x3e3f && tmp_hex>=0x202){
-                //el error anda por aquí
-                    arr_tmp_delete[tmp_hex]=1;
-                    qDebug() << "tmp_hex_delete: " << hex << tmp_hex;
-                }
-            }
+    //check the selected combos
+    for(i=0;i<169;++i){
+        if(!this->cardMatrix[num_lower][i] && this->cardMatrix[num_upper][i]){
+            QPushButton *act_button = this->findChild<QPushButton *>(this->arr_button_names[i]);
+            act_button->setChecked(true);
         }
     }
     //
-    memset(HERO_COMBOS[5],0,sizeof(char)*((1326*7)-1));
-    //now get the all the combos selected in this->arr_combos
-    initRange(this->arr_all_pcent[vpip],5);
-    //
-//    if(num_lower>0){
-        //and do the rest vpip-pfr
-        for(i=0;i<0x3e3f;i++){
-            if(arr_tmp_delete[i]==1){
-                qDebug() << "borrando: " << hex <<i;
-                this->arr_combos[i]=false;
-            }
-        }
-//    }
-
-        convArrCombosToString(true);
-
-    qDebug() << "separated" << this->separated_range;
-    QString i_button;
-    QStringList button_list= this->separated_range.split(QLatin1Char(','), QString::SkipEmptyParts);
-    unCheckAllCombos();
-    foreach(i_button,button_list){
-        i_button.prepend("combo_");
-//        qDebug() << "i_button: " << i_button;
-        QPushButton *act_button = this->findChild<QPushButton *>(i_button);
-        qDebug() << act_button;
-        act_button->setChecked(true);//esta línea si la comento deja de fallar al mover el slider hacia el 99 fallando justo en el 69
-    }
 }
-void WinSelectRange::initRange(QString str_range, int i_player){
+void WinSelectRange::initRange(QString str_range, int i_player, bool flag_no_print_it){
     if(str_range==""){
         return;
     }
@@ -739,8 +768,7 @@ void WinSelectRange::initRange(QString str_range, int i_player){
     memset(HERO_COMBOS[i_player],0,sizeof(char)*((1326*7)-1));
     conv_range_pkr_to_hex(tmp_range,i_player);
     memset(this->arr_combos,0,0x3e3e*sizeof(bool));
-    this->separated_range="";
-    this->all_range="";
+
     for(i=0;i<1326;i++){
         if(HERO_COMBOS[i_player][i][2]!=0 && HERO_COMBOS[i_player][i][4]!=0){
             tmp_hex=(0x1000*HERO_COMBOS[i_player][i][1])+(0x100*HERO_COMBOS[i_player][i][2])+(0x10*HERO_COMBOS[i_player][i][3])+HERO_COMBOS[i_player][i][4];
@@ -748,8 +776,15 @@ void WinSelectRange::initRange(QString str_range, int i_player){
             this->arr_combos[tmp_hex]=true;
         }
     }
-    convArrCombosToString(true);
+    if(flag_no_print_it){
+        return;//if we are here, we are comming from updatePFRVPIP()
+    }
 
+    this->separated_range="";
+
+    this->all_range="";
+    convArrCombosToString(true);
+//    qDebug() << this->separated_range;
     QString i_i_button;
     QStringList i_button_list= this->separated_range.split(QLatin1Char(','), QString::SkipEmptyParts);
     QPushButton *i_act_button;
@@ -761,304 +796,9 @@ void WinSelectRange::initRange(QString str_range, int i_player){
 }
 
 void WinSelectRange::unCheckAllCombos(){
-//    QAbstractButton *checkButton = this->cardMatrix->checkedButton();
-
-//    if(checkButton){
-//        qDebug() << checkButton;
-//        checkButton->setChecked(false);
-//    }
-    int i,j;
-    QString i_button;
-    for(i=2;i<=14;i++){
-       i_button="";
-        QTextStream(&i_button) << "combo_" <<hex << arr_int_to_let[i] << hex <<arr_int_to_let[i];
-        QPushButton *act_button = this->findChild<QPushButton *>(i_button);
+    //clear the matrix first
+    for(i=0;i<169;++i){
+        QPushButton *act_button = this->findChild<QPushButton *>(this->arr_button_names[i]);
         act_button->setChecked(false);
     }
-    for(i=0x0e;i>=3;--i){
-        for(j=i-1;j>=2;--j){
-            i_button="";
-            QTextStream(&i_button) << "combo_" <<hex << arr_int_to_let[i] << hex <<arr_int_to_let[j] << "s";
-            QPushButton *act_button  = this->findChild<QPushButton *>(i_button);
-            act_button->setChecked(false);
-            i_button="";
-            QTextStream(&i_button) << "combo_" <<hex << arr_int_to_let[i] << hex <<arr_int_to_let[j] << "o";
-            act_button = this->findChild<QPushButton *>(i_button);
-            act_button->setChecked(false);
-        }
-    }
-}
-void WinSelectRange::initPcents(){
-    this->arr_all_pcent[0]="";
-    this->arr_all_pcent[1]="QQ+";
-    this->arr_all_pcent[2]="TT+";
-    this->arr_all_pcent[3]="99+,AKs";
-    this->arr_all_pcent[4]="99+,AQs+,AKo";
-    this->arr_all_pcent[5]="88+,AJs+,KQs,AKo";
-    this->arr_all_pcent[6]="88+,ATs+,KQs,AQo+";
-    this->arr_all_pcent[7]="88+,ATs+,KTs+,AQo+";
-    this->arr_all_pcent[8]="88+,ATs+,KTs+,QJs,AJo+";
-    this->arr_all_pcent[9]="88+,ATs+,KTs+,QJs,AJo+,KQo";
-    this->arr_all_pcent[10]="77+,A9s+,KTs+,QTs+,AJo+,KQo";
-    this->arr_all_pcent[11]="77+,A9s+,KTs+,QTs+,ATo+,KQo";
-    this->arr_all_pcent[12]="77+,A9s+,KTs+,QTs+,JTs,ATo+,KJo+";
-    this->arr_all_pcent[13]="77+,A8s+,K9s+,QTs+,JTs,ATo+,KJo+,QJo";
-    this->arr_all_pcent[14]="77+,A7s+,K9s+,QTs+,JTs,ATo+,KTo+,QJo";
-    this->arr_all_pcent[15]="77+,A7s+,K9s+,QTs+,JTs,ATo+,KTo+,QJo";
-    this->arr_all_pcent[16]="66+,A7s+,A5s,K9s+,Q9s+,JTs,ATo+,KTo+,QJo";
-    this->arr_all_pcent[17]="66+,A5s+,K9s+,Q9s+,JTs,ATo+,KTo+,QTo+";
-    this->arr_all_pcent[18]="66+,A5s+,K9s+,Q9s+,J9s+,A9o+,KTo+,QTo+";
-    this->arr_all_pcent[19]="66+,A4s+,K9s+,Q9s+,J9s+,T9s,A9o+,KTo+,QTo+";
-    this->arr_all_pcent[20]="66+,A4s+,K8s+,Q9s+,J9s+,T9s,A9o+,KTo+,QTo+,JTo";
-    this->arr_all_pcent[21]="66+,A4s+,K7s+,Q9s+,J9s+,T9s,A8o+,KTo+,QTo+,JTo";
-    this->arr_all_pcent[22]="66+,A3s+,K7s+,Q8s+,J9s+,T9s,A8o+,KTo+,QTo+,JTo";
-    this->arr_all_pcent[23]="66+,A3s+,K7s+,Q8s+,J9s+,T9s,A8o+,K9o+,QTo+,JTo";
-    this->arr_all_pcent[24]="66+,A2s+,K6s+,Q8s+,J8s+,T8s+,A8o+,K9o+,QTo+,JTo";
-    this->arr_all_pcent[25]="66+,A2s+,K6s+,Q8s+,J8s+,T8s+,A7o+,K9o+,QTo+,JTo";
-    this->arr_all_pcent[26]="55+,A2s+,K6s+,Q8s+,J8s+,T8s+,A7o+,K9o+,Q9o+,JTo";
-    this->arr_all_pcent[27]="55+,A2s+,K5s+,Q8s+,J8s+,T8s+,98s,A7o+,K9o+,Q9o+,JTo";
-    this->arr_all_pcent[28]="55+,A2s+,K5s+,Q7s+,J8s+,T8s+,98s,A7o+,K9o+,Q9o+,J9o+";
-    this->arr_all_pcent[29]="55+,A2s+,K5s+,Q7s+,J8s+,T8s+,98s,A7o+,A5o,K9o+,Q9o+,J9o+";
-    this->arr_all_pcent[30]="55+,A2s+,K5s+,Q7s+,J8s+,T8s+,98s,A7o+,A5o,K9o+,Q9o+,J9o+,T9o";
-    this->arr_all_pcent[31]="55+,A2s+,K5s+,Q7s+,J8s+,T8s+,98s,A5o+,K9o+,Q9o+,J9o+,T9o";
-    this->arr_all_pcent[32]="55+,A2s+,K4s+,Q7s+,J8s+,T8s+,98s,A5o+,K8o+,Q9o+,J9o+,T9o";
-    this->arr_all_pcent[33]="55+,A2s+,K4s+,Q6s+,J7s+,T7s+,98s,A5o+,K8o+,Q9o+,J9o+,T9o";
-    this->arr_all_pcent[34]="55+,A2s+,K4s+,Q6s+,J7s+,T7s+,98s,A4o+,K8o+,Q9o+,J9o+,T9o";
-    this->arr_all_pcent[35]="55+,A2s+,K3s+,Q5s+,J7s+,T7s+,97s+,87s,A4o+,K8o+,Q9o+,J9o+,T9o";
-    this->arr_all_pcent[36]="55+,A2s+,K3s+,Q5s+,J7s+,T7s+,97s+,87s,A4o+,K7o+,Q9o+,J9o+,T9o";
-    this->arr_all_pcent[37]="44+,A2s+,K3s+,Q5s+,J7s+,T7s+,97s+,87s,A4o+,K7o+,Q8o+,J9o+,T9o";
-    this->arr_all_pcent[38]="44+,A2s+,K3s+,Q5s+,J7s+,T7s+,97s+,87s,A3o+,K7o+,Q8o+,J9o+,T9o";
-    this->arr_all_pcent[39]="44+,A2s+,K2s+,Q5s+,J7s+,T7s+,97s+,87s,A3o+,K7o+,Q8o+,J8o+,T9o";
-    this->arr_all_pcent[40]="44+,A2s+,K2s+,Q4s+,J7s+,T7s+,97s+,87s,A3o+,K7o+,Q8o+,J8o+,T8o+";
-    this->arr_all_pcent[41]="44+,A2s+,K2s+,Q4s+,J6s+,T7s+,97s+,87s,A3o+,K7o+,Q8o+,J8o+,T8o+";
-    this->arr_all_pcent[42]="44+,A2s+,K2s+,Q4s+,J6s+,T7s+,97s+,87s,A3o+,K6o+,Q8o+,J8o+,T8o+";
-    this->arr_all_pcent[43]="44+,A2s+,K2s+,Q4s+,J6s+,T6s+,97s+,87s,A2o+,K6o+,Q8o+,J8o+,T8o+";
-    this->arr_all_pcent[44]="44+,A2s+,K2s+,Q4s+,J6s+,T6s+,97s+,87s,A2o+,K6o+,Q8o+,J8o+,T8o+,98o";
-    this->arr_all_pcent[45]="44+,A2s+,K2s+,Q4s+,J6s+,T6s+,96s+,86s+,76s,A2o+,K6o+,Q8o+,J8o+,T8o+,98o";
-    this->arr_all_pcent[46]="44+,A2s+,K2s+,Q3s+,J5s+,T6s+,96s+,86s+,76s,A2o+,K5o+,Q8o+,J8o+,T8o+,98o";
-    this->arr_all_pcent[47]="44+,A2s+,K2s+,Q3s+,J5s+,T6s+,96s+,86s+,76s,A2o+,K5o+,Q7o+,J8o+,T8o+,98o";
-    this->arr_all_pcent[48]="44+,A2s+,K2s+,Q2s+,J4s+,T6s+,96s+,86s+,76s,A2o+,K5o+,Q7o+,J8o+,T8o+,98o";
-    this->arr_all_pcent[49]="33+,A2s+,K2s+,Q2s+,J4s+,T6s+,96s+,86s+,76s,65s,A2o+,K5o+,Q7o+,J7o+,T8o+,98o";
-    this->arr_all_pcent[50]="33+,A2s+,K2s+,Q2s+,J4s+,T6s+,96s+,86s+,76s,65s,A2o+,K5o+,Q7o+,J7o+,T7o+,98o";
-    this->arr_all_pcent[51]="33+,A2s+,K2s+,Q2s+,J4s+,T6s+,96s+,86s+,76s,65s,A2o+,K4o+,Q7o+,J7o+,T7o+,98o";
-    this->arr_all_pcent[52]="33+,A2s+,K2s+,Q2s+,J4s+,T5s+,96s+,86s+,75s+,65s,A2o+,K4o+,Q7o+,J7o+,T7o+,98o";
-    this->arr_all_pcent[53]="33+,A2s+,K2s+,Q2s+,J4s+,T5s+,96s+,86s+,75s+,65s,A2o+,K4o+,Q6o+,J7o+,T7o+,98o";
-    this->arr_all_pcent[54]="33+,A2s+,K2s+,Q2s+,J3s+,T5s+,95s+,86s+,75s+,65s,A2o+,K4o+,Q6o+,J7o+,T7o+,98o,87o";
-    this->arr_all_pcent[55]="33+,A2s+,K2s+,Q2s+,J3s+,T5s+,95s+,85s+,75s+,65s,A2o+,K4o+,Q6o+,J7o+,T7o+,97o+,87o";
-    this->arr_all_pcent[56]="33+,A2s+,K2s+,Q2s+,J3s+,T4s+,95s+,85s+,75s+,65s,A2o+,K4o+,Q6o+,J7o+,T7o+,97o+,87o";
-    this->arr_all_pcent[57]="33+,A2s+,K2s+,Q2s+,J3s+,T4s+,95s+,85s+,75s+,65s,A2o+,K3o+,Q6o+,J7o+,T7o+,97o+,87o";
-    this->arr_all_pcent[58]="33+,A2s+,K2s+,Q2s+,J2s+,T4s+,95s+,85s+,75s+,65s,54s,A2o+,K3o+,Q5o+,J7o+,T7o+,97o+,87o";
-    this->arr_all_pcent[59]="33+,A2s+,K2s+,Q2s+,J2s+,T3s+,95s+,85s+,75s+,64s+,54s,A2o+,K3o+,Q5o+,J7o+,T7o+,97o+,87o";
-    this->arr_all_pcent[60]="22+,A2s+,K2s+,Q2s+,J2s+,T3s+,95s+,85s+,75s+,64s+,54s,A2o+,K2o+,Q5o+,J7o+,T7o+,97o+,87o";
-    this->arr_all_pcent[61]="22+,A2s+,K2s+,Q2s+,J2s+,T3s+,95s+,85s+,74s+,64s+,54s,A2o+,K2o+,Q5o+,J7o+,T7o+,97o+,87o,76o";
-    this->arr_all_pcent[62]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,95s+,85s+,74s+,64s+,54s,A2o+,K2o+,Q4o+,J7o+,T7o+,97o+,87o,76o";
-    this->arr_all_pcent[63]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,95s+,85s+,74s+,64s+,54s,A2o+,K2o+,Q4o+,J6o+,T7o+,97o+,87o,76o";
-    this->arr_all_pcent[64]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,95s+,84s+,74s+,64s+,54s,A2o+,K2o+,Q4o+,J6o+,T7o+,97o+,87o,76o";
-    this->arr_all_pcent[65]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,94s+,84s+,74s+,64s+,54s,A2o+,K2o+,Q4o+,J6o+,T7o+,97o+,86o+,76o";
-    this->arr_all_pcent[66]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,94s+,84s+,74s+,64s+,54s,A2o+,K2o+,Q4o+,J6o+,T6o+,97o+,86o+,76o";
-    this->arr_all_pcent[67]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,94s+,84s+,74s+,64s+,54s,A2o+,K2o+,Q4o+,J6o+,T6o+,96o+,86o+,76o";
-    this->arr_all_pcent[68]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,93s+,84s+,74s+,64s+,53s+,A2o+,K2o+,Q3o+,J6o+,T6o+,96o+,86o+,76o";
-    this->arr_all_pcent[69]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,93s+,84s+,74s+,64s+,53s+,A2o+,K2o+,Q3o+,J5o+,T6o+,96o+,86o+,76o";
-    this->arr_all_pcent[70]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,93s+,84s+,74s+,63s+,53s+,43s,A2o+,K2o+,Q3o+,J5o+,T6o+,96o+,86o+,76o";
-    this->arr_all_pcent[71]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,84s+,73s+,63s+,53s+,43s,A2o+,K2o+,Q3o+,J5o+,T6o+,96o+,86o+,76o,65o";
-    this->arr_all_pcent[72]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,84s+,73s+,63s+,53s+,43s,A2o+,K2o+,Q2o+,J5o+,T6o+,96o+,86o+,76o,65o";
-    this->arr_all_pcent[73]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,84s+,73s+,63s+,53s+,43s,A2o+,K2o+,Q2o+,J4o+,T6o+,96o+,86o+,76o,65o";
-    this->arr_all_pcent[74]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,83s+,73s+,63s+,53s+,43s,A2o+,K2o+,Q2o+,J4o+,T6o+,96o+,86o+,75o+,65o";
-    this->arr_all_pcent[75]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,83s+,73s+,63s+,52s+,43s,A2o+,K2o+,Q2o+,J4o+,T6o+,96o+,85o+,75o+,65o";
-    this->arr_all_pcent[76]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,73s+,63s+,52s+,43s,A2o+,K2o+,Q2o+,J4o+,T6o+,96o+,85o+,75o+,65o";
-    this->arr_all_pcent[77]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,73s+,63s+,52s+,43s,A2o+,K2o+,Q2o+,J4o+,T5o+,96o+,85o+,75o+,65o";
-    this->arr_all_pcent[78]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,73s+,63s+,52s+,43s,A2o+,K2o+,Q2o+,J3o+,T5o+,95o+,85o+,75o+,65o";
-    this->arr_all_pcent[79]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,73s+,62s+,52s+,43s,A2o+,K2o+,Q2o+,J3o+,T5o+,95o+,85o+,75o+,65o";
-    this->arr_all_pcent[80]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,73s+,62s+,52s+,43s,A2o+,K2o+,Q2o+,J3o+,T5o+,95o+,85o+,75o+,65o,54o";
-    this->arr_all_pcent[81]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,73s+,62s+,52s+,42s+,A2o+,K2o+,Q2o+,J3o+,T4o+,95o+,85o+,75o+,65o,54o";
-    this->arr_all_pcent[82]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,73s+,62s+,52s+,42s+,A2o+,K2o+,Q2o+,J2o+,T4o+,95o+,85o+,75o+,65o,54o";
-    this->arr_all_pcent[83]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,A2o+,K2o+,Q2o+,J2o+,T4o+,95o+,85o+,75o+,64o+,54o";
-    this->arr_all_pcent[84]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,A2o+,K2o+,Q2o+,J2o+,T3o+,95o+,85o+,75o+,64o+,54o";
-    this->arr_all_pcent[85]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T3o+,95o+,85o+,74o+,64o+,54o";
-    this->arr_all_pcent[86]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T3o+,95o+,84o+,74o+,64o+,54o";
-    this->arr_all_pcent[87]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,95o+,84o+,74o+,64o+,54o";
-    this->arr_all_pcent[88]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,94o+,84o+,74o+,64o+,54o";
-    this->arr_all_pcent[89]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,94o+,84o+,74o+,64o+,53o+";
-    this->arr_all_pcent[90]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,93o+,84o+,74o+,64o+,53o+";
-    this->arr_all_pcent[91]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,93o+,84o+,74o+,63o+,53o+,43o";
-    this->arr_all_pcent[92]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,92o+,84o+,74o+,63o+,53o+,43o";
-    this->arr_all_pcent[93]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,92o+,84o+,73o+,63o+,53o+,43o";
-    this->arr_all_pcent[94]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,92o+,83o+,73o+,63o+,53o+,43o";
-    this->arr_all_pcent[95]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,92o+,83o+,73o+,63o+,52o+,43o";
-    this->arr_all_pcent[96]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,92o+,83o+,73o+,63o+,52o+,43o";
-    this->arr_all_pcent[97]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,92o+,82o+,73o+,63o+,52o+,42o+";
-    this->arr_all_pcent[98]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,92o+,82o+,73o+,62o+,52o+,42o+";
-    this->arr_all_pcent[99]="22+,A2s+,K2s+,Q2s+,J2s+,T2s+,92s+,82s+,72s+,62s+,52s+,42s+,32s,A2o+,K2o+,Q2o+,J2o+,T2o+,92o+,82o+,72o+,62o+,52o+,42o+,32o";
-
-//    //SI ACTIVO ESTO DESAPARECEN LOS COMBOS AL SELECCIONARLOS
-//    cardMatrix=new QButtonGroup(this);
-//    cardMatrix->addButton(ui->combo_AA);
-//    cardMatrix->addButton(ui->combo_KK);
-//    cardMatrix->addButton(ui->combo_QQ);
-//    cardMatrix->addButton(ui->combo_JJ);
-//    cardMatrix->addButton(ui->combo_TT);
-//    cardMatrix->addButton(ui->combo_99);
-//    cardMatrix->addButton(ui->combo_88);
-//    cardMatrix->addButton(ui->combo_77);
-//    cardMatrix->addButton(ui->combo_66);
-//    cardMatrix->addButton(ui->combo_55);
-//    cardMatrix->addButton(ui->combo_44);
-//    cardMatrix->addButton(ui->combo_33);
-//    cardMatrix->addButton(ui->combo_22);
-//    cardMatrix->addButton(ui->combo_AKs);
-//    cardMatrix->addButton(ui->combo_AQs);
-//    cardMatrix->addButton(ui->combo_AJs);
-//    cardMatrix->addButton(ui->combo_ATs);
-//    cardMatrix->addButton(ui->combo_A9s);
-//    cardMatrix->addButton(ui->combo_A8s);
-//    cardMatrix->addButton(ui->combo_A7s);
-//    cardMatrix->addButton(ui->combo_A6s);
-//    cardMatrix->addButton(ui->combo_A5s);
-//    cardMatrix->addButton(ui->combo_A4s);
-//    cardMatrix->addButton(ui->combo_A3s);
-//    cardMatrix->addButton(ui->combo_A2s);
-//    cardMatrix->addButton(ui->combo_KQs);
-//    cardMatrix->addButton(ui->combo_KJs);
-//    cardMatrix->addButton(ui->combo_KTs);
-//    cardMatrix->addButton(ui->combo_K9s);
-//    cardMatrix->addButton(ui->combo_K8s);
-//    cardMatrix->addButton(ui->combo_K7s);
-//    cardMatrix->addButton(ui->combo_K6s);
-//    cardMatrix->addButton(ui->combo_K5s);
-//    cardMatrix->addButton(ui->combo_K4s);
-//    cardMatrix->addButton(ui->combo_K3s);
-//    cardMatrix->addButton(ui->combo_K2s);
-//    cardMatrix->addButton(ui->combo_QJs);
-//    cardMatrix->addButton(ui->combo_QTs);
-//    cardMatrix->addButton(ui->combo_Q9s);
-//    cardMatrix->addButton(ui->combo_Q8s);
-//    cardMatrix->addButton(ui->combo_Q7s);
-//    cardMatrix->addButton(ui->combo_Q6s);
-//    cardMatrix->addButton(ui->combo_Q5s);
-//    cardMatrix->addButton(ui->combo_Q4s);
-//    cardMatrix->addButton(ui->combo_Q3s);
-//    cardMatrix->addButton(ui->combo_Q2s);
-//    cardMatrix->addButton(ui->combo_JTs);
-//    cardMatrix->addButton(ui->combo_J9s);
-//    cardMatrix->addButton(ui->combo_J8s);
-//    cardMatrix->addButton(ui->combo_J7s);
-//    cardMatrix->addButton(ui->combo_J6s);
-//    cardMatrix->addButton(ui->combo_J5s);
-//    cardMatrix->addButton(ui->combo_J4s);
-//    cardMatrix->addButton(ui->combo_J3s);
-//    cardMatrix->addButton(ui->combo_J2s);
-//    cardMatrix->addButton(ui->combo_T9s);
-//    cardMatrix->addButton(ui->combo_T8s);
-//    cardMatrix->addButton(ui->combo_T7s);
-//    cardMatrix->addButton(ui->combo_T6s);
-//    cardMatrix->addButton(ui->combo_T5s);
-//    cardMatrix->addButton(ui->combo_T4s);
-//    cardMatrix->addButton(ui->combo_T3s);
-//    cardMatrix->addButton(ui->combo_T2s);
-//    cardMatrix->addButton(ui->combo_98s);
-//    cardMatrix->addButton(ui->combo_97s);
-//    cardMatrix->addButton(ui->combo_96s);
-//    cardMatrix->addButton(ui->combo_95s);
-//    cardMatrix->addButton(ui->combo_94s);
-//    cardMatrix->addButton(ui->combo_93s);
-//    cardMatrix->addButton(ui->combo_92s);
-//    cardMatrix->addButton(ui->combo_87s);
-//    cardMatrix->addButton(ui->combo_86s);
-//    cardMatrix->addButton(ui->combo_85s);
-//    cardMatrix->addButton(ui->combo_84s);
-//    cardMatrix->addButton(ui->combo_83s);
-//    cardMatrix->addButton(ui->combo_82s);
-//    cardMatrix->addButton(ui->combo_76s);
-//    cardMatrix->addButton(ui->combo_75s);
-//    cardMatrix->addButton(ui->combo_74s);
-//    cardMatrix->addButton(ui->combo_73s);
-//    cardMatrix->addButton(ui->combo_72s);
-//    cardMatrix->addButton(ui->combo_65s);
-//    cardMatrix->addButton(ui->combo_64s);
-//    cardMatrix->addButton(ui->combo_63s);
-//    cardMatrix->addButton(ui->combo_62s);
-//    cardMatrix->addButton(ui->combo_54s);
-//    cardMatrix->addButton(ui->combo_53s);
-//    cardMatrix->addButton(ui->combo_52s);
-//    cardMatrix->addButton(ui->combo_43s);
-//    cardMatrix->addButton(ui->combo_42s);
-//    cardMatrix->addButton(ui->combo_32s);
-//    cardMatrix->addButton(ui->combo_AKo);
-//    cardMatrix->addButton(ui->combo_AQo);
-//    cardMatrix->addButton(ui->combo_AJo);
-//    cardMatrix->addButton(ui->combo_ATo);
-//    cardMatrix->addButton(ui->combo_A9o);
-//    cardMatrix->addButton(ui->combo_A8o);
-//    cardMatrix->addButton(ui->combo_A7o);
-//    cardMatrix->addButton(ui->combo_A6o);
-//    cardMatrix->addButton(ui->combo_A5o);
-//    cardMatrix->addButton(ui->combo_A4o);
-//    cardMatrix->addButton(ui->combo_A3o);
-//    cardMatrix->addButton(ui->combo_A2o);
-//    cardMatrix->addButton(ui->combo_KQo);
-//    cardMatrix->addButton(ui->combo_KJo);
-//    cardMatrix->addButton(ui->combo_KTo);
-//    cardMatrix->addButton(ui->combo_K9o);
-//    cardMatrix->addButton(ui->combo_K8o);
-//    cardMatrix->addButton(ui->combo_K7o);
-//    cardMatrix->addButton(ui->combo_K6o);
-//    cardMatrix->addButton(ui->combo_K5o);
-//    cardMatrix->addButton(ui->combo_K4o);
-//    cardMatrix->addButton(ui->combo_K3o);
-//    cardMatrix->addButton(ui->combo_K2o);
-//    cardMatrix->addButton(ui->combo_QJo);
-//    cardMatrix->addButton(ui->combo_QTo);
-//    cardMatrix->addButton(ui->combo_Q9o);
-//    cardMatrix->addButton(ui->combo_Q8o);
-//    cardMatrix->addButton(ui->combo_Q7o);
-//    cardMatrix->addButton(ui->combo_Q6o);
-//    cardMatrix->addButton(ui->combo_Q5o);
-//    cardMatrix->addButton(ui->combo_Q4o);
-//    cardMatrix->addButton(ui->combo_Q3o);
-//    cardMatrix->addButton(ui->combo_Q2o);
-//    cardMatrix->addButton(ui->combo_JTo);
-//    cardMatrix->addButton(ui->combo_J9o);
-//    cardMatrix->addButton(ui->combo_J8o);
-//    cardMatrix->addButton(ui->combo_J7o);
-//    cardMatrix->addButton(ui->combo_J6o);
-//    cardMatrix->addButton(ui->combo_J5o);
-//    cardMatrix->addButton(ui->combo_J4o);
-//    cardMatrix->addButton(ui->combo_J3o);
-//    cardMatrix->addButton(ui->combo_J2o);
-//    cardMatrix->addButton(ui->combo_T9o);
-//    cardMatrix->addButton(ui->combo_T8o);
-//    cardMatrix->addButton(ui->combo_T7o);
-//    cardMatrix->addButton(ui->combo_T6o);
-//    cardMatrix->addButton(ui->combo_T5o);
-//    cardMatrix->addButton(ui->combo_T4o);
-//    cardMatrix->addButton(ui->combo_T3o);
-//    cardMatrix->addButton(ui->combo_T2o);
-//    cardMatrix->addButton(ui->combo_98o);
-//    cardMatrix->addButton(ui->combo_97o);
-//    cardMatrix->addButton(ui->combo_96o);
-//    cardMatrix->addButton(ui->combo_95o);
-//    cardMatrix->addButton(ui->combo_94o);
-//    cardMatrix->addButton(ui->combo_93o);
-//    cardMatrix->addButton(ui->combo_92o);
-//    cardMatrix->addButton(ui->combo_87o);
-//    cardMatrix->addButton(ui->combo_86o);
-//    cardMatrix->addButton(ui->combo_85o);
-//    cardMatrix->addButton(ui->combo_84o);
-//    cardMatrix->addButton(ui->combo_83o);
-//    cardMatrix->addButton(ui->combo_82o);
-//    cardMatrix->addButton(ui->combo_76o);
-//    cardMatrix->addButton(ui->combo_75o);
-//    cardMatrix->addButton(ui->combo_74o);
-//    cardMatrix->addButton(ui->combo_73o);
-//    cardMatrix->addButton(ui->combo_72o);
-//    cardMatrix->addButton(ui->combo_65o);
-//    cardMatrix->addButton(ui->combo_64o);
-//    cardMatrix->addButton(ui->combo_63o);
-//    cardMatrix->addButton(ui->combo_62o);
-//    cardMatrix->addButton(ui->combo_54o);
-//    cardMatrix->addButton(ui->combo_53o);
-//    cardMatrix->addButton(ui->combo_52o);
-//    cardMatrix->addButton(ui->combo_43o);
-//    cardMatrix->addButton(ui->combo_42o);
-//    cardMatrix->addButton(ui->combo_32o);
 }

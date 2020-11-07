@@ -32,7 +32,7 @@ public:
     void putComboOnRange(int num1, int num2,int flag_suited, bool flag_checked, bool flag_checked_suit_selector);
     void changeSuitSelector();
     QString getRange();
-    void initRange(QString str_range, int i_player,bool flag_no_print_it);
+    void initRange(QString str_range, int i_player);
     void convArrCombosToString(bool flag_separated_range);
     void initPcents();
     void unCheckAllCombos();

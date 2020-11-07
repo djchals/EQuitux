@@ -281,20 +281,43 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
 
     int tmp_hex;
     int i,j;
-qDebug() << "fuego al 1";
+
+    //get the combo_xx name
+    char c_button[9]="combo_";
+    c_button[6]=arr_int_to_let[num1];
+    c_button[7]=arr_int_to_let[num2];
+    if(!flag_suited){
+        c_button[8]=(num1!=num2)?'o':0;
+    }else{
+        c_button[8]='s';
+    }
+
+    QString qst_button;
+    qst_button+=c_button;
+
+    //if all conditions are false, uncheck the combo because its possible select mark offsuit selection and picking a suit card
+    QPushButton *act_button = this->findChild<QPushButton *>(qst_button);
+
+
     //now put the combo in this->arr_combos[]
     if(!flag_checked){
+        //delete the combo in arr_combos
         for(i=0;i<4;++i){
             for(j=0;j<4;++j){
                 tmp_hex=(i*0x1000)+(num1*0x100)+(j*0x10)+num2;
                 this->arr_combos[tmp_hex]=false;
             }
         }
+        //what font and color corresponds for this qpushbutton?
+        if(num1==num2){
+            act_button->setStyleSheet("color:white;font-weight:normal;");
+        }else{
+            act_button->setStyleSheet("color:black;font-weight:normal;");
+        }
+        //
     }else{
-qDebug() << "fuego al 2";
-if(flag_checked_suit_selector){
-    qDebug() << "fuego al 3";
-
+        //all the suits are selected
+        if(flag_checked_suit_selector){
             for(i=0;i<4;++i){
                 for(j=0;j<4;++j){
                     if(
@@ -308,131 +331,150 @@ if(flag_checked_suit_selector){
                     }
                 }
             }
+            act_button->setStyleSheet("color:white;font-weight:normal;");
         }else{
-            bool flag_someone_true=false;
+            int i_suit=0;
             bool flag_is_checked=false;
             tmp_hex=(num1*0x100)+0+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
                 flag_is_checked=ui->suit_00->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=(num1*0x100)+0x10+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_01->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=(num1*0x100)+0x20+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_02->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=(num1*0x100)+0x30+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_03->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=0x1000+(num1*0x100)+0+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_10->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=0x1000+(num1*0x100)+0x10+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
                 flag_is_checked=ui->suit_11->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=0x1000+(num1*0x100)+0x20+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_12->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=0x1000+(num1*0x100)+0x30+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_13->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=0x2000+(num1*0x100)+0+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_20->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=0x2000+(num1*0x100)+0x10+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_21->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
 
             tmp_hex=0x2000+(num1*0x100)+0x20+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
                 flag_is_checked=ui->suit_22->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
             tmp_hex=0x2000+(num1*0x100)+0x30+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_23->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
             tmp_hex=0x3000+(num1*0x100)+0+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_30->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
             tmp_hex=0x3000+(num1*0x100)+0x10+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_31->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
             tmp_hex=0x3000+(num1*0x100)+0x20+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
                 flag_is_checked=ui->suit_32->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
             tmp_hex=0x3000+(num1*0x100)+0x30+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
                 flag_is_checked=ui->suit_33->isChecked();
                 this->arr_combos[tmp_hex]=flag_is_checked;
-                if(flag_is_checked) flag_someone_true=true;
+                if(flag_is_checked) i_suit++;
             }
-            //if all conditions are false, uncheck the combo because its possible select mark offsuit selection and picking a suit card
-            if(!flag_someone_true){
-                char c_button[9]="combo_";
-                c_button[6]=arr_int_to_let[num1];
-                c_button[7]=arr_int_to_let[num2];
-                if(!flag_suited){
-                    c_button[8]=(num1!=num2)?'o':0;
-                }else{
-                    c_button[8]='s';
-                }
 
-                QString qst_button;
-                qst_button+=c_button;
-
-                QPushButton *act_button = this->findChild<QPushButton *>(qst_button);
+            if(i_suit==0){
                 act_button->setChecked(false);
+
+                //what font and color corresponds for this qpushbutton?
+                if(num1==num2){
+                    act_button->setStyleSheet("color:white;font-weight:normal;");
+                }else{
+                    act_button->setStyleSheet("color:black;font-weight:normal;");
+                }
+                //
+            }else{
+                //get the max_suit, different for pocketpair/suited/offsuited
+                int max_suit=0;
+                if(num1==num2){
+                    max_suit=6;
+                }else if(c_button[8]=='s'){
+                    max_suit=4;
+                }else if(c_button[8]=='o'){
+                    max_suit=12;
+                }
+                //
+
+                //what font and color corresponds for this qpushbutton?
+                if(i_suit!=max_suit){
+                    act_button->setStyleSheet("color:yellow;font-weight:bold;");
+                }else{
+                    if(num1==num2){
+                        act_button->setStyleSheet("color:white;font-weight:normal;");
+                    }else{
+                        act_button->setStyleSheet("color:black;font-weight:normal;");
+                    }
+                }
+                //
             }
         }
     }
@@ -659,7 +701,7 @@ void WinSelectRange::convArrCombosToString(bool flag_separated_range){
     }
 
     //finish here create OFFSUITED subrange
-//falta insertar los combos que no sean ni offsuited, ni suited, ni pocket pairs
+
     //loop for insert the rest
     int hex[4];
     for(i=0;i<=0x3e3e;i++){
@@ -732,9 +774,7 @@ void WinSelectRange::savePFRVPIP(){
     }
     if(tmp_checked!=""){
         tmp_checked.chop(1);//delete the last ","
-        qDebug() << tmp_checked;
         QStringList button_list=tmp_checked.split(',');
-
         QString i_button;
         char cmp0, cmp1;
         int n_cmp0, n_cmp1;
@@ -748,13 +788,14 @@ void WinSelectRange::savePFRVPIP(){
             n_cmp1=arr_let_to_int[cmp1];
             if(i_button.length()==9){
                 if(i_button.at(8)=='s'){
-                    flag_suited=0;//suited
+                    flag_suited=1;//suited
                 }else if(i_button.at(8)=='o'){
-                    flag_suited=1;//offsuited
+                    flag_suited=0;//offsuited
                 }
             }
             //save this combo
-            this->putComboOnRange(n_cmp0,n_cmp1,flag_suited,true,false);
+            //putComboOnRange(first letter, second letter, off/suit/pocket, buttonischecked, markallthecombos);
+            this->putComboOnRange(n_cmp0,n_cmp1,flag_suited,true,true);
        }
     }
 }
@@ -804,7 +845,6 @@ void WinSelectRange::initRange(QString str_range, int i_player){
     for(i=0;i<1326;i++){
         if(HERO_COMBOS[i_player][i][2]!=0 && HERO_COMBOS[i_player][i][4]!=0){
             tmp_hex=(0x1000*HERO_COMBOS[i_player][i][1])+(0x100*HERO_COMBOS[i_player][i][2])+(0x10*HERO_COMBOS[i_player][i][3])+HERO_COMBOS[i_player][i][4];
-//            qDebug() << arr_int_to_suit[HERO_COMBOS[i_player][i][1]] << arr_int_to_let[HERO_COMBOS[i_player][i][2]] << arr_int_to_suit[HERO_COMBOS[i_player][i][3]] << arr_int_to_let[HERO_COMBOS[i_player][i][4]];
             this->arr_combos[tmp_hex]=true;
         }
     }
@@ -812,38 +852,49 @@ void WinSelectRange::initRange(QString str_range, int i_player){
     this->separated_range="";
     this->all_range="";
     convArrCombosToString(true);
-    QString i_i_button;
+    QString i_button;
     QString tmp_suit;
     QStringList i_button_list= this->separated_range.split(QLatin1Char(','), QString::SkipEmptyParts);
     QPushButton *i_act_button;
 
-    foreach(i_i_button,i_button_list){
+    foreach(i_button,i_button_list){
         bool flag_single_suit=false;
         //check if the format is a single combo as: As4s, Jh5c... and transform to A4s, J5o,...
-        if(i_i_button.length()==4){
-            if(i_i_button.at(1)==i_i_button.at(3)){
-                tmp_suit='s';
-            }else{
-                tmp_suit='o';
-            }
+        if(i_button.length()==4){
             QString tmp2="";
-            tmp2+=i_i_button.at(0);
-            tmp2+=i_i_button.at(2);
-            tmp2+=tmp_suit;
-            i_i_button=tmp2;
+            tmp2+=i_button.at(0);
+            tmp2+=i_button.at(2);
+
+            if(i_button.at(1)==i_button.at(3)){
+                tmp2+='s';
+            }else if(i_button.at(0)!=i_button.at(2)){
+                tmp2+='o';
+            }
+            i_button=tmp2;
             flag_single_suit=true;
         }
         //
 
-        i_i_button.prepend("combo_");
-        i_act_button = this->findChild<QPushButton *>(i_i_button);
+        i_button.prepend("combo_");
+        i_act_button = this->findChild<QPushButton *>(i_button);
         i_act_button->setChecked(true);
+
+        if(flag_single_suit){
+            i_act_button->setStyleSheet("color:yellow;font-weight:bold;");
+        }
     }
 }
 void WinSelectRange::unCheckAllCombos(){
     //clear the matrix first
+    QString str_button;
     for(int i=0;i<169;++i){
-        QPushButton *act_button = this->findChild<QPushButton *>(this->arr_button_names[i]);
+        str_button=this->arr_button_names[i];
+        QPushButton *act_button = this->findChild<QPushButton *>(str_button);
         act_button->setChecked(false);
+        if(str_button.at(6)==str_button.at(7)){
+            act_button->setStyleSheet("color:white;font-weight:normal;");
+        }else{
+            act_button->setStyleSheet("color:black;font-weight:normal;");
+        }
     }
 }

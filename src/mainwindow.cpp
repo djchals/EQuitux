@@ -339,7 +339,6 @@ void MainWindow::calculate_ranges(){
     ui->win_5->display(0);
     ui->win_6->display(0);
 
-    qDebug() << "dentro calculate ranges";
     int i=0;
     if(!ui->range_1->text().isEmpty()){
         strcpy(range_pkr[i],ui->range_1->text().toStdString().c_str());
@@ -451,7 +450,6 @@ void MainWindow::show_win_pcent(int i_player, float num_pcent){
 }
 void MainWindow::show_tied_pcent(int i_player, int num_pcent){
     int act_i_player=arr_pos_pcent[i_player];
-//    qDebug() << "dentro pcent"<< act_i_player;
     switch(act_i_player){
 //        case 1:ui->tie_1->display(num_pcent);break;
 //        case 2:ui->tie_2->display(num_pcent);break;
@@ -461,6 +459,3 @@ void MainWindow::show_tied_pcent(int i_player, int num_pcent){
 //        case 6:ui->tie_6->display(num_pcent);break;
     }
 }
-
-
-

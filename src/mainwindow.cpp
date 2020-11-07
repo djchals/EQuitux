@@ -10,11 +10,25 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     connect(ui->button_calculate,SIGNAL(clicked(bool)),this,SLOT(calculate_ranges()));
     connect(ui->button_clear_0, &QPushButton::clicked,[&](){
-        ui->board_0->setText("");
-        ui->board_1->setText("");
-        ui->board_2->setText("");
-        ui->board_3->setText("");
-        ui->board_4->setText("");
+        for(int i=0;i<5;i++){
+            QString tmp_name;
+            QTextStream(&tmp_name) << "board_" << i;
+            QPushButton *act_button = this->findChild<QPushButton *>(tmp_name);
+
+            if(!act_button->text().isEmpty()){
+                QString tmp=act_button->text();
+                char cmp0=tmp.at(0).toLatin1();
+                char cmp1=tmp.at(1).toLatin1();
+
+                QString var_card;
+                QTextStream(&var_card) << "card_" <<hex << arr_suit_to_int[cmp1] << hex <<arr_let_to_int[cmp0];
+                QPushButton *act_button = this->findChild<QPushButton *>(var_card);
+
+                qDebug() << var_card;
+                put_card_on_board(var_card);
+                act_button->setChecked(false);
+            }
+        }
     });
     connect(ui->button_clear_1, &QPushButton::clicked,[&](){
         ui->range_1->setText("");
@@ -107,7 +121,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->select_range_1, &QPushButton::clicked,[&](){
         WinSelectRange ws;
         ws.setModal(true);
-        ws.initRange(ui->range_1->text(), 1,false);
+        ws.initRange(ui->range_1->text(), 1);
         ws.setSelectedRange(1);
         ws.exec();
         //ok?
@@ -119,6 +133,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->select_range_2, &QPushButton::clicked,[&](){
         WinSelectRange ws;
         ws.setModal(true);
+        ws.initRange(ui->range_2->text(), 2);
         ws.setSelectedRange(2);
         ws.exec();
         //ok?
@@ -130,6 +145,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->select_range_3, &QPushButton::clicked,[&](){
         WinSelectRange ws;
         ws.setModal(true);
+        ws.initRange(ui->range_3->text(), 3);
         ws.setSelectedRange(3);
         ws.exec();
         //ok?
@@ -142,6 +158,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->select_range_4, &QPushButton::clicked,[&](){
         WinSelectRange ws;
         ws.setModal(true);
+        ws.initRange(ui->range_4->text(), 4);
         ws.setSelectedRange(4);
         ws.exec();
         //ok?
@@ -153,6 +170,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->select_range_5, &QPushButton::clicked,[&](){
         WinSelectRange ws;
         ws.setModal(true);
+        ws.initRange(ui->range_5->text(), 5);
         ws.setSelectedRange(5);
         ws.exec();
         //ok?
@@ -164,6 +182,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->select_range_6, &QPushButton::clicked,[&](){
         WinSelectRange ws;
         ws.setModal(true);
+        ws.initRange(ui->range_6->text(), 6);
         ws.setSelectedRange(6);
         ws.exec();
         //ok?
@@ -171,7 +190,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
             ui->range_6->setText(ws.getRange());
         }
     });
-
 }
 
 MainWindow::~MainWindow(){

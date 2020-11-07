@@ -683,24 +683,23 @@ void WinSelectRange::convArrCombosToString(bool flag_separated_range){
 }
 void WinSelectRange::changeSuitSelector(){
     bool flag_buttons=!ui->chk_suit_selector->isChecked();
-//    if(!flag_buttons){
-        ui->suit_00->setChecked(!flag_buttons);
-        ui->suit_01->setChecked(!flag_buttons);
-        ui->suit_02->setChecked(!flag_buttons);
-        ui->suit_03->setChecked(!flag_buttons);
-        ui->suit_10->setChecked(!flag_buttons);
-        ui->suit_11->setChecked(!flag_buttons);
-        ui->suit_12->setChecked(!flag_buttons);
-        ui->suit_13->setChecked(!flag_buttons);
-        ui->suit_20->setChecked(!flag_buttons);
-        ui->suit_21->setChecked(!flag_buttons);
-        ui->suit_22->setChecked(!flag_buttons);
-        ui->suit_23->setChecked(!flag_buttons);
-        ui->suit_30->setChecked(!flag_buttons);
-        ui->suit_31->setChecked(!flag_buttons);
-        ui->suit_32->setChecked(!flag_buttons);
-        ui->suit_33->setChecked(!flag_buttons);
-//    }
+
+    ui->suit_00->setChecked(!flag_buttons);
+    ui->suit_01->setChecked(!flag_buttons);
+    ui->suit_02->setChecked(!flag_buttons);
+    ui->suit_03->setChecked(!flag_buttons);
+    ui->suit_10->setChecked(!flag_buttons);
+    ui->suit_11->setChecked(!flag_buttons);
+    ui->suit_12->setChecked(!flag_buttons);
+    ui->suit_13->setChecked(!flag_buttons);
+    ui->suit_20->setChecked(!flag_buttons);
+    ui->suit_21->setChecked(!flag_buttons);
+    ui->suit_22->setChecked(!flag_buttons);
+    ui->suit_23->setChecked(!flag_buttons);
+    ui->suit_30->setChecked(!flag_buttons);
+    ui->suit_31->setChecked(!flag_buttons);
+    ui->suit_32->setChecked(!flag_buttons);
+    ui->suit_33->setChecked(!flag_buttons);
 
     ui->suit_00->setEnabled(flag_buttons);
     ui->suit_01->setEnabled(flag_buttons);
@@ -785,7 +784,7 @@ void WinSelectRange::updatePFRVPIP(){
     this->flag_pending_save=true;
     //
 }
-void WinSelectRange::initRange(QString str_range, int i_player, bool flag_no_print_it){
+void WinSelectRange::initRange(QString str_range, int i_player){
     if(str_range==""){
         return;
     }
@@ -809,16 +808,33 @@ void WinSelectRange::initRange(QString str_range, int i_player, bool flag_no_pri
             this->arr_combos[tmp_hex]=true;
         }
     }
-    if(flag_no_print_it){
-        return;//if we are here, we are comming from updatePFRVPIP()
-    }
+
     this->separated_range="";
     this->all_range="";
     convArrCombosToString(true);
     QString i_i_button;
+    QString tmp_suit;
     QStringList i_button_list= this->separated_range.split(QLatin1Char(','), QString::SkipEmptyParts);
     QPushButton *i_act_button;
+
     foreach(i_i_button,i_button_list){
+        bool flag_single_suit=false;
+        //check if the format is a single combo as: As4s, Jh5c... and transform to A4s, J5o,...
+        if(i_i_button.length()==4){
+            if(i_i_button.at(1)==i_i_button.at(3)){
+                tmp_suit='s';
+            }else{
+                tmp_suit='o';
+            }
+            QString tmp2="";
+            tmp2+=i_i_button.at(0);
+            tmp2+=i_i_button.at(2);
+            tmp2+=tmp_suit;
+            i_i_button=tmp2;
+            flag_single_suit=true;
+        }
+        //
+
         i_i_button.prepend("combo_");
         i_act_button = this->findChild<QPushButton *>(i_i_button);
         i_act_button->setChecked(true);

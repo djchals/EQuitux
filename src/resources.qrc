@@ -1,8 +1,24 @@
 <RCC>
     <qresource prefix="/">
+        <file>styles/icon_suit_00.png</file>
+        <file>styles/icon_suit_01.png</file>
+        <file>styles/icon_suit_02.png</file>
+        <file>styles/icon_suit_03.png</file>
         <file>styles/icon_cancel_32x32_round.png</file>
         <file>styles/icon_cards_yellow_32x32.png</file>
         <file>styles/icon_app.png</file>
         <file>styles/equimain.qss</file>
+        <file>styles/icon_suit_32.png</file>
+        <file>styles/icon_suit_31.png</file>
+        <file>styles/icon_suit_30.png</file>
+        <file>styles/icon_suit_22.png</file>
+        <file>styles/icon_suit_23.png</file>
+        <file>styles/icon_suit_21.png</file>
+        <file>styles/icon_suit_20.png</file>
+        <file>styles/icon_suit_13.png</file>
+        <file>styles/icon_suit_12.png</file>
+        <file>styles/icon_suit_11.png</file>
+        <file>styles/icon_suit_10.png</file>
+        <file>styles/icon_suit_33.png</file>
     </qresource>
 </RCC>

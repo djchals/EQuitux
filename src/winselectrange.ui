@@ -4161,7 +4161,16 @@
     </font>
    </property>
    <property name="text">
-    <string>On/Off suit selector</string>
+    <string>Mark all suits</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="button_cancel">
@@ -4205,6 +4214,16 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_03.png</normaloff>:/styles/icon_suit_03.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -4226,6 +4245,16 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_20.png</normaloff>:/styles/icon_suit_20.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -4249,6 +4278,16 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_22.png</normaloff>:/styles/icon_suit_22.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -4270,6 +4309,16 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_21.png</normaloff>:/styles/icon_suit_21.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -4293,6 +4342,16 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_30.png</normaloff>:/styles/icon_suit_30.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -4314,6 +4373,16 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_11.png</normaloff>:/styles/icon_suit_11.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -4337,6 +4406,16 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_10.png</normaloff>:/styles/icon_suit_10.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -4358,6 +4437,16 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_12.png</normaloff>:/styles/icon_suit_12.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -4381,6 +4470,19 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_00.png</normaloff>:/styles/icon_suit_00.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -4402,6 +4504,16 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_01.png</normaloff>:/styles/icon_suit_01.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -4425,6 +4537,16 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_32.png</normaloff>:/styles/icon_suit_32.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -4446,6 +4568,16 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_31.png</normaloff>:/styles/icon_suit_31.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -4469,6 +4601,16 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_02.png</normaloff>:/styles/icon_suit_02.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -4490,6 +4632,16 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_13.png</normaloff>:/styles/icon_suit_13.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -4513,6 +4665,16 @@
    <property name="text">
     <string/>
    </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_33.png</normaloff>:/styles/icon_suit_33.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
+   </property>
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -4534,6 +4696,16 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/styles/icon_suit_23.png</normaloff>:/styles/icon_suit_23.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>20</height>
+    </size>
    </property>
    <property name="checkable">
     <bool>true</bool>
@@ -4615,6 +4787,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

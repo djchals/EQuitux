@@ -220,6 +220,7 @@ WinSelectRange::WinSelectRange(QWidget *parent) : QDialog(parent),ui(new Ui::Win
     connect(ui->combo_42o, &QPushButton::clicked,[&](){putComboOnRange(4,2,0,ui->combo_42o->isChecked(),ui->chk_suit_selector->isChecked());});
 
     connect(ui->combo_32o, &QPushButton::clicked,[&](){putComboOnRange(3,2,0,ui->combo_32o->isChecked(),ui->chk_suit_selector->isChecked());});
+
     connect(ui->chk_suit_selector, &QPushButton::clicked,[&](){changeSuitSelector();});
     connect(ui->button_clear, &QPushButton::clicked,[&](){this->clearData();});
 
@@ -272,7 +273,6 @@ void WinSelectRange::setSelectedRange(int act_range){
 }
 void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool flag_checked, bool flag_checked_suit_selector){
     //flag_suited=0 -> offsuited, 1-> suited, 2->pocket pair
-
     //if this flag is true, before all we need save the last range selected with RangeSlider.
     //We save here for speed, if we moves the rangeslider and saves at the time, lost many time and presents errors in the saving. Here we have more time for it.
      if(this->flag_pending_save){
@@ -281,7 +281,7 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
 
     int tmp_hex;
     int i,j;
-
+qDebug() << "fuego al 1";
     //now put the combo in this->arr_combos[]
     if(!flag_checked){
         for(i=0;i<4;++i){
@@ -291,7 +291,10 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
             }
         }
     }else{
-        if(!flag_checked_suit_selector){
+qDebug() << "fuego al 2";
+if(flag_checked_suit_selector){
+    qDebug() << "fuego al 3";
+
             for(i=0;i<4;++i){
                 for(j=0;j<4;++j){
                     if(
@@ -306,83 +309,130 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
                 }
             }
         }else{
+            bool flag_someone_true=false;
+            bool flag_is_checked=false;
             tmp_hex=(num1*0x100)+0+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
-                this->arr_combos[tmp_hex]=ui->suit_00->isChecked();
+                flag_is_checked=ui->suit_00->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=(num1*0x100)+0x10+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_01->isChecked();
+                flag_is_checked=ui->suit_01->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=(num1*0x100)+0x20+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_02->isChecked();
+                flag_is_checked=ui->suit_02->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=(num1*0x100)+0x30+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_03->isChecked();
+                flag_is_checked=ui->suit_03->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=0x1000+(num1*0x100)+0+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_10->isChecked();
+                flag_is_checked=ui->suit_10->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=0x1000+(num1*0x100)+0x10+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
-                this->arr_combos[tmp_hex]=ui->suit_11->isChecked();
+                flag_is_checked=ui->suit_11->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=0x1000+(num1*0x100)+0x20+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_12->isChecked();
+                flag_is_checked=ui->suit_12->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=0x1000+(num1*0x100)+0x30+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_13->isChecked();
+                flag_is_checked=ui->suit_13->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=0x2000+(num1*0x100)+0+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_20->isChecked();
+                flag_is_checked=ui->suit_20->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=0x2000+(num1*0x100)+0x10+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_21->isChecked();
+                flag_is_checked=ui->suit_21->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
 
             tmp_hex=0x2000+(num1*0x100)+0x20+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
-                this->arr_combos[tmp_hex]=ui->suit_22->isChecked();
+                flag_is_checked=ui->suit_22->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
             tmp_hex=0x2000+(num1*0x100)+0x30+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_23->isChecked();
+                flag_is_checked=ui->suit_23->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
-
             tmp_hex=0x3000+(num1*0x100)+0+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_30->isChecked();
+                flag_is_checked=ui->suit_30->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
-
             tmp_hex=0x3000+(num1*0x100)+0x10+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_31->isChecked();
+                flag_is_checked=ui->suit_31->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
-
             tmp_hex=0x3000+(num1*0x100)+0x20+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=1){
-                this->arr_combos[tmp_hex]=ui->suit_32->isChecked();
+                flag_is_checked=ui->suit_32->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
             }
-
             tmp_hex=0x3000+(num1*0x100)+0x30+num2;
             if(!this->arr_combos[reverse_hex(tmp_hex)] && flag_suited!=0){
-                this->arr_combos[tmp_hex]=ui->suit_33->isChecked();
+                flag_is_checked=ui->suit_33->isChecked();
+                this->arr_combos[tmp_hex]=flag_is_checked;
+                if(flag_is_checked) flag_someone_true=true;
+            }
+            //if all conditions are false, uncheck the combo because its possible select mark offsuit selection and picking a suit card
+            if(!flag_someone_true){
+                char c_button[9]="combo_";
+                c_button[6]=arr_int_to_let[num1];
+                c_button[7]=arr_int_to_let[num2];
+                if(!flag_suited){
+                    c_button[8]=(num1!=num2)?'o':0;
+                }else{
+                    c_button[8]='s';
+                }
+
+                QString qst_button;
+                qst_button+=c_button;
+
+                QPushButton *act_button = this->findChild<QPushButton *>(qst_button);
+                act_button->setChecked(false);
             }
         }
     }
@@ -632,25 +682,26 @@ void WinSelectRange::convArrCombosToString(bool flag_separated_range){
     }
 }
 void WinSelectRange::changeSuitSelector(){
-    bool flag_buttons=ui->chk_suit_selector->isChecked();
-    if(!flag_buttons){
-        ui->suit_00->setChecked(true);
-        ui->suit_01->setChecked(true);
-        ui->suit_02->setChecked(true);
-        ui->suit_03->setChecked(true);
-        ui->suit_10->setChecked(true);
-        ui->suit_11->setChecked(true);
-        ui->suit_12->setChecked(true);
-        ui->suit_13->setChecked(true);
-        ui->suit_20->setChecked(true);
-        ui->suit_21->setChecked(true);
-        ui->suit_22->setChecked(true);
-        ui->suit_23->setChecked(true);
-        ui->suit_30->setChecked(true);
-        ui->suit_31->setChecked(true);
-        ui->suit_32->setChecked(true);
-        ui->suit_33->setChecked(true);
-    }
+    bool flag_buttons=!ui->chk_suit_selector->isChecked();
+//    if(!flag_buttons){
+        ui->suit_00->setChecked(!flag_buttons);
+        ui->suit_01->setChecked(!flag_buttons);
+        ui->suit_02->setChecked(!flag_buttons);
+        ui->suit_03->setChecked(!flag_buttons);
+        ui->suit_10->setChecked(!flag_buttons);
+        ui->suit_11->setChecked(!flag_buttons);
+        ui->suit_12->setChecked(!flag_buttons);
+        ui->suit_13->setChecked(!flag_buttons);
+        ui->suit_20->setChecked(!flag_buttons);
+        ui->suit_21->setChecked(!flag_buttons);
+        ui->suit_22->setChecked(!flag_buttons);
+        ui->suit_23->setChecked(!flag_buttons);
+        ui->suit_30->setChecked(!flag_buttons);
+        ui->suit_31->setChecked(!flag_buttons);
+        ui->suit_32->setChecked(!flag_buttons);
+        ui->suit_33->setChecked(!flag_buttons);
+//    }
+
     ui->suit_00->setEnabled(flag_buttons);
     ui->suit_01->setEnabled(flag_buttons);
     ui->suit_02->setEnabled(flag_buttons);

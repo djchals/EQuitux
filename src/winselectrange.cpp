@@ -27,242 +27,241 @@ WinSelectRange::WinSelectRange(QWidget *parent) : QDialog(parent),ui(new Ui::Win
     connect(this->RangePFRVPIP,SIGNAL(lowerValueChanged(int)),this,SLOT(updatePFRVPIP()));
     connect(this->RangePFRVPIP,SIGNAL(upperValueChanged(int)),this,SLOT(updatePFRVPIP()));
 
-    connect(ui->combo_AA, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xe,0,ui->combo_AA->isChecked());});
-    connect(ui->combo_KK, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xd,0,ui->combo_KK->isChecked());});
-    connect(ui->combo_QQ, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xc,0,ui->combo_QQ->isChecked());});
-    connect(ui->combo_JJ, &QPushButton::clicked,[&](){putComboOnRange(0xb,0xb,0,ui->combo_JJ->isChecked());});
-    connect(ui->combo_TT, &QPushButton::clicked,[&](){putComboOnRange(0xa,0xa,0,ui->combo_TT->isChecked());});
-    connect(ui->combo_99, &QPushButton::clicked,[&](){putComboOnRange(9,9,0,ui->combo_99->isChecked());});
-    connect(ui->combo_88, &QPushButton::clicked,[&](){putComboOnRange(8,8,0,ui->combo_88->isChecked());});
-    connect(ui->combo_77, &QPushButton::clicked,[&](){putComboOnRange(7,7,0,ui->combo_77->isChecked());});
-    connect(ui->combo_66, &QPushButton::clicked,[&](){putComboOnRange(6,6,0,ui->combo_66->isChecked());});
-    connect(ui->combo_55, &QPushButton::clicked,[&](){putComboOnRange(5,5,0,ui->combo_55->isChecked());});
-    connect(ui->combo_44, &QPushButton::clicked,[&](){putComboOnRange(4,4,0,ui->combo_44->isChecked());});
-    connect(ui->combo_33, &QPushButton::clicked,[&](){putComboOnRange(3,3,0,ui->combo_33->isChecked());});
-    connect(ui->combo_22, &QPushButton::clicked,[&](){putComboOnRange(2,2,0,ui->combo_22->isChecked());});
+    connect(ui->combo_AA, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xe,0,ui->combo_AA->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_KK, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xd,0,ui->combo_KK->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_QQ, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xc,0,ui->combo_QQ->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_JJ, &QPushButton::clicked,[&](){putComboOnRange(0xb,0xb,0,ui->combo_JJ->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_TT, &QPushButton::clicked,[&](){putComboOnRange(0xa,0xa,0,ui->combo_TT->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_99, &QPushButton::clicked,[&](){putComboOnRange(9,9,0,ui->combo_99->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_88, &QPushButton::clicked,[&](){putComboOnRange(8,8,0,ui->combo_88->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_77, &QPushButton::clicked,[&](){putComboOnRange(7,7,0,ui->combo_77->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_66, &QPushButton::clicked,[&](){putComboOnRange(6,6,0,ui->combo_66->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_55, &QPushButton::clicked,[&](){putComboOnRange(5,5,0,ui->combo_55->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_44, &QPushButton::clicked,[&](){putComboOnRange(4,4,0,ui->combo_44->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_33, &QPushButton::clicked,[&](){putComboOnRange(3,3,0,ui->combo_33->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_22, &QPushButton::clicked,[&](){putComboOnRange(2,2,0,ui->combo_22->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_AKs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xd,1,ui->combo_AKs->isChecked());});
-    connect(ui->combo_AQs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xc,1,ui->combo_AQs->isChecked());});
-    connect(ui->combo_AJs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xb,1,ui->combo_AJs->isChecked());});
-    connect(ui->combo_ATs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xa,1,ui->combo_ATs->isChecked());});
-    connect(ui->combo_A9s, &QPushButton::clicked,[&](){putComboOnRange(0xe,9,1,ui->combo_A9s->isChecked());});
-    connect(ui->combo_A8s, &QPushButton::clicked,[&](){putComboOnRange(0xe,8,1,ui->combo_A8s->isChecked());});
-    connect(ui->combo_A7s, &QPushButton::clicked,[&](){putComboOnRange(0xe,7,1,ui->combo_A7s->isChecked());});
-    connect(ui->combo_A6s, &QPushButton::clicked,[&](){putComboOnRange(0xe,6,1,ui->combo_A6s->isChecked());});
-    connect(ui->combo_A5s, &QPushButton::clicked,[&](){putComboOnRange(0xe,5,1,ui->combo_A5s->isChecked());});
-    connect(ui->combo_A4s, &QPushButton::clicked,[&](){putComboOnRange(0xe,4,1,ui->combo_A4s->isChecked());});
-    connect(ui->combo_A3s, &QPushButton::clicked,[&](){putComboOnRange(0xe,3,1,ui->combo_A3s->isChecked());});
-    connect(ui->combo_A2s, &QPushButton::clicked,[&](){putComboOnRange(0xe,2,1,ui->combo_A2s->isChecked());});
+    connect(ui->combo_AKs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xd,1,ui->combo_AKs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_AQs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xc,1,ui->combo_AQs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_AJs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xb,1,ui->combo_AJs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_ATs, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xa,1,ui->combo_ATs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A9s, &QPushButton::clicked,[&](){putComboOnRange(0xe,9,1,ui->combo_A9s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A8s, &QPushButton::clicked,[&](){putComboOnRange(0xe,8,1,ui->combo_A8s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A7s, &QPushButton::clicked,[&](){putComboOnRange(0xe,7,1,ui->combo_A7s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A6s, &QPushButton::clicked,[&](){putComboOnRange(0xe,6,1,ui->combo_A6s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A5s, &QPushButton::clicked,[&](){putComboOnRange(0xe,5,1,ui->combo_A5s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A4s, &QPushButton::clicked,[&](){putComboOnRange(0xe,4,1,ui->combo_A4s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A3s, &QPushButton::clicked,[&](){putComboOnRange(0xe,3,1,ui->combo_A3s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A2s, &QPushButton::clicked,[&](){putComboOnRange(0xe,2,1,ui->combo_A2s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_KQs, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xc,1,ui->combo_KQs->isChecked());});
-    connect(ui->combo_KJs, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xb,1,ui->combo_KJs->isChecked());});
-    connect(ui->combo_KTs, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xa,1,ui->combo_KTs->isChecked());});
-    connect(ui->combo_K9s, &QPushButton::clicked,[&](){putComboOnRange(0xd,9,1,ui->combo_K9s->isChecked());});
-    connect(ui->combo_K8s, &QPushButton::clicked,[&](){putComboOnRange(0xd,8,1,ui->combo_K8s->isChecked());});
-    connect(ui->combo_K7s, &QPushButton::clicked,[&](){putComboOnRange(0xd,7,1,ui->combo_K7s->isChecked());});
-    connect(ui->combo_K6s, &QPushButton::clicked,[&](){putComboOnRange(0xd,6,1,ui->combo_K6s->isChecked());});
-    connect(ui->combo_K5s, &QPushButton::clicked,[&](){putComboOnRange(0xd,5,1,ui->combo_K5s->isChecked());});
-    connect(ui->combo_K4s, &QPushButton::clicked,[&](){putComboOnRange(0xd,4,1,ui->combo_K4s->isChecked());});
-    connect(ui->combo_K3s, &QPushButton::clicked,[&](){putComboOnRange(0xd,3,1,ui->combo_K3s->isChecked());});
-    connect(ui->combo_K2s, &QPushButton::clicked,[&](){putComboOnRange(0xd,2,1,ui->combo_K2s->isChecked());});
+    connect(ui->combo_KQs, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xc,1,ui->combo_KQs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_KJs, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xb,1,ui->combo_KJs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_KTs, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xa,1,ui->combo_KTs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K9s, &QPushButton::clicked,[&](){putComboOnRange(0xd,9,1,ui->combo_K9s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K8s, &QPushButton::clicked,[&](){putComboOnRange(0xd,8,1,ui->combo_K8s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K7s, &QPushButton::clicked,[&](){putComboOnRange(0xd,7,1,ui->combo_K7s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K6s, &QPushButton::clicked,[&](){putComboOnRange(0xd,6,1,ui->combo_K6s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K5s, &QPushButton::clicked,[&](){putComboOnRange(0xd,5,1,ui->combo_K5s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K4s, &QPushButton::clicked,[&](){putComboOnRange(0xd,4,1,ui->combo_K4s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K3s, &QPushButton::clicked,[&](){putComboOnRange(0xd,3,1,ui->combo_K3s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K2s, &QPushButton::clicked,[&](){putComboOnRange(0xd,2,1,ui->combo_K2s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_QJs, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xb,1,ui->combo_QJs->isChecked());});
-    connect(ui->combo_QTs, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xa,1,ui->combo_QTs->isChecked());});
-    connect(ui->combo_Q9s, &QPushButton::clicked,[&](){putComboOnRange(0xc,9,1,ui->combo_Q9s->isChecked());});
-    connect(ui->combo_Q8s, &QPushButton::clicked,[&](){putComboOnRange(0xc,8,1,ui->combo_Q8s->isChecked());});
-    connect(ui->combo_Q7s, &QPushButton::clicked,[&](){putComboOnRange(0xc,7,1,ui->combo_Q7s->isChecked());});
-    connect(ui->combo_Q6s, &QPushButton::clicked,[&](){putComboOnRange(0xc,6,1,ui->combo_Q6s->isChecked());});
-    connect(ui->combo_Q5s, &QPushButton::clicked,[&](){putComboOnRange(0xc,5,1,ui->combo_Q5s->isChecked());});
-    connect(ui->combo_Q4s, &QPushButton::clicked,[&](){putComboOnRange(0xc,4,1,ui->combo_Q4s->isChecked());});
-    connect(ui->combo_Q3s, &QPushButton::clicked,[&](){putComboOnRange(0xc,3,1,ui->combo_Q3s->isChecked());});
-    connect(ui->combo_Q2s, &QPushButton::clicked,[&](){putComboOnRange(0xc,2,1,ui->combo_Q2s->isChecked());});
+    connect(ui->combo_QJs, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xb,1,ui->combo_QJs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_QTs, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xa,1,ui->combo_QTs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q9s, &QPushButton::clicked,[&](){putComboOnRange(0xc,9,1,ui->combo_Q9s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q8s, &QPushButton::clicked,[&](){putComboOnRange(0xc,8,1,ui->combo_Q8s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q7s, &QPushButton::clicked,[&](){putComboOnRange(0xc,7,1,ui->combo_Q7s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q6s, &QPushButton::clicked,[&](){putComboOnRange(0xc,6,1,ui->combo_Q6s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q5s, &QPushButton::clicked,[&](){putComboOnRange(0xc,5,1,ui->combo_Q5s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q4s, &QPushButton::clicked,[&](){putComboOnRange(0xc,4,1,ui->combo_Q4s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q3s, &QPushButton::clicked,[&](){putComboOnRange(0xc,3,1,ui->combo_Q3s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q2s, &QPushButton::clicked,[&](){putComboOnRange(0xc,2,1,ui->combo_Q2s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_JTs, &QPushButton::clicked,[&](){putComboOnRange(0xb,0xa,1,ui->combo_JTs->isChecked());});
-    connect(ui->combo_J9s, &QPushButton::clicked,[&](){putComboOnRange(0xb,9,1,ui->combo_J9s->isChecked());});
-    connect(ui->combo_J8s, &QPushButton::clicked,[&](){putComboOnRange(0xb,8,1,ui->combo_J8s->isChecked());});
-    connect(ui->combo_J7s, &QPushButton::clicked,[&](){putComboOnRange(0xb,7,1,ui->combo_J7s->isChecked());});
-    connect(ui->combo_J6s, &QPushButton::clicked,[&](){putComboOnRange(0xb,6,1,ui->combo_J6s->isChecked());});
-    connect(ui->combo_J5s, &QPushButton::clicked,[&](){putComboOnRange(0xb,5,1,ui->combo_J5s->isChecked());});
-    connect(ui->combo_J4s, &QPushButton::clicked,[&](){putComboOnRange(0xb,4,1,ui->combo_J4s->isChecked());});
-    connect(ui->combo_J3s, &QPushButton::clicked,[&](){putComboOnRange(0xb,3,1,ui->combo_J3s->isChecked());});
-    connect(ui->combo_J2s, &QPushButton::clicked,[&](){putComboOnRange(0xb,2,1,ui->combo_J2s->isChecked());});
+    connect(ui->combo_JTs, &QPushButton::clicked,[&](){putComboOnRange(0xb,0xa,1,ui->combo_JTs->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J9s, &QPushButton::clicked,[&](){putComboOnRange(0xb,9,1,ui->combo_J9s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J8s, &QPushButton::clicked,[&](){putComboOnRange(0xb,8,1,ui->combo_J8s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J7s, &QPushButton::clicked,[&](){putComboOnRange(0xb,7,1,ui->combo_J7s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J6s, &QPushButton::clicked,[&](){putComboOnRange(0xb,6,1,ui->combo_J6s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J5s, &QPushButton::clicked,[&](){putComboOnRange(0xb,5,1,ui->combo_J5s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J4s, &QPushButton::clicked,[&](){putComboOnRange(0xb,4,1,ui->combo_J4s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J3s, &QPushButton::clicked,[&](){putComboOnRange(0xb,3,1,ui->combo_J3s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J2s, &QPushButton::clicked,[&](){putComboOnRange(0xb,2,1,ui->combo_J2s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_T9s, &QPushButton::clicked,[&](){putComboOnRange(0xa,9,1,ui->combo_T9s->isChecked());});
-    connect(ui->combo_T8s, &QPushButton::clicked,[&](){putComboOnRange(0xa,8,1,ui->combo_T8s->isChecked());});
-    connect(ui->combo_T7s, &QPushButton::clicked,[&](){putComboOnRange(0xa,7,1,ui->combo_T7s->isChecked());});
-    connect(ui->combo_T6s, &QPushButton::clicked,[&](){putComboOnRange(0xa,6,1,ui->combo_T6s->isChecked());});
-    connect(ui->combo_T5s, &QPushButton::clicked,[&](){putComboOnRange(0xa,5,1,ui->combo_T5s->isChecked());});
-    connect(ui->combo_T4s, &QPushButton::clicked,[&](){putComboOnRange(0xa,4,1,ui->combo_T4s->isChecked());});
-    connect(ui->combo_T3s, &QPushButton::clicked,[&](){putComboOnRange(0xa,3,1,ui->combo_T3s->isChecked());});
-    connect(ui->combo_T2s, &QPushButton::clicked,[&](){putComboOnRange(0xa,2,1,ui->combo_T2s->isChecked());});
+    connect(ui->combo_T9s, &QPushButton::clicked,[&](){putComboOnRange(0xa,9,1,ui->combo_T9s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T8s, &QPushButton::clicked,[&](){putComboOnRange(0xa,8,1,ui->combo_T8s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T7s, &QPushButton::clicked,[&](){putComboOnRange(0xa,7,1,ui->combo_T7s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T6s, &QPushButton::clicked,[&](){putComboOnRange(0xa,6,1,ui->combo_T6s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T5s, &QPushButton::clicked,[&](){putComboOnRange(0xa,5,1,ui->combo_T5s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T4s, &QPushButton::clicked,[&](){putComboOnRange(0xa,4,1,ui->combo_T4s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T3s, &QPushButton::clicked,[&](){putComboOnRange(0xa,3,1,ui->combo_T3s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T2s, &QPushButton::clicked,[&](){putComboOnRange(0xa,2,1,ui->combo_T2s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_98s, &QPushButton::clicked,[&](){putComboOnRange(9,8,1,ui->combo_98s->isChecked());});
-    connect(ui->combo_97s, &QPushButton::clicked,[&](){putComboOnRange(9,7,1,ui->combo_97s->isChecked());});
-    connect(ui->combo_96s, &QPushButton::clicked,[&](){putComboOnRange(9,6,1,ui->combo_96s->isChecked());});
-    connect(ui->combo_95s, &QPushButton::clicked,[&](){putComboOnRange(9,5,1,ui->combo_95s->isChecked());});
-    connect(ui->combo_94s, &QPushButton::clicked,[&](){putComboOnRange(9,4,1,ui->combo_94s->isChecked());});
-    connect(ui->combo_93s, &QPushButton::clicked,[&](){putComboOnRange(9,3,1,ui->combo_93s->isChecked());});
-    connect(ui->combo_92s, &QPushButton::clicked,[&](){putComboOnRange(9,2,1,ui->combo_92s->isChecked());});
+    connect(ui->combo_98s, &QPushButton::clicked,[&](){putComboOnRange(9,8,1,ui->combo_98s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_97s, &QPushButton::clicked,[&](){putComboOnRange(9,7,1,ui->combo_97s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_96s, &QPushButton::clicked,[&](){putComboOnRange(9,6,1,ui->combo_96s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_95s, &QPushButton::clicked,[&](){putComboOnRange(9,5,1,ui->combo_95s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_94s, &QPushButton::clicked,[&](){putComboOnRange(9,4,1,ui->combo_94s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_93s, &QPushButton::clicked,[&](){putComboOnRange(9,3,1,ui->combo_93s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_92s, &QPushButton::clicked,[&](){putComboOnRange(9,2,1,ui->combo_92s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_87s, &QPushButton::clicked,[&](){putComboOnRange(8,7,1,ui->combo_87s->isChecked());});
-    connect(ui->combo_86s, &QPushButton::clicked,[&](){putComboOnRange(8,6,1,ui->combo_86s->isChecked());});
-    connect(ui->combo_85s, &QPushButton::clicked,[&](){putComboOnRange(8,5,1,ui->combo_85s->isChecked());});
-    connect(ui->combo_84s, &QPushButton::clicked,[&](){putComboOnRange(8,4,1,ui->combo_84s->isChecked());});
-    connect(ui->combo_83s, &QPushButton::clicked,[&](){putComboOnRange(8,3,1,ui->combo_83s->isChecked());});
-    connect(ui->combo_82s, &QPushButton::clicked,[&](){putComboOnRange(8,2,1,ui->combo_82s->isChecked());});
+    connect(ui->combo_87s, &QPushButton::clicked,[&](){putComboOnRange(8,7,1,ui->combo_87s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_86s, &QPushButton::clicked,[&](){putComboOnRange(8,6,1,ui->combo_86s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_85s, &QPushButton::clicked,[&](){putComboOnRange(8,5,1,ui->combo_85s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_84s, &QPushButton::clicked,[&](){putComboOnRange(8,4,1,ui->combo_84s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_83s, &QPushButton::clicked,[&](){putComboOnRange(8,3,1,ui->combo_83s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_82s, &QPushButton::clicked,[&](){putComboOnRange(8,2,1,ui->combo_82s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_76s, &QPushButton::clicked,[&](){putComboOnRange(7,6,1,ui->combo_76s->isChecked());});
-    connect(ui->combo_75s, &QPushButton::clicked,[&](){putComboOnRange(7,5,1,ui->combo_75s->isChecked());});
-    connect(ui->combo_74s, &QPushButton::clicked,[&](){putComboOnRange(7,4,1,ui->combo_74s->isChecked());});
-    connect(ui->combo_73s, &QPushButton::clicked,[&](){putComboOnRange(7,3,1,ui->combo_73s->isChecked());});
-    connect(ui->combo_72s, &QPushButton::clicked,[&](){putComboOnRange(7,2,1,ui->combo_72s->isChecked());});
+    connect(ui->combo_76s, &QPushButton::clicked,[&](){putComboOnRange(7,6,1,ui->combo_76s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_75s, &QPushButton::clicked,[&](){putComboOnRange(7,5,1,ui->combo_75s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_74s, &QPushButton::clicked,[&](){putComboOnRange(7,4,1,ui->combo_74s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_73s, &QPushButton::clicked,[&](){putComboOnRange(7,3,1,ui->combo_73s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_72s, &QPushButton::clicked,[&](){putComboOnRange(7,2,1,ui->combo_72s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_65s, &QPushButton::clicked,[&](){putComboOnRange(6,5,1,ui->combo_65s->isChecked());});
-    connect(ui->combo_64s, &QPushButton::clicked,[&](){putComboOnRange(6,4,1,ui->combo_64s->isChecked());});
-    connect(ui->combo_63s, &QPushButton::clicked,[&](){putComboOnRange(6,3,1,ui->combo_63s->isChecked());});
-    connect(ui->combo_62s, &QPushButton::clicked,[&](){putComboOnRange(6,2,1,ui->combo_62s->isChecked());});
+    connect(ui->combo_65s, &QPushButton::clicked,[&](){putComboOnRange(6,5,1,ui->combo_65s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_64s, &QPushButton::clicked,[&](){putComboOnRange(6,4,1,ui->combo_64s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_63s, &QPushButton::clicked,[&](){putComboOnRange(6,3,1,ui->combo_63s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_62s, &QPushButton::clicked,[&](){putComboOnRange(6,2,1,ui->combo_62s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_54s, &QPushButton::clicked,[&](){putComboOnRange(5,4,1,ui->combo_54s->isChecked());});
-    connect(ui->combo_53s, &QPushButton::clicked,[&](){putComboOnRange(5,3,1,ui->combo_53s->isChecked());});
-    connect(ui->combo_52s, &QPushButton::clicked,[&](){putComboOnRange(5,2,1,ui->combo_52s->isChecked());});
+    connect(ui->combo_54s, &QPushButton::clicked,[&](){putComboOnRange(5,4,1,ui->combo_54s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_53s, &QPushButton::clicked,[&](){putComboOnRange(5,3,1,ui->combo_53s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_52s, &QPushButton::clicked,[&](){putComboOnRange(5,2,1,ui->combo_52s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_43s, &QPushButton::clicked,[&](){putComboOnRange(4,3,1,ui->combo_43s->isChecked());});
-    connect(ui->combo_42s, &QPushButton::clicked,[&](){putComboOnRange(4,2,1,ui->combo_42s->isChecked());});
+    connect(ui->combo_43s, &QPushButton::clicked,[&](){putComboOnRange(4,3,1,ui->combo_43s->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_42s, &QPushButton::clicked,[&](){putComboOnRange(4,2,1,ui->combo_42s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_32s, &QPushButton::clicked,[&](){putComboOnRange(3,2,1,ui->combo_32s->isChecked());});
+    connect(ui->combo_32s, &QPushButton::clicked,[&](){putComboOnRange(3,2,1,ui->combo_32s->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_AKo, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xd,0,ui->combo_AKo->isChecked());});
-    connect(ui->combo_AQo, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xc,0,ui->combo_AQo->isChecked());});
-    connect(ui->combo_AJo, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xb,0,ui->combo_AJo->isChecked());});
-    connect(ui->combo_ATo, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xa,0,ui->combo_ATo->isChecked());});
-    connect(ui->combo_A9o, &QPushButton::clicked,[&](){putComboOnRange(0xe,9,0,ui->combo_A9o->isChecked());});
-    connect(ui->combo_A8o, &QPushButton::clicked,[&](){putComboOnRange(0xe,8,0,ui->combo_A8o->isChecked());});
-    connect(ui->combo_A7o, &QPushButton::clicked,[&](){putComboOnRange(0xe,7,0,ui->combo_A7o->isChecked());});
-    connect(ui->combo_A6o, &QPushButton::clicked,[&](){putComboOnRange(0xe,6,0,ui->combo_A6o->isChecked());});
-    connect(ui->combo_A5o, &QPushButton::clicked,[&](){putComboOnRange(0xe,5,0,ui->combo_A5o->isChecked());});
-    connect(ui->combo_A4o, &QPushButton::clicked,[&](){putComboOnRange(0xe,4,0,ui->combo_A4o->isChecked());});
-    connect(ui->combo_A3o, &QPushButton::clicked,[&](){putComboOnRange(0xe,3,0,ui->combo_A3o->isChecked());});
-    connect(ui->combo_A2o, &QPushButton::clicked,[&](){putComboOnRange(0xe,2,0,ui->combo_A2o->isChecked());});
+    connect(ui->combo_AKo, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xd,0,ui->combo_AKo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_AQo, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xc,0,ui->combo_AQo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_AJo, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xb,0,ui->combo_AJo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_ATo, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xa,0,ui->combo_ATo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A9o, &QPushButton::clicked,[&](){putComboOnRange(0xe,9,0,ui->combo_A9o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A8o, &QPushButton::clicked,[&](){putComboOnRange(0xe,8,0,ui->combo_A8o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A7o, &QPushButton::clicked,[&](){putComboOnRange(0xe,7,0,ui->combo_A7o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A6o, &QPushButton::clicked,[&](){putComboOnRange(0xe,6,0,ui->combo_A6o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A5o, &QPushButton::clicked,[&](){putComboOnRange(0xe,5,0,ui->combo_A5o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A4o, &QPushButton::clicked,[&](){putComboOnRange(0xe,4,0,ui->combo_A4o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A3o, &QPushButton::clicked,[&](){putComboOnRange(0xe,3,0,ui->combo_A3o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_A2o, &QPushButton::clicked,[&](){putComboOnRange(0xe,2,0,ui->combo_A2o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_KQo, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xc,0,ui->combo_KQo->isChecked());});
-    connect(ui->combo_KJo, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xb,0,ui->combo_KJo->isChecked());});
-    connect(ui->combo_KTo, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xa,0,ui->combo_KTo->isChecked());});
-    connect(ui->combo_K9o, &QPushButton::clicked,[&](){putComboOnRange(0xd,9,0,ui->combo_K9o->isChecked());});
-    connect(ui->combo_K8o, &QPushButton::clicked,[&](){putComboOnRange(0xd,8,0,ui->combo_K8o->isChecked());});
-    connect(ui->combo_K7o, &QPushButton::clicked,[&](){putComboOnRange(0xd,7,0,ui->combo_K7o->isChecked());});
-    connect(ui->combo_K6o, &QPushButton::clicked,[&](){putComboOnRange(0xd,6,0,ui->combo_K6o->isChecked());});
-    connect(ui->combo_K5o, &QPushButton::clicked,[&](){putComboOnRange(0xd,5,0,ui->combo_K5o->isChecked());});
-    connect(ui->combo_K4o, &QPushButton::clicked,[&](){putComboOnRange(0xd,4,0,ui->combo_K4o->isChecked());});
-    connect(ui->combo_K3o, &QPushButton::clicked,[&](){putComboOnRange(0xd,3,0,ui->combo_K3o->isChecked());});
-    connect(ui->combo_K2o, &QPushButton::clicked,[&](){putComboOnRange(0xd,2,0,ui->combo_K2o->isChecked());});
+    connect(ui->combo_KQo, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xc,0,ui->combo_KQo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_KJo, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xb,0,ui->combo_KJo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_KTo, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xa,0,ui->combo_KTo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K9o, &QPushButton::clicked,[&](){putComboOnRange(0xd,9,0,ui->combo_K9o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K8o, &QPushButton::clicked,[&](){putComboOnRange(0xd,8,0,ui->combo_K8o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K7o, &QPushButton::clicked,[&](){putComboOnRange(0xd,7,0,ui->combo_K7o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K6o, &QPushButton::clicked,[&](){putComboOnRange(0xd,6,0,ui->combo_K6o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K5o, &QPushButton::clicked,[&](){putComboOnRange(0xd,5,0,ui->combo_K5o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K4o, &QPushButton::clicked,[&](){putComboOnRange(0xd,4,0,ui->combo_K4o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K3o, &QPushButton::clicked,[&](){putComboOnRange(0xd,3,0,ui->combo_K3o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_K2o, &QPushButton::clicked,[&](){putComboOnRange(0xd,2,0,ui->combo_K2o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_QJo, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xb,0,ui->combo_QJo->isChecked());});
-    connect(ui->combo_QTo, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xa,0,ui->combo_QTo->isChecked());});
-    connect(ui->combo_Q9o, &QPushButton::clicked,[&](){putComboOnRange(0xc,9,0,ui->combo_Q9o->isChecked());});
-    connect(ui->combo_Q8o, &QPushButton::clicked,[&](){putComboOnRange(0xc,8,0,ui->combo_Q8o->isChecked());});
-    connect(ui->combo_Q7o, &QPushButton::clicked,[&](){putComboOnRange(0xc,7,0,ui->combo_Q7o->isChecked());});
-    connect(ui->combo_Q6o, &QPushButton::clicked,[&](){putComboOnRange(0xc,6,0,ui->combo_Q6o->isChecked());});
-    connect(ui->combo_Q5o, &QPushButton::clicked,[&](){putComboOnRange(0xc,5,0,ui->combo_Q5o->isChecked());});
-    connect(ui->combo_Q4o, &QPushButton::clicked,[&](){putComboOnRange(0xc,4,0,ui->combo_Q4o->isChecked());});
-    connect(ui->combo_Q3o, &QPushButton::clicked,[&](){putComboOnRange(0xc,3,0,ui->combo_Q3o->isChecked());});
-    connect(ui->combo_Q2o, &QPushButton::clicked,[&](){putComboOnRange(0xc,2,0,ui->combo_Q2o->isChecked());});
+    connect(ui->combo_QJo, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xb,0,ui->combo_QJo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_QTo, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xa,0,ui->combo_QTo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q9o, &QPushButton::clicked,[&](){putComboOnRange(0xc,9,0,ui->combo_Q9o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q8o, &QPushButton::clicked,[&](){putComboOnRange(0xc,8,0,ui->combo_Q8o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q7o, &QPushButton::clicked,[&](){putComboOnRange(0xc,7,0,ui->combo_Q7o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q6o, &QPushButton::clicked,[&](){putComboOnRange(0xc,6,0,ui->combo_Q6o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q5o, &QPushButton::clicked,[&](){putComboOnRange(0xc,5,0,ui->combo_Q5o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q4o, &QPushButton::clicked,[&](){putComboOnRange(0xc,4,0,ui->combo_Q4o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q3o, &QPushButton::clicked,[&](){putComboOnRange(0xc,3,0,ui->combo_Q3o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_Q2o, &QPushButton::clicked,[&](){putComboOnRange(0xc,2,0,ui->combo_Q2o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_JTo, &QPushButton::clicked,[&](){putComboOnRange(0xb,0xa,0,ui->combo_JTo->isChecked());});
-    connect(ui->combo_J9o, &QPushButton::clicked,[&](){putComboOnRange(0xb,9,0,ui->combo_J9o->isChecked());});
-    connect(ui->combo_J8o, &QPushButton::clicked,[&](){putComboOnRange(0xb,8,0,ui->combo_J8o->isChecked());});
-    connect(ui->combo_J7o, &QPushButton::clicked,[&](){putComboOnRange(0xb,7,0,ui->combo_J7o->isChecked());});
-    connect(ui->combo_J6o, &QPushButton::clicked,[&](){putComboOnRange(0xb,6,0,ui->combo_J6o->isChecked());});
-    connect(ui->combo_J5o, &QPushButton::clicked,[&](){putComboOnRange(0xb,5,0,ui->combo_J5o->isChecked());});
-    connect(ui->combo_J4o, &QPushButton::clicked,[&](){putComboOnRange(0xb,4,0,ui->combo_J4o->isChecked());});
-    connect(ui->combo_J3o, &QPushButton::clicked,[&](){putComboOnRange(0xb,3,0,ui->combo_J3o->isChecked());});
-    connect(ui->combo_J2o, &QPushButton::clicked,[&](){putComboOnRange(0xb,2,0,ui->combo_J2o->isChecked());});
+    connect(ui->combo_JTo, &QPushButton::clicked,[&](){putComboOnRange(0xb,0xa,0,ui->combo_JTo->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J9o, &QPushButton::clicked,[&](){putComboOnRange(0xb,9,0,ui->combo_J9o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J8o, &QPushButton::clicked,[&](){putComboOnRange(0xb,8,0,ui->combo_J8o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J7o, &QPushButton::clicked,[&](){putComboOnRange(0xb,7,0,ui->combo_J7o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J6o, &QPushButton::clicked,[&](){putComboOnRange(0xb,6,0,ui->combo_J6o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J5o, &QPushButton::clicked,[&](){putComboOnRange(0xb,5,0,ui->combo_J5o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J4o, &QPushButton::clicked,[&](){putComboOnRange(0xb,4,0,ui->combo_J4o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J3o, &QPushButton::clicked,[&](){putComboOnRange(0xb,3,0,ui->combo_J3o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_J2o, &QPushButton::clicked,[&](){putComboOnRange(0xb,2,0,ui->combo_J2o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_T9o, &QPushButton::clicked,[&](){putComboOnRange(0xa,9,0,ui->combo_T9o->isChecked());});
-    connect(ui->combo_T8o, &QPushButton::clicked,[&](){putComboOnRange(0xa,8,0,ui->combo_T8o->isChecked());});
-    connect(ui->combo_T7o, &QPushButton::clicked,[&](){putComboOnRange(0xa,7,0,ui->combo_T7o->isChecked());});
-    connect(ui->combo_T6o, &QPushButton::clicked,[&](){putComboOnRange(0xa,6,0,ui->combo_T6o->isChecked());});
-    connect(ui->combo_T5o, &QPushButton::clicked,[&](){putComboOnRange(0xa,5,0,ui->combo_T5o->isChecked());});
-    connect(ui->combo_T4o, &QPushButton::clicked,[&](){putComboOnRange(0xa,4,0,ui->combo_T4o->isChecked());});
-    connect(ui->combo_T3o, &QPushButton::clicked,[&](){putComboOnRange(0xa,3,0,ui->combo_T3o->isChecked());});
-    connect(ui->combo_T2o, &QPushButton::clicked,[&](){putComboOnRange(0xa,2,0,ui->combo_T2o->isChecked());});
+    connect(ui->combo_T9o, &QPushButton::clicked,[&](){putComboOnRange(0xa,9,0,ui->combo_T9o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T8o, &QPushButton::clicked,[&](){putComboOnRange(0xa,8,0,ui->combo_T8o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T7o, &QPushButton::clicked,[&](){putComboOnRange(0xa,7,0,ui->combo_T7o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T6o, &QPushButton::clicked,[&](){putComboOnRange(0xa,6,0,ui->combo_T6o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T5o, &QPushButton::clicked,[&](){putComboOnRange(0xa,5,0,ui->combo_T5o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T4o, &QPushButton::clicked,[&](){putComboOnRange(0xa,4,0,ui->combo_T4o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T3o, &QPushButton::clicked,[&](){putComboOnRange(0xa,3,0,ui->combo_T3o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_T2o, &QPushButton::clicked,[&](){putComboOnRange(0xa,2,0,ui->combo_T2o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_98o, &QPushButton::clicked,[&](){putComboOnRange(9,8,0,ui->combo_98o->isChecked());});
-    connect(ui->combo_97o, &QPushButton::clicked,[&](){putComboOnRange(9,7,0,ui->combo_97o->isChecked());});
-    connect(ui->combo_96o, &QPushButton::clicked,[&](){putComboOnRange(9,6,0,ui->combo_96o->isChecked());});
-    connect(ui->combo_95o, &QPushButton::clicked,[&](){putComboOnRange(9,5,0,ui->combo_95o->isChecked());});
-    connect(ui->combo_94o, &QPushButton::clicked,[&](){putComboOnRange(9,4,0,ui->combo_94o->isChecked());});
-    connect(ui->combo_93o, &QPushButton::clicked,[&](){putComboOnRange(9,3,0,ui->combo_93o->isChecked());});
-    connect(ui->combo_92o, &QPushButton::clicked,[&](){putComboOnRange(9,2,0,ui->combo_92o->isChecked());});
+    connect(ui->combo_98o, &QPushButton::clicked,[&](){putComboOnRange(9,8,0,ui->combo_98o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_97o, &QPushButton::clicked,[&](){putComboOnRange(9,7,0,ui->combo_97o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_96o, &QPushButton::clicked,[&](){putComboOnRange(9,6,0,ui->combo_96o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_95o, &QPushButton::clicked,[&](){putComboOnRange(9,5,0,ui->combo_95o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_94o, &QPushButton::clicked,[&](){putComboOnRange(9,4,0,ui->combo_94o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_93o, &QPushButton::clicked,[&](){putComboOnRange(9,3,0,ui->combo_93o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_92o, &QPushButton::clicked,[&](){putComboOnRange(9,2,0,ui->combo_92o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_87o, &QPushButton::clicked,[&](){putComboOnRange(8,7,0,ui->combo_87o->isChecked());});
-    connect(ui->combo_86o, &QPushButton::clicked,[&](){putComboOnRange(8,6,0,ui->combo_86o->isChecked());});
-    connect(ui->combo_85o, &QPushButton::clicked,[&](){putComboOnRange(8,5,0,ui->combo_85o->isChecked());});
-    connect(ui->combo_84o, &QPushButton::clicked,[&](){putComboOnRange(8,4,0,ui->combo_84o->isChecked());});
-    connect(ui->combo_83o, &QPushButton::clicked,[&](){putComboOnRange(8,3,0,ui->combo_83o->isChecked());});
-    connect(ui->combo_82o, &QPushButton::clicked,[&](){putComboOnRange(8,2,0,ui->combo_82o->isChecked());});
+    connect(ui->combo_87o, &QPushButton::clicked,[&](){putComboOnRange(8,7,0,ui->combo_87o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_86o, &QPushButton::clicked,[&](){putComboOnRange(8,6,0,ui->combo_86o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_85o, &QPushButton::clicked,[&](){putComboOnRange(8,5,0,ui->combo_85o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_84o, &QPushButton::clicked,[&](){putComboOnRange(8,4,0,ui->combo_84o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_83o, &QPushButton::clicked,[&](){putComboOnRange(8,3,0,ui->combo_83o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_82o, &QPushButton::clicked,[&](){putComboOnRange(8,2,0,ui->combo_82o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_76o, &QPushButton::clicked,[&](){putComboOnRange(7,6,0,ui->combo_76o->isChecked());});
-    connect(ui->combo_75o, &QPushButton::clicked,[&](){putComboOnRange(7,5,0,ui->combo_75o->isChecked());});
-    connect(ui->combo_74o, &QPushButton::clicked,[&](){putComboOnRange(7,4,0,ui->combo_74o->isChecked());});
-    connect(ui->combo_73o, &QPushButton::clicked,[&](){putComboOnRange(7,3,0,ui->combo_73o->isChecked());});
-    connect(ui->combo_72o, &QPushButton::clicked,[&](){putComboOnRange(7,2,0,ui->combo_72o->isChecked());});
+    connect(ui->combo_76o, &QPushButton::clicked,[&](){putComboOnRange(7,6,0,ui->combo_76o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_75o, &QPushButton::clicked,[&](){putComboOnRange(7,5,0,ui->combo_75o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_74o, &QPushButton::clicked,[&](){putComboOnRange(7,4,0,ui->combo_74o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_73o, &QPushButton::clicked,[&](){putComboOnRange(7,3,0,ui->combo_73o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_72o, &QPushButton::clicked,[&](){putComboOnRange(7,2,0,ui->combo_72o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_65o, &QPushButton::clicked,[&](){putComboOnRange(6,5,0,ui->combo_65o->isChecked());});
-    connect(ui->combo_64o, &QPushButton::clicked,[&](){putComboOnRange(6,4,0,ui->combo_64o->isChecked());});
-    connect(ui->combo_63o, &QPushButton::clicked,[&](){putComboOnRange(6,3,0,ui->combo_63o->isChecked());});
-    connect(ui->combo_62o, &QPushButton::clicked,[&](){putComboOnRange(6,2,0,ui->combo_62o->isChecked());});
+    connect(ui->combo_65o, &QPushButton::clicked,[&](){putComboOnRange(6,5,0,ui->combo_65o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_64o, &QPushButton::clicked,[&](){putComboOnRange(6,4,0,ui->combo_64o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_63o, &QPushButton::clicked,[&](){putComboOnRange(6,3,0,ui->combo_63o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_62o, &QPushButton::clicked,[&](){putComboOnRange(6,2,0,ui->combo_62o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_54o, &QPushButton::clicked,[&](){putComboOnRange(5,4,0,ui->combo_54o->isChecked());});
-    connect(ui->combo_53o, &QPushButton::clicked,[&](){putComboOnRange(5,3,0,ui->combo_53o->isChecked());});
-    connect(ui->combo_52o, &QPushButton::clicked,[&](){putComboOnRange(5,2,0,ui->combo_52o->isChecked());});
+    connect(ui->combo_54o, &QPushButton::clicked,[&](){putComboOnRange(5,4,0,ui->combo_54o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_53o, &QPushButton::clicked,[&](){putComboOnRange(5,3,0,ui->combo_53o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_52o, &QPushButton::clicked,[&](){putComboOnRange(5,2,0,ui->combo_52o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_43o, &QPushButton::clicked,[&](){putComboOnRange(4,3,0,ui->combo_43o->isChecked());});
-    connect(ui->combo_42o, &QPushButton::clicked,[&](){putComboOnRange(4,2,0,ui->combo_42o->isChecked());});
+    connect(ui->combo_43o, &QPushButton::clicked,[&](){putComboOnRange(4,3,0,ui->combo_43o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->combo_42o, &QPushButton::clicked,[&](){putComboOnRange(4,2,0,ui->combo_42o->isChecked(),ui->chk_suit_selector->isChecked());});
 
-    connect(ui->combo_32o, &QPushButton::clicked,[&](){putComboOnRange(3,2,0,ui->combo_32o->isChecked());});
+    connect(ui->combo_32o, &QPushButton::clicked,[&](){putComboOnRange(3,2,0,ui->combo_32o->isChecked(),ui->chk_suit_selector->isChecked());});
+    connect(ui->chk_suit_selector, &QPushButton::clicked,[&](){changeSuitSelector();});
     connect(ui->button_clear, &QPushButton::clicked,[&](){this->clearData();});
 
-    connect(ui->chk_suit_selector, &QPushButton::clicked,[&](){changeSuitSelector();});
-
-    connect(ui->button_ok, &QPushButton::clicked,[&](){this->accept();});
+    connect(ui->button_ok, &QPushButton::clicked,[&](){
+        if(this->flag_pending_save){
+           this->savePFRVPIP();
+        }
+        convArrCombosToString(false);
+        this->accept();
+    });
     connect(ui->button_cancel, &QPushButton::clicked,[&](){this->reject();});
     connect(ui->button_clear, &QPushButton::clicked,[&](){
         this->clearData();
     });
-    connect(ui->boton, &QPushButton::clicked,[&](){
-//        int j=0;
-//        for(int i=0;i<=0x3e3e;i++){
-//            if(this->arr_combos[i]==true){
-//                j++;
-//            }
-//        }
-int i=0;
-for(i=0;i<100;i++){
-    ui->line_vpip->setText(QString::number(i));
-}
-    });
     connect(ui->line_pfr, &QLineEdit::textChanged,[&](){
         int cmp0=ui->line_pfr->text().toInt();
         int cmp1=ui->line_vpip->text().toInt();
-        if(cmp0<cmp1 && cmp0>0 && cmp0<100){
+        if(cmp0<cmp1 && cmp0>=0 && cmp0<100){
             this->RangePFRVPIP->SetLowerValue(ui->line_pfr->text().toInt());
+        }else{
+            cmp0=cmp1;
+            this->RangePFRVPIP->SetLowerValue(cmp0);
         }
     });
     connect(ui->line_vpip, &QLineEdit::textChanged,[&](){
         int cmp0=ui->line_pfr->text().toInt();
         int cmp1=ui->line_vpip->text().toInt();
-        if(cmp1>cmp0 && cmp1>0 && cmp1<100){
+        if(cmp1>cmp0 && cmp1>=0 && cmp1<100){
             this->RangePFRVPIP->SetUpperValue(ui->line_vpip->text().toInt());
+        }else{
+            cmp1=cmp0;
+            this->RangePFRVPIP->SetUpperValue(cmp1);
         }
     });
 }
 void WinSelectRange::clearData(){
-//    memset(HERO_COMBOS,0,sizeof(int)*((1326*7*6)-1));
-//    memset(this->arr_combos,0,0x3e3e*sizeof(bool));
-//    this->separated_range="";
-//    this->all_range="";
-//    ui->line_pfr->setText("0");
-//    ui->line_vpip->setText("0");
+    memset(HERO_COMBOS,0,sizeof(int)*((1326*7*6)-1));
+    memset(this->arr_combos,0,0x3e3e*sizeof(bool));
+    this->separated_range="";
+    this->all_range="";
+    ui->line_pfr->setText("0");
+    ui->line_vpip->setText("0");
     this->unCheckAllCombos();
 }
 WinSelectRange::~WinSelectRange(){
@@ -271,10 +270,15 @@ WinSelectRange::~WinSelectRange(){
 void WinSelectRange::setSelectedRange(int act_range){
     this->selected_range=act_range;
 }
-
-void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool flag_checked){
+void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool flag_checked, bool flag_checked_suit_selector){
     //flag_suited=0 -> offsuited, 1-> suited, 2->pocket pair
-    bool flag_checked_suit_selector=ui->chk_suit_selector->isChecked();
+
+    //if this flag is true, before all we need save the last range selected with RangeSlider.
+    //We save here for speed, if we moves the rangeslider and saves at the time, lost many time and presents errors in the saving. Here we have more time for it.
+     if(this->flag_pending_save){
+        this->savePFRVPIP();
+     }//
+
     int tmp_hex;
     int i,j;
 
@@ -292,7 +296,7 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
                 for(j=0;j<4;++j){
                     if(
                             (flag_suited==1 && i==j) ||
-                            (flag_suited==0 && i!=j)
+                            ((flag_suited==0 || flag_suited==2) && i!=j)
                        ){
                         tmp_hex=(i*0x1000)+(num1*0x100)+(j*0x10)+num2;
                         if(!this->arr_combos[reverse_hex(tmp_hex)]){
@@ -382,7 +386,6 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
             }
         }
     }
-    convArrCombosToString(false);
 }
 void WinSelectRange::convArrCombosToString(bool flag_separated_range){
     //copy the main array arr_combos[] to tmp_arr_combos[] for manipulate it and create the string range
@@ -606,7 +609,6 @@ void WinSelectRange::convArrCombosToString(bool flag_separated_range){
     }
 
     //finish here create OFFSUITED subrange
-
 //falta insertar los combos que no sean ni offsuited, ni suited, ni pocket pairs
     //loop for insert the rest
     int hex[4];
@@ -669,68 +671,43 @@ void WinSelectRange::changeSuitSelector(){
 QString WinSelectRange::getRange(){
     return this->all_range;
 }
-//void WinSelectRange::saveRange(){
-//    int i,tmp_hex;
-//    memset(arr_tmp_delete,0,sizeof(int)*0x3e3f);
+void WinSelectRange::savePFRVPIP(){
+    this->flag_pending_save=false;
+    QString tmp_checked="";
+    for(int i=0;i<169;++i){
+        QPushButton *act_button = this->findChild<QPushButton *>(this->arr_button_names[i]);
+        if(act_button->isChecked()){
+            tmp_checked+=this->arr_button_names[i]+",";
+        }
+    }
+    if(tmp_checked!=""){
+        tmp_checked.chop(1);//delete the last ","
+        qDebug() << tmp_checked;
+        QStringList button_list=tmp_checked.split(',');
 
-//    int num_lower=this->RangePFRVPIP->GetLowerValue();
-//    int num_upper=this->RangePFRVPIP->GetUpperValue();
+        QString i_button;
+        char cmp0, cmp1;
+        int n_cmp0, n_cmp1;
 
-//    ui->line_pfr->setText(QString::number(num_lower));
-//    ui->line_vpip->setText(QString::number(num_upper));
-
-//    int pfr=num_lower;
-//    int vpip=num_upper;
-
-//    //if have it, first save the combos for delete in arr_tmp_delete(prf)
-//    if(num_lower>0){
-//        memset(HERO_COMBOS[4],0,sizeof(char)*((1326*7)-1));
-//        initRange(this->arr_all_pcent[pfr],4,true);
-//        for(i=0;i<1326;i++){
-//            if(HERO_COMBOS[4][i][2]!=0 && HERO_COMBOS[4][i][4]!=0){
-////                qDebug() << "antes";
-//                tmp_hex=(0x1000*HERO_COMBOS[4][i][1])+(0x100*HERO_COMBOS[4][i][2])+(0x10*HERO_COMBOS[4][i][3])+HERO_COMBOS[4][i][4];
-//                //for adjust it is in conv_pkr.h, line 34 int ovector[2048] works fine.
-//                if(tmp_hex<0x3e3f && tmp_hex>=0x202){
-//                //el error anda por aquí
-//                    arr_tmp_delete[tmp_hex]=1;
-//                }
-//            }
-//        }
-//    }
-//    //
-//    memset(HERO_COMBOS[5],0,sizeof(char)*((1326*7)-1));
-//    //now get the all the combos selected in this->arr_combos
-//    initRange(this->arr_all_pcent[vpip],5,true);
-//    //
-//    if(num_lower>0){
-//        //and do the rest vpip-pfr
-//        for(i=0;i<0x3e3f;i++){
-//            if(arr_tmp_delete[i]==1){
-////                qDebug() << "borrando: " << hex <<i;
-//                this->arr_combos[i]=false;
-//            }
-//        }
-//    }
-
-//    convArrCombosToString(true);
-//    if(this->separated_range!=this->old_separated){
-//        this->old_separated=this->separated_range;
-//        qDebug() << "separated" << this->separated_range;
-//    }
-//    QString i_button;
-//    QStringList button_list= this->separated_range.split(QLatin1Char(','), QString::SkipEmptyParts);
-//    unCheckAllCombos();
-//    foreach(i_button,button_list){
-//        i_button.prepend("combo_");
-////        qDebug() << "i_button: " << i_button;
-//        QPushButton *act_button = this->findChild<QPushButton *>(i_button);
-////        qDebug() << act_button;
-//        act_button->setChecked(true);//esta línea si la comento deja de fallar al mover el slider hacia el 99 fallando justo en el 69
-//    }
-//}
-
-
+        //flag_suited=0 -> offsuited, 1-> suited, 2->pocket pair
+        foreach(i_button,button_list){
+            int flag_suited=2;//initiatize this var or if doesnt changes is a pocket pair
+            cmp0=i_button.at(6).toLatin1();
+            cmp1=i_button.at(7).toLatin1();
+            n_cmp0=arr_let_to_int[cmp0];
+            n_cmp1=arr_let_to_int[cmp1];
+            if(i_button.length()==9){
+                if(i_button.at(8)=='s'){
+                    flag_suited=0;//suited
+                }else if(i_button.at(8)=='o'){
+                    flag_suited=1;//offsuited
+                }
+            }
+            //save this combo
+            this->putComboOnRange(n_cmp0,n_cmp1,flag_suited,true,false);
+       }
+    }
+}
 void WinSelectRange::updatePFRVPIP(){
     int num_lower=this->RangePFRVPIP->GetLowerValue();
     int num_upper=this->RangePFRVPIP->GetUpperValue();
@@ -738,18 +715,23 @@ void WinSelectRange::updatePFRVPIP(){
 
     ui->line_pfr->setText(QString::number(num_lower));
     ui->line_vpip->setText(QString::number(num_upper));
-
     //uncheck the matrix first
     this->unCheckAllCombos();
     //
+    if(num_lower<num_upper){
+        //check the selected combos
+        QString tmp_button;
+        for(i=0;i<169;++i){
+            if(!this->cardMatrix[num_lower][i] && this->cardMatrix[num_upper][i]){
+                QPushButton *act_button = this->findChild<QPushButton *>(this->arr_button_names[i]);
+                act_button->setChecked(true);
 
-    //check the selected combos
-    for(i=0;i<169;++i){
-        if(!this->cardMatrix[num_lower][i] && this->cardMatrix[num_upper][i]){
-            QPushButton *act_button = this->findChild<QPushButton *>(this->arr_button_names[i]);
-            act_button->setChecked(true);
+                tmp_button=this->arr_button_names[i];
+                tmp_button.remove(0,6);
+            }
         }
     }
+    this->flag_pending_save=true;
     //
 }
 void WinSelectRange::initRange(QString str_range, int i_player, bool flag_no_print_it){
@@ -779,12 +761,9 @@ void WinSelectRange::initRange(QString str_range, int i_player, bool flag_no_pri
     if(flag_no_print_it){
         return;//if we are here, we are comming from updatePFRVPIP()
     }
-
     this->separated_range="";
-
     this->all_range="";
     convArrCombosToString(true);
-//    qDebug() << this->separated_range;
     QString i_i_button;
     QStringList i_button_list= this->separated_range.split(QLatin1Char(','), QString::SkipEmptyParts);
     QPushButton *i_act_button;
@@ -794,10 +773,9 @@ void WinSelectRange::initRange(QString str_range, int i_player, bool flag_no_pri
         i_act_button->setChecked(true);
     }
 }
-
 void WinSelectRange::unCheckAllCombos(){
     //clear the matrix first
-    for(i=0;i<169;++i){
+    for(int i=0;i<169;++i){
         QPushButton *act_button = this->findChild<QPushButton *>(this->arr_button_names[i]);
         act_button->setChecked(false);
     }

@@ -29,7 +29,7 @@ public:
     explicit WinSelectRange(QWidget *parent = 0);
     ~WinSelectRange();
     void setSelectedRange(int act_range);
-    void putComboOnRange(int num1, int num2,int flag_suited, bool flag_checked);
+    void putComboOnRange(int num1, int num2,int flag_suited, bool flag_checked, bool flag_checked_suit_selector);
     void changeSuitSelector();
     QString getRange();
     void initRange(QString str_range, int i_player,bool flag_no_print_it);
@@ -40,6 +40,7 @@ public:
 
 private slots:
     void updatePFRVPIP();
+    void savePFRVPIP();
 
 private:
     Ui::WinSelectRange *ui;
@@ -53,6 +54,7 @@ private:
     QString arr_all_pcent[100];
     bool cardMatrix[100][169]={false};
     QString arr_button_names[169];
+    bool flag_pending_save=false;
     //rangeslider
     QWidget *widget;
     RangeSlider *RangePFRVPIP;

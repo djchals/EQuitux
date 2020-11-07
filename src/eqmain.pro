@@ -40,7 +40,8 @@ HEADERS += \
     get_value_combo.h \
     get_value_combo.h \
     winselectrange.h \
-    RangeSlider.h
+    RangeSlider.h \
+    init_cardmatrix.h
 
 FORMS += \
         mainwindow.ui \

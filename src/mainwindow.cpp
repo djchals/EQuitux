@@ -107,7 +107,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->select_range_1, &QPushButton::clicked,[&](){
         WinSelectRange ws;
         ws.setModal(true);
-        ws.initRange(ui->range_1->text(), 1);
+        ws.initRange(ui->range_1->text(), 1,false);
         ws.setSelectedRange(1);
         ws.exec();
         //ok?

@@ -4577,6 +4577,9 @@
         <pointsize>7</pointsize>
        </font>
       </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
       <property name="text">
        <string>0</string>
       </property>
@@ -4601,25 +4604,15 @@
         <pointsize>7</pointsize>
        </font>
       </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
       <property name="text">
        <string>0</string>
       </property>
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QPushButton" name="boton">
-   <property name="geometry">
-    <rect>
-     <x>490</x>
-     <y>200</y>
-     <width>80</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PushButton</string>
-   </property>
   </widget>
  </widget>
  <resources/>

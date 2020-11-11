@@ -286,19 +286,20 @@ void WinSelectRange::putComboOnRange(int num1, int num2,int flag_suited, bool fl
     char c_button[9]="combo_";
     c_button[6]=arr_int_to_let[num1];
     c_button[7]=arr_int_to_let[num2];
-    if(!flag_suited){
-        c_button[8]=(num1!=num2)?'o':0;
+    if(num1!=num2){
+        if(!flag_suited){
+            c_button[8]='o';
+        }else{
+            c_button[8]='s';
+        }
     }else{
-        c_button[8]='s';
+        c_button[8]=0;
     }
-
     QString qst_button;
     qst_button+=c_button;
 
     //if all conditions are false, uncheck the combo because its possible select mark offsuit selection and picking a suit card
     QPushButton *act_button = this->findChild<QPushButton *>(qst_button);
-
-
     //now put the combo in this->arr_combos[]
     if(!flag_checked){
         //delete the combo in arr_combos

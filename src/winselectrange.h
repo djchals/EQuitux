@@ -12,7 +12,7 @@ extern char arr_int_to_let[15];
 extern int arr_let_to_int[85];
 extern int arr_suit_to_int[116];
 extern char arr_int_to_suit[4];
-extern char HERO_COMBOS[6][1326][7];
+extern int HERO_COMBOS[6][1326][7];
 
 //import from conv_pkr.h
 void conv_range_pkr_to_hex(char tmp_range[],int i_player);

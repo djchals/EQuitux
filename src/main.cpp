@@ -1,12 +1,12 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include <QFile>
-
+#include <signal.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[])
 {
     QApplication aa(argc, argv);
-
     aa.setWindowIcon(QIcon(":/styles/icon_app.png"));
     QFile stylesheet_file(":/styles/equimain.qss");
     stylesheet_file.open(QFile::ReadOnly);

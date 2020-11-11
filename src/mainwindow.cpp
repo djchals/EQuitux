@@ -2,13 +2,34 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "winselectrange.h"
+#include "threadcalculate.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
-    srand (time(NULL));
+    srand(time(NULL));
     init_vars();
     ui->setupUi(this);
-    connect(ui->button_calculate,SIGNAL(clicked(bool)),this,SLOT(calculate_ranges()));
+    mThread=new ThreadCalculate(this);
+    connect(mThread,&ThreadCalculate::show_win_pcent,[&](int i_player, float num_pcent){
+        int act_i_player=arr_pos_pcent[i_player];
+        switch(act_i_player){
+            case 1:ui->win_1->display(num_pcent);break;
+            case 2:ui->win_2->display(num_pcent);break;
+            case 3:ui->win_3->display(num_pcent);break;
+            case 4:ui->win_4->display(num_pcent);break;
+            case 5:ui->win_5->display(num_pcent);break;
+            case 6:ui->win_6->display(num_pcent);break;
+            break;
+        }
+    });
+    connect(mThread,&ThreadCalculate::finished,[&](){
+       this->calculate_stop();
+    });
+
+
+    connect(ui->button_calculate,&QPushButton::clicked,[&](){
+           calculate_ranges();
+    });
     connect(ui->button_clear_0, &QPushButton::clicked,[&](){
         for(int i=0;i<5;i++){
             QString tmp_name;
@@ -24,7 +45,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
                 QTextStream(&var_card) << "card_" <<hex << arr_suit_to_int[cmp1] << hex <<arr_let_to_int[cmp0];
                 QPushButton *act_button = this->findChild<QPushButton *>(var_card);
 
-                qDebug() << var_card;
                 put_card_on_board(var_card);
                 act_button->setChecked(false);
             }
@@ -53,6 +73,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     connect(ui->button_clear_6, &QPushButton::clicked,[&](){
         ui->range_6->setText("");
         ui->win_6->display(0);
+    });
+    connect(ui->button_clear_all, &QPushButton::clicked,[&](){
+        this->clearAll();
     });
 
     connect(ui->card_02, &QPushButton::clicked,[&](){put_card_on_board(ui->card_02->objectName());});
@@ -191,11 +214,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
         }
     });
 }
-
 MainWindow::~MainWindow(){
     delete ui;
 }
-
 void MainWindow::remove_card_from_board(QString act_text){
     //now remake act_card to hex format
     QChar tmp[2];
@@ -239,93 +260,63 @@ void MainWindow::put_card_on_board(QString act_card){
     arr_card_colors[4]="card_white";
 
     //start clear
-    if(var_card==ui->board_0->text()){
-        ui->board_0->setText("");
-        ui->board_0->setProperty("class", arr_card_colors[4]);
-        ui->board_0->style()->unpolish(ui->board_0);
-        ui->board_0->style()->polish(ui->board_0);
-        ui->board_0->update();
-        return;
-    }
-    if(var_card==ui->board_1->text()){
-        ui->board_1->setText("");
-        ui->board_1->setProperty("class", arr_card_colors[4]);
-        ui->board_1->style()->unpolish(ui->board_1);
-        ui->board_1->style()->polish(ui->board_1);
-        ui->board_1->update();
-        return;
-    }
-    if(var_card==ui->board_2->text()){
-        ui->board_2->setText("");
-        ui->board_2->setProperty("class", arr_card_colors[4]);
-        ui->board_2->style()->unpolish(ui->board_2);
-        ui->board_2->style()->polish(ui->board_2);
-        ui->board_2->update();
-        return;
-    }
-    if(var_card==ui->board_3->text()){
-        ui->board_3->setText("");
-        ui->board_3->setProperty("class", arr_card_colors[4]);
-        ui->board_3->style()->unpolish(ui->board_3);
-        ui->board_3->style()->polish(ui->board_3);
-        ui->board_3->update();
-        return;
-    }
-    if(var_card==ui->board_4->text()){
-        ui->board_4->setText("");
-        ui->board_4->setProperty("class", arr_card_colors[4]);
-        ui->board_4->style()->unpolish(ui->board_4);
-        ui->board_4->style()->polish(ui->board_4);
-        ui->board_4->update();
-        return;
+    for(int i=0;i<5;++i){
+        QString var_board;
+        QTextStream (&var_board) << "board_" << i;
+        QPushButton *act_board=this->findChild<QPushButton *>(var_board);
+        if(var_card==act_board->text()){
+            act_board->setText("");
+            act_board->setProperty("class", arr_card_colors[4]);
+            act_board->style()->unpolish(act_board);
+            act_board->style()->polish(act_board);
+            act_board->update();
+            return;
+        }
     }
     //end clear
-    if(ui->board_0->text().isEmpty()){
-        ui->board_0->setText(var_card);
-        ui->board_0->setProperty("class", arr_card_colors[card[0]]);
-        ui->board_0->style()->unpolish(ui->board_0);
-        ui->board_0->style()->polish(ui->board_0);
-        ui->board_0->update();
-        return;
+
+    //put color on card
+    for(int i=0;i<5;++i){
+        QString var_board;
+        QTextStream (&var_board) << "board_" << i;
+        QPushButton *act_board=this->findChild<QPushButton *>(var_board);
+        if(act_board->text().isEmpty()){
+            act_board->setText(var_card);
+            act_board->setProperty("class", arr_card_colors[card[0]]);
+            act_board->style()->unpolish(act_board);
+            act_board->style()->polish(act_board);
+            act_board->update();
+            return;
+        }
     }
-    if(ui->board_1->text().isEmpty()){
-        ui->board_1->setText(var_card);
-        ui->board_1->setProperty("class", arr_card_colors[card[0]]);
-        ui->board_1->style()->unpolish(ui->board_1);
-        ui->board_1->style()->polish(ui->board_1);
-        ui->board_1->update();
-        return;
-    }
-    if(ui->board_2->text().isEmpty()){
-        ui->board_2->setText(var_card);
-        ui->board_2->setProperty("class", arr_card_colors[card[0]]);
-        ui->board_2->style()->unpolish(ui->board_2);
-        ui->board_2->style()->polish(ui->board_2);
-        ui->board_2->update();
-        return;
-    }
-    if(ui->board_3->text().isEmpty()){
-       ui->board_3->setText(var_card);
-       ui->board_3->setProperty("class", arr_card_colors[card[0]]);
-       ui->board_3->style()->unpolish(ui->board_3);
-       ui->board_3->style()->polish(ui->board_3);
-       ui->board_3->update();
-       return;
-    }
-    if(ui->board_4->text().isEmpty()){
-       ui->board_4->setText(var_card);
-       ui->board_4->setProperty("class", arr_card_colors[card[0]]);
-       ui->board_4->style()->unpolish(ui->board_4);
-       ui->board_4->style()->polish(ui->board_4);
-       ui->board_4->update();
-       return;
-    }
+    //
+
     //if all board is full, and we are trying to insert a new card, simply denied it unchecking the card
     if(!ui->board_0->text().isEmpty() && !ui->board_1->text().isEmpty() && !ui->board_2->text().isEmpty() && !ui->board_3->text().isEmpty() && !ui->board_4->text().isEmpty()){
         act_button->setChecked(false);
     }
 }
 void MainWindow::calculate_ranges(){
+    //start calculate process
+    if(ui->button_calculate->text()=="Calculate EQ"){
+       this->calculate_beginning();
+    }
+    //stop calculate process
+    else{
+        this->calculate_stop();
+    }
+}
+void MainWindow::calculate_stop(){
+    mThread->setStopProcess(true);
+   ui->button_calculate->setText("Calculate EQ");
+   ui->button_calculate->setEnabled(true);
+   this->setAllEnabled(true);
+}
+
+void MainWindow::calculate_beginning(){
+    //first of all clean the last vars
+    this->clearVars();
+    //
     tot_combos=0;
     memset(tot_win_pos,0,sizeof(long double)*6);
     memset(tot_tied_pos,0,sizeof(long double)*6);
@@ -370,7 +361,12 @@ void MainWindow::calculate_ranges(){
         arr_pos_pcent[i]=6;
         ++i;
     }
-    if(i>=2 && (!ui->board_0->text().isEmpty() && !ui->board_1->text().isEmpty() && !ui->board_2->text().isEmpty())){
+    if(i>=2 && (
+                (!ui->board_0->text().isEmpty() && !ui->board_1->text().isEmpty() && !ui->board_2->text().isEmpty() && ui->board_3->text().isEmpty() && ui->board_4->text().isEmpty()) ||
+                (!ui->board_0->text().isEmpty() && !ui->board_1->text().isEmpty() && !ui->board_2->text().isEmpty() && !ui->board_3->text().isEmpty() && ui->board_4->text().isEmpty()) ||
+                (!ui->board_0->text().isEmpty() && !ui->board_1->text().isEmpty() && !ui->board_2->text().isEmpty() && !ui->board_3->text().isEmpty() && !ui->board_4->text().isEmpty())
+                )
+       ){
         //have flop
         board[0]=arr_suit_to_int[ui->board_0->text().toStdString().at(1)];
         board[1]=arr_let_to_int[ui->board_0->text().toStdString().at(0)];
@@ -379,83 +375,89 @@ void MainWindow::calculate_ranges(){
         board[4]=arr_suit_to_int[ui->board_2->text().toStdString().at(1)];
         board[5]=arr_let_to_int[ui->board_2->text().toStdString().at(0)];
 
+        //have turn
         if(!ui->board_3->text().isEmpty()){
             board[6]=arr_suit_to_int[ui->board_3->text().toStdString().at(1)];
             board[7]=arr_let_to_int[ui->board_3->text().toStdString().at(0)];
         }
+        //have river
         if(!ui->board_4->text().isEmpty()){
             board[8]=arr_suit_to_int[ui->board_4->text().toStdString().at(1)];
             board[9]=arr_let_to_int[ui->board_4->text().toStdString().at(0)];
         }
-        this->create_game(i);
-    }else if(i>=2 && (ui->board_0->text().isEmpty() && ui->board_1->text().isEmpty() && ui->board_2->text().isEmpty() && ui->board_3->text().isEmpty() && ui->board_4->text().isEmpty())){
-        this->create_game(i);
-    }
-}
-void MainWindow::create_game(int num_players){
-    int i=0,i_player=0;
-    int j,k;
+        this->setAllEnabled(false);
+        ui->button_calculate->setText("Calculating...");
+        ui->button_calculate->setEnabled(false);
+        mThread->num_players=i;
+        mThread->start();
 
-    if(board[1]!=0){
-        for(i_player=0;i_player<num_players;++i_player){
-            if(range_pkr[i_player]){
-                //the result of this function will be saved in arr_hex_return
-                conv_range_pkr_to_hex(range_pkr[i_player],i_player);
-                if(long_hex_pos[i_player]>0){
-                    calculate_EQ(i_player);
-                }
-            }
-        }
-        calculate_all(num_players,1);
-        for(j=0;j<num_players;j++){
-           this->show_win_pcent(j,tot_win_pcent[j]);
-        }
-        for(j=0;j<num_players;j++){
-           this->show_tied_pcent(j,tot_tied_pcent[j]);
-        }
-    }else{
-        //in the future put a button for stop and put i higher, maybe i=10000
-        for(i=0;i<100;i++){
-            create_preflop(NUM_HANDS_PREFLOP);
-            for(i_player=0;i_player<num_players;++i_player){
-                if(range_pkr[i_player]){
-                    //the result of this function will be saved in arr_hex_return
-                    conv_range_pkr_to_hex(range_pkr[i_player],i_player);
-                    if(long_hex_pos[i_player]>0){
-                        calculate_EQ(i_player);
-                    }
-                }
-            }
-            calculate_all(num_players,0);
-            for(j=0;j<num_players;j++){
-                this->show_win_pcent(j,tot_win_pcent[j]);
-            }
-            for(j=0;j<num_players;j++){
-                this->show_tied_pcent(j,tot_tied_pcent[j]);
-            }
-        }
+
+    }//preflop
+    else if(i>=2 && (ui->board_0->text().isEmpty() && ui->board_1->text().isEmpty() && ui->board_2->text().isEmpty() && ui->board_3->text().isEmpty() && ui->board_4->text().isEmpty())){
+        this->setAllEnabled(false);
+        ui->button_calculate->setText("Stop");
+        mThread->num_players=i;
+        mThread->start();
+    }
+}
+void MainWindow::setAllEnabled(bool flag_enable){
+    ui->button_clear_all->setEnabled(flag_enable);
+
+    ui->button_clear_0->setEnabled(flag_enable);
+    ui->button_clear_1->setEnabled(flag_enable);
+    ui->button_clear_2->setEnabled(flag_enable);
+    ui->button_clear_3->setEnabled(flag_enable);
+    ui->button_clear_4->setEnabled(flag_enable);
+    ui->button_clear_5->setEnabled(flag_enable);
+    ui->button_clear_6->setEnabled(flag_enable);
+
+    ui->select_range_1->setEnabled(flag_enable);
+    ui->select_range_2->setEnabled(flag_enable);
+    ui->select_range_3->setEnabled(flag_enable);
+    ui->select_range_4->setEnabled(flag_enable);
+    ui->select_range_5->setEnabled(flag_enable);
+    ui->select_range_6->setEnabled(flag_enable);
+
+    ui->range_1->setEnabled(flag_enable);
+    ui->range_2->setEnabled(flag_enable);
+    ui->range_3->setEnabled(flag_enable);
+    ui->range_4->setEnabled(flag_enable);
+    ui->range_5->setEnabled(flag_enable);
+    ui->range_6->setEnabled(flag_enable);
+
+    ui->board_0->setEnabled(flag_enable);
+    ui->board_1->setEnabled(flag_enable);
+    ui->board_2->setEnabled(flag_enable);
+    ui->board_3->setEnabled(flag_enable);
+    ui->board_4->setEnabled(flag_enable);
+
+    for(int i=0;i<52;++i){
+        QString var_card,hexadecimal;
+        hexadecimal.setNum(card_int_to_hex[i],16);
+        QTextStream (&var_card) << "card_" << hexadecimal.rightJustified(2,'0');
+        QPushButton *act_button=this->findChild<QPushButton *>(var_card);
+        act_button->setEnabled(flag_enable);
     }
 }
 
-void MainWindow::show_win_pcent(int i_player, float num_pcent){
-    int act_i_player=arr_pos_pcent[i_player];
-    switch(act_i_player){
-        case 1:ui->win_1->display(num_pcent);break;
-        case 2:ui->win_2->display(num_pcent);break;
-        case 3:ui->win_3->display(num_pcent);break;
-        case 4:ui->win_4->display(num_pcent);break;
-        case 5:ui->win_5->display(num_pcent);break;
-        case 6:ui->win_6->display(num_pcent);break;
-    }
+void MainWindow::clearAll(){
+    this->clearVars();
+    emit ui->button_clear_0->click();
+    emit ui->button_clear_1->click();
+    emit ui->button_clear_2->click();
+    emit ui->button_clear_3->click();
+    emit ui->button_clear_4->click();
+    emit ui->button_clear_5->click();
+    emit ui->button_clear_6->click();
 }
-void MainWindow::show_tied_pcent(int i_player, int num_pcent){
-    int act_i_player=arr_pos_pcent[i_player];
-    switch(act_i_player){
-//        case 1:ui->tie_1->display(num_pcent);break;
-//        case 2:ui->tie_2->display(num_pcent);break;
-//        case 3:ui->tie_3->display(num_pcent);break;
-//        case 4:ui->tie_4->display(num_pcent);break;
-//        case 5:ui->tie_5->display(num_pcent);break;
-//        case 6:ui->tie_6->display(num_pcent);break;
-    }
+
+void MainWindow::clearVars(){
+    memset(HERO_COMBOS,0,sizeof(int)*6*1326*7);
+    memset(arr_pos_pcent,0,sizeof(int)*6);
+    memset(HERO_H_VALUES,0,sizeof(int)*6*1326*1326);
+    long_all_boards=0;
+    memset(board,0,sizeof(int)*10);
+    memset(arr_all_boards,0,sizeof(int)*NUM_HANDS_PREFLOP*10);
+    memset(range_pkr,0,sizeof(char)*6*3700);
+    memset(long_hex_pos,0,sizeof(int)*6);
 }

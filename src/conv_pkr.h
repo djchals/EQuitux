@@ -2,7 +2,7 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
     //Format the string extracting the spaces
     int j=0,i,tmp_long=strlen(tmp_range);
     char range_pkr[tmp_long];
-    
+
     for(i=0;i<tmp_long;i++){
         if(tmp_range[i]!=32){
             range_pkr[j]=tmp_range[i];
@@ -10,39 +10,30 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
             j++;
         }
     }
-    
     range_pkr[j]=0;//end the string
     //
-    //These are the regex for make the hexadecimal combos 
+    //These are the regex for make the hexadecimal combos
     const int NUM_REGEX=10;
+
     char regex[NUM_REGEX][100];
     strcpy(regex[0],"^([23456789TJQKA]){1}([schd]){1}([23456789TJQKA]){1}([schd]){1}$");// -> 8d9c, KsJs...
     strcpy(regex[1],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}-(?!\\1)(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$");//AA-99
     strcpy(regex[2],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o)?-\\1((?!\\2)[23456789TJQKA]{1})\\3$");//A2s-A8s,T9o-TJo
-    strcpy(regex[3],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})-(\\1)((?!\\2)[23456789TJQKA]{1})$");//A2-A8,T9-TJ,85-89    
-
+    strcpy(regex[3],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})-(\\1)((?!\\2)[23456789TJQKA]{1})$");//A2-A8,T9-TJ,85-89
     strcpy(regex[4],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?\\+$");//A2s+, T8+, T8o+,..
     strcpy(regex[5],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?$");//A2s, T8,..
+//    strcpy(regex[4],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|){0,1}\\+$");//A2s+, T8+, T8o+,..
+//    strcpy(regex[5],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|){0,1}$");//A2s, T8,..
     strcpy(regex[6],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK){1}\\+$");//22+ until KK+
     strcpy(regex[7],"^([23456789TJQKA]{1})x$");//7x, Kx...
     strcpy(regex[8],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$");//AA,KK,88...
     strcpy(regex[9],"^(?:\\b|-)([1-9]{1,2}[0]?|100)\\b%{1}$");//1-100%
 
-    /* for pcre_compile */
-    pcre *re=NULL;
-    const char *error=NULL;
-    error=(char *)malloc(100);//dont do nothing with the regex errors
-    int erroffset;
-
     /* for pcre_exec */
     int rc;
-    int ovector[1024];//with this we count the maximum "," in range_pkr
+    int ovector[2048];//with this we count the maximum "," in range_pkr
 
-    /* to get substrings from regex */
     int rc2;
-    char *substring=NULL;
-    substring=(char *)malloc(sizeof(char)*7);
-
 
     bool flag_exit_loop;
     char ch_pkr[7],k,l,ch_cmp0,ch_cmp1,ch_cmp2;
@@ -50,29 +41,34 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
     int array_combos_marked_hex[MAX_COMBO_HEX]={};//now we fill this array with the combos, for not repeat combos
     char flag_suited=0;
     int cont=0,i_in,i_fin;
-    
+
     //now start processing regex1
     char *searching_here;
     searching_here=(char*) malloc(sizeof(char)*MAX_COMBO_HEX);
     strcpy(searching_here,strtok(range_pkr, ","));
-    
-    while(searching_here!=NULL){//loop through the string to extract all other searching_heres
 
+    while(searching_here!=NULL){//loop through the string to extract all other searching_heres
         flag_exit_loop=false;
         for(i=0;i<NUM_REGEX;i++){
+            /* for pcre_compile */
+            const char *error=(char *)malloc(100*sizeof(char));//dont do nothing with the regex errors
+            int erroffset;
+            rc=0;
 //             printf("regex para analizar: %s\n",regex[i]);
-            re=pcre_compile(regex[i], 0, &error, &erroffset, NULL);
+            pcre *re=pcre_compile(regex[i], 0, &error, &erroffset, NULL);
+
+
 //                 printf("i %d antes searching_here: =%s=\n",i,searching_here);
-            rc=pcre_exec(re, NULL, searching_here, strlen(searching_here), 0, 0, ovector, 60000);//60000 is the maximum matches          
+            rc=pcre_exec(re, NULL, searching_here, strlen(searching_here), 0, 0, ovector, 60000);//60000 is the maximum matches
 
             if(rc!=PCRE_ERROR_NOMATCH && rc>=0){
 //                 printf("i %d despues searching_here: =%s=\n",i,searching_here);
 //                 printf("rc: =%d=\n",rc);
                 // printf("ovector: =%n=\n",ovector);
                 // loop through matches and return them
+                /* to get substrings from regex */
+                char *substring=(char *)malloc(sizeof(char)*7);
                 rc2 = pcre_get_substring(searching_here, ovector, rc, 0, (const char**) &substring);
-//                 printf("rc2: =%d=\n",rc2);
-//                 printf("substring: =%s=\n",substring);
                 strcpy(ch_pkr,substring);
                 switch(i){
                     case 0://8d9c, KsJs...
@@ -89,7 +85,7 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                         if(!(i_in==i_fin && arr_suit_to_int[ch_pkr[1]]==arr_suit_to_int[ch_pkr[3]])){//
                             // tmp_hex=ch_cmp0*0x1000+arr_suit_to_int[ch_pkr[1]]*0x100+ch_cmp1*0x10+arr_suit_to_int[ch_pkr[3]];
                             tmp_hex=(arr_suit_to_int[ch_pkr[1]]*0x1000)+(i_in*0x100)+(arr_suit_to_int[ch_pkr[3]]*0x10)+i_fin;
-                            
+
                             if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(arr_suit_to_int[ch_pkr[1]],i_in,arr_suit_to_int[ch_pkr[3]],i_fin)){
                                 array_combos_marked_hex[tmp_hex]=1;
                                 cont++;
@@ -100,7 +96,7 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                     case 1://AA-99
                         ch_cmp1=arr_let_to_int[ch_pkr[0]];
                         ch_cmp2=arr_let_to_int[ch_pkr[3]];
-                        
+
                         if(ch_cmp1<ch_cmp2){
                             i_in=ch_cmp1;
                             i_fin=ch_cmp2;
@@ -124,7 +120,7 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                         }
                         flag_exit_loop=true;
                         break;
-                    case 2://A2s-A8s,T9o-TJo 
+                    case 2://A2s-A8s,T9o-TJo
                     case 3://85-89
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
                         ch_cmp1=arr_let_to_int[ch_pkr[1]];
@@ -148,11 +144,11 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                         for(j=i_in;j<=i_fin;j++){
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
-                                    if( 
-                                        !(ch_cmp0==j && l==k) 
+                                    if(
+                                        !(ch_cmp0==j && l==k)
                                         &&
                                         (   flag_suited==0 ||
-                                            (flag_suited==1 && l==k) || 
+                                            (flag_suited==1 && l==k) ||
                                             (flag_suited==2 && l!=k)
                                         )
                                     ){
@@ -169,7 +165,7 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                         break;
                     case 4://A2s+, T8+, T8o+,..
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
-                        ch_cmp1=arr_let_to_int[ch_pkr[1]];    
+                        ch_cmp1=arr_let_to_int[ch_pkr[1]];
                         switch(ch_pkr[2]){
                             case 's':
                                 flag_suited=1;//suited
@@ -186,21 +182,21 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                             i_fin=ch_cmp0;
                         }else if(ch_cmp0<ch_cmp1){
                             i_in=ch_cmp0;
-                            i_fin=ch_cmp1;                            
+                            i_fin=ch_cmp1;
                         }
                         for(j=i_in;j<i_fin;j++){
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
-                                    if( 
-                                        !(i_fin==j && l==k) 
+                                    if(
+                                        !(i_fin==j && l==k)
                                         &&
                                         (
                                             flag_suited==0 ||
-                                            (flag_suited==1 && l==k) || 
+                                            (flag_suited==1 && l==k) ||
                                             (flag_suited==2 && l!=k)
                                         )
                                     ){
-                                        tmp_hex=(k*0x1000)+(i_fin*0x100)+(l*0x10)+j;    
+                                        tmp_hex=(k*0x1000)+(i_fin*0x100)+(l*0x10)+j;
                                         if(!array_combos_marked_hex[reverse_hex(tmp_hex)] && check_combo_ok_vs_board(k,i_fin,l,j)!=0){
                                             array_combos_marked_hex[tmp_hex]=1;
                                             cont++;
@@ -234,9 +230,9 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                         }
                         for(k=0;k<4;k++){
                             for(l=0;l<4;l++){
-                                if( 
+                                if(
                                     flag_suited==0 ||
-                                    (flag_suited==1 && l==k) || 
+                                    (flag_suited==1 && l==k) ||
                                     (flag_suited==2 && l!=k)
                                 ){
                                     tmp_hex=(k*0x1000)+(i_in*0x100)+(l*0x10)+i_fin;
@@ -269,7 +265,7 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                     case 7://7x, Kx...
                         ch_cmp0=arr_let_to_int[ch_pkr[0]];
 
-                        for(j=2;j<ch_cmp0;j++){//stop before arrive to pocket pair 
+                        for(j=2;j<ch_cmp0;j++){//stop before arrive to pocket pair
                             for(k=0;k<4;k++){
                                 for(l=0;l<4;l++){
                                     if(!(ch_cmp0==j && l==k)){
@@ -304,34 +300,32 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                         //THIS PART IS PENDING
                         flag_exit_loop=true;
                         break;
-                    
+
                     }
                     flag_suited=0;//for if the flies
-                    
+
+                    pcre_free_substring(substring);
             }//end if
 //             printf("end if\n");
             re=NULL;
             if(flag_exit_loop){
                 break;
             }
-
+            pcre_free(re);
         }//end for
         searching_here=strtok(NULL,",");
     }//end while
-    pcre_free(re);
-    pcre_free_substring(substring);
 
     free(searching_here);
-    
+
 //     int arr_local_return[cont];//now we make the array with only the combos marked.
     j=0;
-
     for(i=0;i<MAX_COMBO_HEX;i++){
-        if(array_combos_marked_hex[i]==0) continue; 
+        if(array_combos_marked_hex[i]==0) continue;
 
-        HERO_COMBOS[i_player][j][0]=i;
+//        HERO_COMBOS[i_player][j][0]=i;//for now, it is not needed
         // printf("%x\n",HERO_COMBOS[i_player][j][0]);
-        HERO_COMBOS[i_player][j][1]=(i/0x1000)%0x10;;
+        HERO_COMBOS[i_player][j][1]=(i/0x1000)%0x10;
         HERO_COMBOS[i_player][j][2]=(i/0x100)%0x10;
         HERO_COMBOS[i_player][j][3]=(i/0x10)%0x10;
         HERO_COMBOS[i_player][j][4]=i%0x10;
@@ -340,6 +334,7 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
         HERO_COMBOS[i_player][j][6]=card_hex_to_int[i%0x100];
         j++;
     }
+
 //     arr_local_return[j]=(int) 0x0000;//mark the last for know where is the end
 
 //     for(i=0;i<j;i++){
@@ -357,8 +352,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
 
 //     arr_hex_return=malloc(sizeof(int) * j);
 //     memcpy(arr_hex_return,arr_local_return,j);
-//     free(tmp_range);
-//     free(regex);
 
 }
 int reverse_hex(int tmp_hex){
@@ -373,15 +366,15 @@ int reverse_hex(int tmp_hex){
 int check_combo_ok_vs_board(int ch0,int ch1,int ch2,int ch3){
     if( /*!(ch0==ch2 && ch1==ch3) && is not needed because we check above*/
 //     printf("ch: %x%x%x%x board: %x%x %x%x %x%x - %x%x - %x%x\n",ch0,ch1,ch2,ch3,board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
-        board[1]==0 //we are in preflop mode 
-        || 
+        board[1]==0 //we are in preflop mode
+        ||
         (
             !(ch0==board[0] && ch1==board[1]) &&
             !(ch0==board[2] && ch1==board[3]) &&
             !(ch0==board[4] && ch1==board[5]) &&
             !(ch0==board[6] && ch1==board[7]) &&
             !(ch0==board[8] && ch1==board[9]) &&
-            
+
             !(ch2==board[0] && ch3==board[1]) &&
             !(ch2==board[2] && ch3==board[3]) &&
             !(ch2==board[4] && ch3==board[5]) &&

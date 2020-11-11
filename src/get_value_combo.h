@@ -1,4 +1,5 @@
 int get_value_combo(int combo_hex[5],int local_board[10]){
+
 //     printf("hero_combo %x%x%x%x\n",hero_combo[0],hero_combo[1],hero_combo[2],hero_combo[3]);
 //     printf("board %x%x%x%x%x%x%x%x%x%x\n",board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
 //     

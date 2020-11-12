@@ -309,6 +309,7 @@ void MainWindow::calculate_ranges(){
 void MainWindow::calculate_stop(){
     mThread->setStopProcess(true);
    ui->button_calculate->setText("Calculate EQ");
+   ui->button_calculate->setToolTip("Calculate the EQ for the selected ranges");
    ui->button_calculate->setEnabled(true);
    this->setAllEnabled(true);
 }
@@ -396,6 +397,7 @@ void MainWindow::calculate_beginning(){
     else if(i>=2 && (ui->board_0->text().isEmpty() && ui->board_1->text().isEmpty() && ui->board_2->text().isEmpty() && ui->board_3->text().isEmpty() && ui->board_4->text().isEmpty())){
         this->setAllEnabled(false);
         ui->button_calculate->setText("Stop");
+        ui->button_calculate->setToolTip("Stop the process (if stop it too early, the displayed results may not be accurate)");
         mThread->num_players=i;
         mThread->start();
     }

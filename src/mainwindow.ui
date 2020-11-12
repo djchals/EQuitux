@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>406</width>
-    <height>354</height>
+    <width>404</width>
+    <height>355</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -96,6 +96,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <item row="0" column="0">
       <widget class="QPushButton" name="select_range_1">
+       <property name="toolTip">
+        <string>Select the range for Player 1</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -113,6 +116,9 @@ p, li { white-space: pre-wrap; }
      </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="button_clear_1">
+       <property name="toolTip">
+        <string>Clear the Player 1 range</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -134,6 +140,12 @@ p, li { white-space: pre-wrap; }
         <font>
          <pointsize>7</pointsize>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>Enter the range for Player 1</string>
+       </property>
+       <property name="toolTipDuration">
+        <number>-1</number>
        </property>
        <property name="text">
         <string/>
@@ -184,6 +196,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <item row="0" column="0">
       <widget class="QPushButton" name="select_range_2">
+       <property name="toolTip">
+        <string>Select the range for Player 2</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -201,6 +216,9 @@ p, li { white-space: pre-wrap; }
      </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="button_clear_2">
+       <property name="toolTip">
+        <string>Clear the Player 2 range</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -222,6 +240,9 @@ p, li { white-space: pre-wrap; }
         <font>
          <pointsize>7</pointsize>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>Enter the range for Player 2</string>
        </property>
        <property name="text">
         <string/>
@@ -272,6 +293,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <item row="0" column="0">
       <widget class="QPushButton" name="select_range_3">
+       <property name="toolTip">
+        <string>Select the range for Player 3</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -289,6 +313,9 @@ p, li { white-space: pre-wrap; }
      </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="button_clear_3">
+       <property name="toolTip">
+        <string>Clear the Player 3 range</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -310,6 +337,9 @@ p, li { white-space: pre-wrap; }
         <font>
          <pointsize>7</pointsize>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>Enter the range for Player 3</string>
        </property>
        <property name="text">
         <string/>
@@ -360,6 +390,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <item row="0" column="0">
       <widget class="QPushButton" name="select_range_4">
+       <property name="toolTip">
+        <string>Select the range for Player 4</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -377,6 +410,9 @@ p, li { white-space: pre-wrap; }
      </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="button_clear_4">
+       <property name="toolTip">
+        <string>Clear the Player 4 range</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -398,6 +434,9 @@ p, li { white-space: pre-wrap; }
         <font>
          <pointsize>7</pointsize>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>Enter the range for Player 4</string>
        </property>
        <property name="text">
         <string/>
@@ -448,6 +487,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <item row="0" column="0">
       <widget class="QPushButton" name="select_range_5">
+       <property name="toolTip">
+        <string>Select the range for Player 5</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -465,6 +507,9 @@ p, li { white-space: pre-wrap; }
      </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="button_clear_5">
+       <property name="toolTip">
+        <string>Clear the Player 5 range</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -486,6 +531,9 @@ p, li { white-space: pre-wrap; }
         <font>
          <pointsize>7</pointsize>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>Enter the range for Player 5</string>
        </property>
        <property name="text">
         <string/>
@@ -541,6 +589,9 @@ p, li { white-space: pre-wrap; }
          <pointsize>7</pointsize>
         </font>
        </property>
+       <property name="toolTip">
+        <string>Enter the range for Player 6</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -551,6 +602,9 @@ p, li { white-space: pre-wrap; }
      </item>
      <item row="0" column="1">
       <widget class="QPushButton" name="button_clear_6">
+       <property name="toolTip">
+        <string>Clear the Player 6 range</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -568,6 +622,9 @@ p, li { white-space: pre-wrap; }
      </item>
      <item row="0" column="0">
       <widget class="QPushButton" name="select_range_6">
+       <property name="toolTip">
+        <string>Select the range for Player 6</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -627,6 +684,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Tc</string>
     </property>
@@ -647,6 +707,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>9s</string>
@@ -669,6 +732,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>5c</string>
     </property>
@@ -689,6 +755,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>Kh</string>
@@ -711,6 +780,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Jc</string>
     </property>
@@ -731,6 +803,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>2d</string>
@@ -753,6 +828,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>4h</string>
     </property>
@@ -773,6 +851,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>3h</string>
@@ -795,6 +876,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Qh</string>
     </property>
@@ -815,6 +899,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>3c</string>
@@ -837,6 +924,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>7c</string>
     </property>
@@ -857,6 +947,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>6s</string>
@@ -879,6 +972,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Th</string>
     </property>
@@ -899,6 +995,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>As</string>
@@ -921,6 +1020,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Kd</string>
     </property>
@@ -941,6 +1043,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>Ah</string>
@@ -963,6 +1068,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>6c</string>
     </property>
@@ -983,6 +1091,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>Ac</string>
@@ -1005,6 +1116,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Ts</string>
     </property>
@@ -1025,6 +1139,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>4s</string>
@@ -1047,6 +1164,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Kc</string>
     </property>
@@ -1067,6 +1187,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>8c</string>
@@ -1089,6 +1212,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Qd</string>
     </property>
@@ -1109,6 +1235,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>Jh</string>
@@ -1131,6 +1260,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>4d</string>
     </property>
@@ -1151,6 +1283,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>9d</string>
@@ -1173,6 +1308,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>7d</string>
     </property>
@@ -1193,6 +1331,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>9h</string>
@@ -1215,6 +1356,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>3d</string>
     </property>
@@ -1235,6 +1379,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>8</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Calculate the EQ for the selected ranges</string>
     </property>
     <property name="text">
      <string>Calculate EQ</string>
@@ -1257,6 +1404,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Jd</string>
     </property>
@@ -1277,6 +1427,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>4c</string>
@@ -1299,6 +1452,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>3s</string>
     </property>
@@ -1319,6 +1475,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>2n</string>
@@ -1341,6 +1500,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>8d</string>
     </property>
@@ -1361,6 +1523,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>8h</string>
@@ -1383,6 +1548,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>6h</string>
     </property>
@@ -1403,6 +1571,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>Qc</string>
@@ -1425,6 +1596,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>7h</string>
     </property>
@@ -1445,6 +1619,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>8s</string>
@@ -1467,6 +1644,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Ad</string>
     </property>
@@ -1487,6 +1667,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>5s</string>
@@ -1509,6 +1692,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>2s</string>
     </property>
@@ -1529,6 +1715,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>Qs</string>
@@ -1551,6 +1740,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>6d</string>
     </property>
@@ -1571,6 +1763,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>Js</string>
@@ -1593,6 +1788,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>2s</string>
     </property>
@@ -1613,6 +1811,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>5h</string>
@@ -1635,6 +1836,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Ks</string>
     </property>
@@ -1655,6 +1859,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>5d</string>
@@ -1677,6 +1884,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>7s</string>
     </property>
@@ -1698,6 +1908,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>7</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
+    </property>
     <property name="text">
      <string>Td</string>
     </property>
@@ -1713,6 +1926,9 @@ p, li { white-space: pre-wrap; }
       <width>28</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>Clear the board</string>
     </property>
     <property name="text">
      <string/>
@@ -1741,6 +1957,9 @@ p, li { white-space: pre-wrap; }
      <font>
       <pointsize>7</pointsize>
      </font>
+    </property>
+    <property name="toolTip">
+     <string>Add/Remove this card on the board</string>
     </property>
     <property name="text">
      <string>9c</string>
@@ -3943,6 +4162,9 @@ p, li { white-space: pre-wrap; }
       <pointsize>8</pointsize>
      </font>
     </property>
+    <property name="toolTip">
+     <string>Clear all data for this hand</string>
+    </property>
     <property name="text">
      <string>Clear All</string>
     </property>
@@ -3957,7 +4179,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>406</width>
+     <width>404</width>
      <height>20</height>
     </rect>
    </property>

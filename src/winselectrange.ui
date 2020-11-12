@@ -59,6 +59,9 @@
      <pointsize>7</pointsize>
     </font>
    </property>
+   <property name="toolTipDuration">
+    <number>0</number>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -4159,6 +4162,9 @@
     <font>
      <pointsize>7</pointsize>
     </font>
+   </property>
+   <property name="toolTip">
+    <string>Mark/Unmark if you want select these specific suits</string>
    </property>
    <property name="text">
     <string>Mark all suits</string>

@@ -10,7 +10,7 @@
 //gcc boards.c -lpcre
 void calculate_EQ(int i_player){
 //    printf("fuego al EQ 0\n");
-    int i,j,k,l,m,n;
+    int i,j,n;
     int act_t_r=0;
     int local_board[10];
     long int ii;
@@ -19,17 +19,13 @@ void calculate_EQ(int i_player){
     int board_02=card_hex_to_int[(local_board[2]*0x10)+local_board[3]];
     int board_03=card_hex_to_int[(local_board[4]*0x10)+local_board[5]];
     int board_04=card_hex_to_int[(local_board[6]*0x10)+local_board[7]];
-    int board_05=card_hex_to_int[(local_board[8]*0x10)+local_board[9]];
-//    printf("fuego al EQ 1\n");
-//printf("numero %d %d %d \n",local_board[6],local_board[7],board[7]);
+//    int board_05=card_hex_to_int[(local_board[8]*0x10)+local_board[9]];
 
     if(board[1]==0){
         for(ii=0;ii<NUM_HANDS_PREFLOP;++ii){
             memcpy(local_board,arr_all_boards[ii],10*sizeof(int));
 //             printf("%x%x %x%x %x%x - %x%x - %x%x \n",local_board[0],local_board[1],local_board[2],local_board[3],local_board[4],local_board[5],local_board[6],local_board[7],local_board[8],local_board[9]);
             for(n=0;n<long_hex_pos[i_player];++n){
-//                printf("fuego al EQ 4\n");
-
                 if(
                     !(HERO_COMBOS[i_player][n][1]==local_board[0] && HERO_COMBOS[i_player][n][2]==local_board[1]) &&
                     !(HERO_COMBOS[i_player][n][1]==local_board[2] && HERO_COMBOS[i_player][n][2]==local_board[3]) &&

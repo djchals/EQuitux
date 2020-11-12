@@ -27,7 +27,8 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     winselectrange.cpp \
-    RangeSlider.cpp
+    RangeSlider.cpp \
+    threadcalculate.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,7 +42,8 @@ HEADERS += \
     get_value_combo.h \
     winselectrange.h \
     RangeSlider.h \
-    init_cardmatrix.h
+    init_cardmatrix.h \
+    threadcalculate.h
 
 FORMS += \
         mainwindow.ui \

@@ -5,7 +5,8 @@ HOW TO INSTALL EQMain
 it we must first resolve these dependencies. 
 
     When dependencies are installed the shell commands should configure, 
-build, and install this package.
-    qmake
+build, and install this package:
+	cd src/
+    	qmake
 	make 
 	sudo make install

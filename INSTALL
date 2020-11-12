@@ -1,0 +1,11 @@
+HOW TO INSTALL EQMain
+=====================
+
+    This program depends on libpcre3-dev and Qt5, before installing
+it we must first resolve these dependencies. 
+
+    When dependencies are installed the shell commands should configure, 
+build, and install this package.
+    qmake
+	make 
+	sudo make install

@@ -11,7 +11,6 @@
 #include <math.h>
 
 #define TOTAL_COMBOS 5175
-#define MAX_COMBO_HEX 0xe3e3 
 // #define NUM_HANDS_PREFLOP 60000 
 
 #define NUM_HANDS_PREFLOP 300

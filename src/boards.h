@@ -10,9 +10,7 @@
 //gcc boards.c -lpcre
 void calculate_EQ(int i_player){
 //    printf("fuego al EQ 0\n");
-    int i,j,n;
-    int act_t_r=0;
-    int local_board[10];
+    int i,j,n,act_t_r=0,local_board[10];
     long int ii;
     memcpy(local_board, board, 10*sizeof(int));
     int board_01=card_hex_to_int[(local_board[0]*0x10)+local_board[1]];

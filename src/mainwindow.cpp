@@ -404,7 +404,6 @@ void MainWindow::calculate_beginning(){
 }
 void MainWindow::setAllEnabled(bool flag_enable){
     ui->button_clear_all->setEnabled(flag_enable);
-
     ui->button_clear_0->setEnabled(flag_enable);
     ui->button_clear_1->setEnabled(flag_enable);
     ui->button_clear_2->setEnabled(flag_enable);

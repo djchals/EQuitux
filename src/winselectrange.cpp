@@ -27,6 +27,7 @@ WinSelectRange::WinSelectRange(QWidget *parent) : QDialog(parent),ui(new Ui::Win
     connect(this->RangePFRVPIP,SIGNAL(lowerValueChanged(int)),this,SLOT(updatePFRVPIP()));
     connect(this->RangePFRVPIP,SIGNAL(upperValueChanged(int)),this,SLOT(updatePFRVPIP()));
 
+
     connect(ui->combo_AA, &QPushButton::clicked,[&](){putComboOnRange(0xe,0xe,0,ui->combo_AA->isChecked(),ui->chk_suit_selector->isChecked());});
     connect(ui->combo_KK, &QPushButton::clicked,[&](){putComboOnRange(0xd,0xd,0,ui->combo_KK->isChecked(),ui->chk_suit_selector->isChecked());});
     connect(ui->combo_QQ, &QPushButton::clicked,[&](){putComboOnRange(0xc,0xc,0,ui->combo_QQ->isChecked(),ui->chk_suit_selector->isChecked());});

@@ -1,18 +1,17 @@
-void conv_range_pkr_to_hex(char tmp_range[],int i_player){
+void conv_range_pkr_to_hex(char tmp_range[],int i_player){    
     //Format the string extracting the spaces
     int j=0,i,tmp_long=strlen(tmp_range);
     char range_pkr[tmp_long];
-    
+    const int MAX_COMBO_HEX=0xe3e3;
+
     for(i=0;i<tmp_long;i++){
         if(tmp_range[i]!=32){
             range_pkr[j]=tmp_range[i];
-//             printf("range_pkr[j] %x\n",range_pkr[j]);
             j++;
         }
     }
-
     range_pkr[j]=0;//end the string
-    //
+
     //These are the regex for make the hexadecimal combos 
     const int NUM_REGEX=10;
     char regex[NUM_REGEX][100];
@@ -20,7 +19,6 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
     strcpy(regex[1],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}-(?!\\1)(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK|AA){1}$");//AA-99
     strcpy(regex[2],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o)?-\\1((?!\\2)[23456789TJQKA]{1})\\3$");//A2s-A8s,T9o-TJo
     strcpy(regex[3],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})-(\\1)((?!\\2)[23456789TJQKA]{1})$");//A2-A8,T9-TJ,85-89    
-
     strcpy(regex[4],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?\\+$");//A2s+, T8+, T8o+,..
     strcpy(regex[5],"^([23456789TJQKA]{1})((?!\\1)[23456789TJQKA]{1})(s|o|)?$");//A2s, T8,..
     strcpy(regex[6],"^(22|33|44|55|66|77|88|99|TT|JJ|QQ|KK){1}\\+$");//22+ until KK+
@@ -46,17 +44,13 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
     int rc2;
 
     char *substring=NULL;
-    substring=(char *)malloc(sizeof(char)*7);
+    substring=(char *)malloc(sizeof(char)*8);
 
     bool flag_exit_loop;
 
-    char ch_pkr[7],k,l,ch_cmp0,ch_cmp1,ch_cmp2;
+    char ch_pkr[8],k,l,ch_cmp0,ch_cmp1,ch_cmp2,flag_suited=0;
 
-    int tmp_hex;
-    int array_combos_marked_hex[MAX_COMBO_HEX]={};//now we fill this array with the combos, for not repeat combos
-
-    char flag_suited=0;
-    int cont=0,i_in,i_fin;
+    int cont=0,i_in,i_fin,tmp_hex,array_combos_marked_hex[MAX_COMBO_HEX]={};//now we fill this array with the combos, for not repeat combos
 
     //now start processing regex1
     char *searching_here=NULL;
@@ -64,22 +58,14 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
     searching_here=(char*) malloc(sizeof(char)*3700);
 
     strcpy(searching_here,strtok(range_pkr, ","));
-
     while(searching_here!=NULL){//loop through the string to extract all other searching_heres
-        flag_exit_loop=false;
+    flag_exit_loop=false;
         for(i=0;i<NUM_REGEX;i++){
-//             printf("regex para analizar: %s\n",regex[i]);
             re=pcre_compile(regex[i], 0, &error, &erroffset, NULL);
-//                 printf("i %d antes searching_here: =%s=\n",i,searching_here);
-            rc=pcre_exec(re, NULL, searching_here, strlen(searching_here), 0, 0, ovector, 60000);//60000 is the maximum matches          
+            rc=pcre_exec(re, NULL, searching_here, strlen(searching_here), 0, 0, ovector, 60000);//60000 is the maximum matches
             if(rc!=PCRE_ERROR_NOMATCH && rc>=0){
-//                 printf("i %d despues searching_here: =%s=\n",i,searching_here);
-//                 printf("rc: =%d=\n",rc);
-                // printf("ovector: =%n=\n",ovector);
                 // loop through matches and return them
                 rc2 = pcre_get_substring(searching_here, ovector, rc, 0, (const char**) &substring);
-//                 printf("rc2: =%d=\n",rc2);
-//                 printf("substring: =%s=\n",substring);
                 strcpy(ch_pkr,substring);
                 switch(i){
                     case 0://8d9c, KsJs...
@@ -311,26 +297,19 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
                         //THIS PART IS PENDING
                         flag_exit_loop=true;
                         break;
-                    
                     }
-                    flag_suited=0;//for if the flies
-                    
+                    flag_suited=0;//for if the flies                    
             }//end if
-//             printf("end if\n");
             re=NULL;
             if(flag_exit_loop){
                 break;
             }
-
         }//end for
         searching_here=strtok(NULL,",");
     }//end while
     pcre_free(re);
     pcre_free_substring(substring);
-
     free(searching_here);
-
-//     int arr_local_return[cont];//now we make the array with only the combos marked.
     j=0;
 
     for(i=0;i<MAX_COMBO_HEX;i++){
@@ -347,26 +326,7 @@ void conv_range_pkr_to_hex(char tmp_range[],int i_player){
         HERO_COMBOS[i_player][j][6]=card_hex_to_int[i%0x100];
         j++;
     }
-//     arr_local_return[j]=(int) 0x0000;//mark the last for know where is the end
-
-//     for(i=0;i<j;i++){
-//         printf("dentro %x\n",arr_local_return[i]);
-//     }
-// arr_hex_return=arr_local_return;
     long_hex_pos[i_player]=j;
-//     arr_hex_return=(int *) malloc(sizeof(arr_local_return));
-//     memcpy(arr_hex_return,arr_local_return,sizeof(arr_local_return));
-//     printf("esto es arr_local_return: %d\n",sizeof(arr_local_return));
-//         printf("esto es arr_hex_return: %d\n",sizeof(arr_hex_return));
-//     printf("esto es j: %d\n",j);
-//     printf("esto es cont: %d\n",cont);
-//     printf("j*sizeof: %d\n",sizeof(int) * j);
-
-//     arr_hex_return=malloc(sizeof(int) * j);
-//     memcpy(arr_hex_return,arr_local_return,j);
-//     free(tmp_range);
-//     free(regex);
-
 }
 int reverse_hex(int tmp_hex){
     //check if the combo is already inserted
@@ -378,9 +338,9 @@ int reverse_hex(int tmp_hex){
     return (hex[2]*0x1000)+(hex[3]*0x100)+(hex[0]*0x10)+hex[1];
 }
 int check_combo_ok_vs_board(int ch0,int ch1,int ch2,int ch3){
-    if( /*!(ch0==ch2 && ch1==ch3) && is not needed because we check above*/
-//     printf("ch: %x%x%x%x board: %x%x %x%x %x%x - %x%x - %x%x\n",ch0,ch1,ch2,ch3,board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
-        board[1]==0 //we are in preflop mode 
+    /*!(ch0==ch2 && ch1==ch3) && is not needed because we check above*/
+    //     printf("ch: %x%x%x%x board: %x%x %x%x %x%x - %x%x - %x%x\n",ch0,ch1,ch2,ch3,board[0],board[1],board[2],board[3],board[4],board[5],board[6],board[7],board[8],board[9]);
+    return (board[1]==0 //we are in preflop mode
         || 
         (
             !(ch0==board[0] && ch1==board[1]) &&
@@ -395,9 +355,5 @@ int check_combo_ok_vs_board(int ch0,int ch1,int ch2,int ch3){
             !(ch2==board[6] && ch3==board[7]) &&
             !(ch2==board[8] && ch3==board[9])
         )
-    ){
-       return 1;//combo is ok
-    }else{
-        return 0;//combo is ko
-    }
+    );
 }

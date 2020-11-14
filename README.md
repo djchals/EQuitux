@@ -1,4 +1,4 @@
-EQMain is a poker equity calculator for Linux under the GNU GPL license, and
+EQuitux is a poker equity calculator for Linux under the GNU GPL license, and
 has been developed in C/C++ and QT5. 
 
 If you want to calculate a preflop situation, random boards will be analyzed 

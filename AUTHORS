@@ -6,6 +6,7 @@ Carlos Hernandez Afan de Ribera <djtv93@yahoo.es> (Original author)
 ===============================================================================
                                     Collaborators
 ===============================================================================
+
 Some icons has been downloaded from different authors, with several licenses: 
 (Creative Commons, GPL and Flaticon license)
 
@@ -30,3 +31,7 @@ License: Flaticon
 Logo
 https://www.shareicon.net/author/ssandro-rei
 License: GPL
+
+And I used the RangeSlider created by nassafir-nasser. From:
+https://github.com/nasafix-nasser/Qt-RangeSlider
+License: MIT

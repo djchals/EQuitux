@@ -12,6 +12,8 @@ WinSelectRange::WinSelectRange(QWidget *parent) : QDialog(parent),ui(new Ui::Win
     // Load an application style
     ui->setupUi(this);
     this->initPcents();
+    this->setWindowTitle("Range creator - EQuitux");
+
     widget = new QWidget(this);
     RangePFRVPIP = new RangeSlider(Qt::Horizontal, RangeSlider::Option::DoubleHandles, nullptr);
     RangePFRVPIP->setFixedWidth(445);

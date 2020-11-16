@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     srand(time(NULL));
     init_vars();
     ui->setupUi(this);
+    this->setWindowTitle("EQuitux");
     mThread=new ThreadCalculate(this);
     connect(mThread,&ThreadCalculate::show_win_pcent,[&](int i_player, float num_pcent){
         int act_i_player=arr_pos_pcent[i_player];

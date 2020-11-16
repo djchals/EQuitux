@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string notr="true">EQuitux</string>
+   <string>EQuitux</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="label_2">

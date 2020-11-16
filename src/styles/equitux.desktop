@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=EQuitux
+GenericName=Poker Equity calculator
+Icon=/usr/local/share/icons/hicolor/64x64/apps/equitux.png
+Type=Application
+Exec=equitux
+TryExec=equitux
+Keywords=poker;calculator;equity;
+Icon=equitux
+Categories=Utility;Games;
+Actions=Manager;
+Comment=calculate EQ odds in poker
+Comment[sp]=Calculadora de probabilidades de Equity en el Poker

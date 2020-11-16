@@ -6,7 +6,6 @@
         <file>styles/icon_suit_03.png</file>
         <file>styles/icon_cancel_32x32_round.png</file>
         <file>styles/icon_cards_yellow_32x32.png</file>
-        <file>styles/icon_app.png</file>
         <file>styles/equimain.qss</file>
         <file>styles/icon_suit_32.png</file>
         <file>styles/icon_suit_31.png</file>
@@ -20,5 +19,6 @@
         <file>styles/icon_suit_11.png</file>
         <file>styles/icon_suit_10.png</file>
         <file>styles/icon_suit_33.png</file>
+        <file>styles/equitux.png</file>
     </qresource>
 </RCC>
